@@ -1,0 +1,91 @@
+.hero {
+  margin-top: -75px;
+  padding: 0 10px;
+  overflow: hidden;
+
+  &__person{
+    position: relative;
+    max-height: 780px;
+
+    img{
+      display: block;
+    }
+
+    h3{
+      position: relative;
+      font-size: 48px;
+      line-height: 40px;
+      text-transform: uppercase;
+
+      &:after{
+        position: absolute;
+        top: 4px;
+        right: 0;
+        width: 40px;
+        height: 44px;
+        background-image: url(../img/icon-quotes.png);
+        content: '';
+      }
+
+    }
+
+    &:before{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 100%;
+      left: -10000%;
+      background-color: #020202;
+      content: '';
+    }
+
+    &-info{
+      position: absolute;
+      bottom: 46px;
+      left: 69px;
+      width: 729px;
+      color: #fff;
+      font-size: 24px;
+      line-height: 28px;
+
+      > p{
+        font-weight: 300;
+        font-style: italic;
+        letter-spacing: -.7px;
+      }
+
+    }
+
+    &-post{
+      display: block;
+      margin-bottom: 10px;
+      padding-left: 12px;
+      color: #01b1af;
+      font-style: normal;
+    }
+
+  }
+
+  &__content{
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+}
+
+@media (min-width: $desktop) {
+  .hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 calc( 50% - 720px );
+
+    &__content{
+      width: calc( 100% - 944px);
+      padding: 33px 40px 0 43px;
+    }
+
+  }
+}
+

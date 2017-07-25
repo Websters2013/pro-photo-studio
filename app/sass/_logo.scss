@@ -1,0 +1,18 @@
+.logo {
+  position: relative;
+  width: 194px;
+  z-index: 2;
+
+  img{
+    display: block;
+    width: 100%;
+  }
+
+}
+
+@media (min-width: $desktop) {
+  .logo{
+    margin-left: 70px;
+  }
+}
+

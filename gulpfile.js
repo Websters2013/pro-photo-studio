@@ -26,20 +26,8 @@ let paths = {
         {
             dist: 'index.min.js',
             contains: [
-                'app/js/jquery.index.js'
-            ]
-        },
-        {
-            dist: 'ui.min.js',
-            contains: [
-                'app/js/jquery.popup.js',
-                'app/js/jquery.websters-select.js'
-            ]
-        },
-        {
-            dist: 'tabs.min.js',
-            contains: [
-                'app/js/jquery.tabs.js'
+                'app/js/jquery.index.js',
+                'app/js/jquery.media-gallery.js'
             ]
         }
     ],
@@ -88,7 +76,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('php', function () {
-    return gulp.src(paths.fonts, {
+    return gulp.src(paths.php, {
         base: 'app/php'
     }).pipe(gulp.dest(`${ distPath }/php`));
 });

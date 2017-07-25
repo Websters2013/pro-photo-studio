@@ -1,0 +1,117 @@
+.menu {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+
+  &__item{
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  &.visible{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &-btn{
+    position: absolute;
+    top: 0;
+    right: 3px;
+    width: 34px;
+    height: 27px;
+    margin-right: 9px;
+    padding: 13px 0 13px 0;
+    background-color: transparent;
+    z-index: 10;
+    cursor: pointer;
+
+    span{
+      display: block;
+      width: 15px;
+      height: 2px;
+      background-color: #fff;
+
+      &:before,
+      &:after{
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: inherit;
+        background-color: inherit;
+        content: '';
+        transition: top .3s ease, transform .3s ease, background-color .3s ease;
+        -webkit-transition: top .3s ease, transform .3s ease, background-color .3s ease;
+      }
+
+      &:before{
+        top: 3px;
+      }
+
+      &:after{
+        bottom: 3px;
+      }
+
+    }
+
+    &.close {
+
+      span {
+        background-color: transparent;
+
+        &:before {
+          top: 13px;
+          background-color: #fff;
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+        }
+
+        &:after {
+          bottom: 13px;
+          background-color: #fff;
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .menu{
+    flex-flow: row wrap;
+
+    &__item {
+      position: relative;
+      margin: 0 15px;
+
+      &:after{
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: -5px;
+        border-bottom: 2px solid #fff;
+        -webkit-transition: right .3s ease;
+        transition: right .3s ease;
+        content: '';
+      }
+
+      &:hover{
+
+        &:after{
+          right: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}

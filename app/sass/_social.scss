@@ -1,0 +1,34 @@
+.social {
+
+  &__item{
+    margin: 0 6px;
+  }
+
+  svg{
+    width: 15px;
+    height: 15px;
+    fill: #fff;
+  }
+
+}
+
+@media (min-width: $desktop) {
+  .social{
+    margin-left: 27px;
+
+    &__item{
+
+      svg {
+        -webkit-transition: transform .3s ease;
+        transition: transform .3s ease;
+      }
+
+      &:hover svg{
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+
+    }
+
+  }
+}
