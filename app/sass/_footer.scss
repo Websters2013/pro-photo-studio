@@ -1,0 +1,90 @@
+.footer {
+
+  &__menu{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    &-item{
+      margin: 0 15px 15px;
+      color: #fff;
+    }
+
+  }
+
+  &__get-in-touch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .footer {
+
+    &__menu{
+      flex-flow: row nowrap;
+      margin: 0 1px 0 0;
+
+      &-item{
+        margin-bottom: 0;
+      }
+
+    }
+
+    &__get-in-touch{
+      flex-flow: row nowrap;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .footer{
+
+    &__menu{
+      position: relative;
+      top: -2px;
+
+      &-item{
+        position: relative;
+
+        &:after{
+          position: absolute;
+          left: 0;
+          right: 100%;
+          bottom: -5px;
+          border-bottom: 2px solid #fff;
+          -webkit-transition: right .3s ease;
+          transition: right .3s ease;
+          content: '';
+        }
+
+        &:hover{
+
+          &:after{
+            right: 0;
+          }
+
+        }
+
+      }
+
+    }
+
+    &__get-in-touch{
+      justify-content: flex-end;
+      margin-right: 22px;
+    }
+
+  }
+}
+

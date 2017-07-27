@@ -1,20 +1,22 @@
 .hero {
   margin-top: -75px;
-  padding: 0 10px;
   overflow: hidden;
 
   &__person{
     position: relative;
     max-height: 780px;
+    margin-bottom: 15px;
 
     img{
       display: block;
+      width: 100%;
     }
 
     h3{
       position: relative;
-      font-size: 48px;
-      line-height: 40px;
+      padding-right: 43px;
+      font-size: 20px;
+      line-height: 22px;
       text-transform: uppercase;
 
       &:after{
@@ -41,12 +43,12 @@
 
     &-info{
       position: absolute;
-      bottom: 46px;
-      left: 69px;
-      width: 729px;
+      bottom: 16px;
+      left: 10px;
+      width: 90%;
       color: #fff;
-      font-size: 24px;
-      line-height: 28px;
+      font-size: 14px;
+      line-height: 18px;
 
       > p{
         font-weight: 300;
@@ -67,19 +69,80 @@
   }
 
   &__content{
-    font-size: 20px;
+    padding: 0 10px;
+    font-size: 14px;
     font-weight: 300;
     line-height: 24px;
   }
 
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $tablet-portrait) {
+  .hero {
+
+    &__person{
+
+      h3{
+        font-size: 43px;
+        line-height: 40px;
+      }
+
+      &-info{
+        bottom: 46px;
+        left: 49px;
+        width: 80%;
+        font-size: 24px;
+        line-height: 28px;
+      }
+
+    }
+
+    &__content{
+      font-size: 20px;
+    }
+
+  }
+}
+
+@media (min-width: $tablet-landscape) {
   .hero{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &__person{
+      width: 56%;
+    }
+
+    &__content{
+      width: 40%;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .hero{
     padding: 0 calc( 50% - 720px );
+
+    &__person {
+      width: auto;
+      margin-bottom: 0;
+
+      h3{
+        font-size: 48px;
+      }
+
+      img{
+        width: auto;
+      }
+
+      &-info{
+        left: 69px;
+        width: 729px;
+      }
+
+    }
 
     &__content{
       width: calc( 100% - 944px);

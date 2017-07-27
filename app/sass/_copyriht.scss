@@ -1,0 +1,14 @@
+.copyright {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: $desktop) {
+  .copyright{
+    position: absolute;
+    top: 30px;
+    left: calc( 50% - 640px);
+    width: auto;
+  }
+}
+

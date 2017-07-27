@@ -18,21 +18,25 @@
     background-color: #000;
   }
 
-}
-
-@media (min-width: $phone-landscape) {
-  .site {
-
+  &__footer{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    padding: 31px 10px;
+    background-color: #222;
+    color: #fff;
+    @include OpenSans;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
   }
+
 }
 
 @media (min-width: $tablet-portrait) {
-  .site {
-
-  }
-}
-
-@media (min-width: $tablet-landscape) {
   .site {
 
   }
@@ -43,6 +47,12 @@
 
     &__header{
       padding: 0 calc( 50% - 720px );
+    }
+
+    &__footer{
+      flex-flow: row wrap;
+      padding: 31px calc( 50% - 640px) 56px;
+      text-align: left;
     }
 
   }
