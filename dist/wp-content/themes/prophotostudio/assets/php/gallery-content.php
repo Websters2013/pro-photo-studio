@@ -46,7 +46,6 @@ if ( $loadedGroup == 0 ){
                     ]
                 }';
 
-
 } else if ( $loadedGroup == 1 ){
 
     $json_data = '{
@@ -88,7 +87,6 @@ if ( $loadedGroup == 0 ){
                             "type": "all jewelry",
                             "dummy": "pic/gallery__pic-7.jpg"
                         }
-
                     ]
                 }';
 

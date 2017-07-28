@@ -6,6 +6,10 @@
             new Sliders ( $( this ) );
         } );
 
+        $.each( $( '.catalog' ), function() {
+            new Sliders ( $( this ) );
+        } );
+
         $.each( $( '.mobile-menu' ), function() {
             new Menu ( $( this ) );
         } );
@@ -57,9 +61,13 @@
         //private properties
         var _obj = obj,
             _partnersSlider = _obj.find( '.partners__swiper' ),
+            _catalogSlider = _obj.find( '.catalog__swiper' ),
             _partnersPrev = _obj.find( '.partners__swiper-prev' ),
+            _catalogPrev = _obj.find( '.catalog__swiper-prev' ),
             _partnersNext = _obj.find( '.partners__swiper-next' ),
-            _partners;
+            _catalogNext = _obj.find( '.catalog__swiper-next' ),
+            _partners,
+            _catalog;
 
         //private methods
         var _initSlider = function() {
@@ -74,6 +82,16 @@
                     spaceBetween: 80,
                     nextButton: _partnersNext,
                     prevButton: _partnersPrev
+                } );
+
+                _catalog = new Swiper ( _catalogSlider, {
+                    autoplay: 10000,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 3,
+                    loop: true,
+                    nextButton: _catalogNext,
+                    prevButton: _catalogPrev
                 } );
 
             },

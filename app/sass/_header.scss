@@ -1,8 +1,7 @@
 .header {
 
   &__promo{
-    width: 100%;
-    margin-top: -74px;
+    margin: 0 -15px;
     background-color: #000;
 
     img{
@@ -15,7 +14,11 @@
 }
 
 @media (min-width: $desktop) {
-  .logo{
+  .header{
+
+    &__promo {
+      margin: 0;
+    }
 
   }
 }
