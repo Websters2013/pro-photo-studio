@@ -8,6 +8,17 @@
     color: #fff;
     font-size: 14px;
     text-transform: uppercase;
+
+    &.active{
+      color: #01b1af;
+      cursor: text;
+
+      &:after{
+        display: none;
+      }
+
+    }
+
   }
 
   &.visible{

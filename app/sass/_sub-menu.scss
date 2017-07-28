@@ -1,0 +1,60 @@
+.sub-menu {
+  width: 100%;
+  padding: 27px 10px 36px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+
+  &__item{
+    position: relative;
+    font-size: 18px;
+    font-weight: 300;
+    color: #444;
+    margin: 0 15px;
+    text-transform: uppercase;
+
+    &:after{
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -3px;
+      border-bottom: 3px solid #01b1af;
+      -webkit-transition: right .3s ease;
+      transition: right .3s ease;
+      content: '';
+    }
+
+    &.active{
+      font-weight: 600;
+      cursor: text;
+
+      &:after{
+        right: 0;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .sub-menu{
+    padding: 27px calc( 50% - 720px ) 36px;
+
+    &__item {
+      margin: 0 22px;
+
+      &:hover{
+
+        &:after{
+          right: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}

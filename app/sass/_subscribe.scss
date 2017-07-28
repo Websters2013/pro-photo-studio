@@ -29,6 +29,16 @@
     @include OpenSans;
     font-size: 14px;
     text-transform: uppercase;
+
+    span{
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+  br{
+    display: none;
   }
 
 }
@@ -47,8 +57,21 @@
 
 @media (min-width: $desktop) {
   .subscribe {
+    order: 3;
     justify-content: flex-end;
-    margin-right: 28px;
+    margin-right: 48px;
+
+    input[type=button], input[type=submit],
+    button{
+      -webkit-transition: background-color .3s ease;
+      transition: background-color .3s ease;
+
+      &:hover{
+        background-color: #48e0de;
+      }
+
+    }
+
   }
 }
 
