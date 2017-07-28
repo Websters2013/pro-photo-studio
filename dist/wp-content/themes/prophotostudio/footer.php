@@ -53,16 +53,8 @@ if( $locations && isset($locations[ $menu_name ]) ){
     <!-- /footer__get-in-touch -->
 
     <div class="subscribe">
-        <?= do_shortcode('[contact-form-7 id="49" title="Footer"]'); ?>
+        <?= do_shortcode('[contact-form-7 id="92" title="Footer"]'); ?>
     </div>
-
-    <!-- subscribe -->
-    <!--<form method="get" action="/" class="subscribe">
-        <input type="text" name="name" placeholder="Name"/>
-        <input type="email" name="Email" placeholder="Email"/>
-        <button>Subscribe</button>
-    </form>-->
-    <!-- /subscribe -->
 
     <span class="copyright"><?= get_field('copyright', 2); ?></span>
 
