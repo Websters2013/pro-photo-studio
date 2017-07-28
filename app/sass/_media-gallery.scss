@@ -32,19 +32,16 @@
 
   &__item{
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6);
-    -webkit-transition: opacity .3s ease, transform .3s ease;
-    transition: opacity .3s ease, transform .3s ease;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease;
 
     img {
       display: block;
       width: 100%;
     }
 
-    &.hidden {
+    &.new {
       opacity: 0;
-      position: absolute;
-      -webkit-transform: scale(0.8);
-      transform: scale(0.8);
     }
 
   }

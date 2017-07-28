@@ -1,4 +1,5 @@
 .hero {
+  width: 100%;
   margin-top: -75px;
   overflow: hidden;
 
@@ -6,6 +7,7 @@
     position: relative;
     max-height: 780px;
     margin-bottom: 15px;
+    overflow: hidden;
 
     img{
       display: block;
@@ -29,16 +31,6 @@
         content: '';
       }
 
-    }
-
-    &:before{
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 100%;
-      left: -10000%;
-      background-color: #020202;
-      content: '';
     }
 
     &-info{
@@ -112,6 +104,18 @@
 
     &__person{
       width: 56%;
+      overflow: visible;
+
+      &:before{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: calc(100% - 1px);
+        left: -10000%;
+        background-color: #020202;
+        content: '';
+      }
+
     }
 
     &__content{
@@ -123,18 +127,29 @@
 
 @media (min-width: $desktop) {
   .hero{
-    padding: 0 calc( 50% - 720px );
 
     &__person {
-      width: auto;
       margin-bottom: 0;
 
       h3{
         font-size: 48px;
       }
 
+    }
+
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero{
+    padding: 0 calc( 50% - 720px );
+
+    &__person {
+      width: auto;
+
       img{
         width: auto;
+        max-width: 100%;
       }
 
       &-info{
@@ -144,11 +159,10 @@
 
     }
 
-    &__content{
-      width: calc( 100% - 944px);
+    &__content {
+      width: calc(100% - 944px);
       padding: 33px 40px 0 43px;
     }
 
   }
 }
-

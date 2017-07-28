@@ -7,12 +7,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(255,255,255, .95);
+  background-color: #fff;
 
   &.active {
     opacity: 1;
     visibility: visible;
   }
+
   &__inner {
     position: absolute;
     top: 50%;
@@ -26,6 +27,7 @@
     -ms-animation: loader 2.3s infinite ease;
     -webkit-animation: loader 2.3s infinite ease;
   }
+
   &__item {
     vertical-align: top;
     display: inline-block;

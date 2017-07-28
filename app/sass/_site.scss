@@ -4,11 +4,13 @@
   justify-content: space-between;
   align-items: center;
   min-width: 320px;
+  min-height: 100%;
   overflow: hidden;
   @include OpenSans;
 
   &__header{
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -51,7 +53,7 @@
 
     &__footer{
       flex-flow: row wrap;
-      padding: 31px calc( 50% - 640px) 56px;
+      padding: 31px calc( 50% - 660px) 56px;
       text-align: left;
     }
 

@@ -32,18 +32,17 @@ if ( $loadedGroup == 0 ){
                             "dummy": "pic/gallery__pic-5.jpg"
                         },
                         {
-                            "type": "all jewelry",
-                            "dummy": "pic/gallery__pic-7.jpg"
+                            "type": "all apparel",
+                            "dummy": "pic/gallery__pic-8.jpg"
                         },
                         {
                             "type": "all on-white custom-shots",
                             "dummy": "pic/gallery__pic-9.jpg"
                         },
                         {
-                            "type": "all apparel",
-                            "dummy": "pic/gallery__pic-8.jpg"
+                            "type": "all jewelry",
+                            "dummy": "pic/gallery__pic-7.jpg"
                         }
-
                     ]
                 }';
 
@@ -78,16 +77,16 @@ if ( $loadedGroup == 0 ){
                             "dummy": "pic/gallery__pic-5.jpg"
                         },
                         {
-                            "type": "all jewelry",
-                            "dummy": "pic/gallery__pic-7.jpg"
+                            "type": "all apparel",
+                            "dummy": "pic/gallery__pic-8.jpg"
                         },
                         {
                             "type": "all on-white custom-shots",
                             "dummy": "pic/gallery__pic-9.jpg"
                         },
                         {
-                            "type": "all apparel",
-                            "dummy": "pic/gallery__pic-8.jpg"
+                            "type": "all jewelry",
+                            "dummy": "pic/gallery__pic-7.jpg"
                         }
 
                     ]

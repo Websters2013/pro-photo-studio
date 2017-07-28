@@ -56,20 +56,18 @@
             _addGalleryContent = function ( msg ) {
 
                 if ( _obj.attr( 'data-loaded-group' ) !== 0 && _isGallery ){
-
                     _destroyGallery();
-
                 }
 
                 var hasItems = msg.has_items,
                     getItems = msg.items,
                     newBlock;
 
-                $.each( getItems, function( i ){
+                $.each( getItems, function( ){
 
                     var curItem = this;
 
-                    newBlock = $( '<div class="media-gallery__item hidden '+ curItem.type +'">'+
+                    newBlock = $( '<div class="media-gallery__item new '+ curItem.type +'">'+
                         '<img src="'+ curItem.dummy +'" alt="'+ curItem.type +'"/>'+
                         '</div>' );
 
@@ -77,19 +75,17 @@
 
                 } );
 
-                var newItems = _wrapper.find( '.hidden' );
+                var newItems = _wrapper.find( '.new' );
 
                 setTimeout( function(){
-
                     _heightAnimation( hasItems, newItems );
+                }, 550 );
 
-                }, 50 );
-
-                _initGallery();
+                setTimeout( function(){
+                    _initGallery();
+                }, 500 );
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' )+1 );
-
-                _preloader.removeClass( 'active' );
 
             },
             _destroyGallery = function() {
@@ -141,8 +137,7 @@
                 }
 
                 setTimeout( function() {
-                    item.removeClass( 'hidden' );
-                    console.log( index * delay )
+                    item.removeClass( 'new' );
                 }, index * delay );
 
             },
@@ -161,8 +156,12 @@
                 } );
 
                 if ( _filterFlag ){
-                    _wrapper.isotope( { filter: '.'+ _switchBtn.filter( 'active' ) } );
+                    _wrapper.isotope( { filter: '.'+ _switchBtn.filter( '.active' ).data( 'type' ) } );
                 }
+
+                setTimeout( function () {
+                    _preloader.removeClass( 'active' );
+                }, 300 )
 
             },
             _removeBtnMore = function(){
@@ -195,7 +194,8 @@
                 _request = $.ajax( {
                     url: path,
                     data: {
-                        loadedGroup: _obj.attr( 'data-loaded-group' )
+                        loadedGroup: _obj.attr( 'data-loaded-group' ),
+                        loadedType: _switchBtn.data( 'type' )
                     },
                     dataType: 'json',
                     timeout: 20000,
