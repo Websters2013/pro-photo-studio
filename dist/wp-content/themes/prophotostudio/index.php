@@ -15,6 +15,25 @@ if($clients) {
     </div>';
  }
 }
+$args = array(
+	'taxonomy'      => 'portfolio',
+	'hide_empty'    => false,
+    'hierarchical'  => false,
+    'fields'        => 'id=>name',
+    'orderby'       => 'term_order',
+    'parent'        => '0',
+
+);
+$categories = get_terms($args);
+$categories_list = '<button class="media-gallery__check active" data-type="">All</button>';
+if(!empty($categories)) {
+    foreach ($categories as $row => $value) {
+	    $categories_list .= '<button class="media-gallery__check" data-type="'.$row.'">'.$value.'</button>';
+    }
+}
+
+
+
 ?>
 
  <!-- partners -->
@@ -40,17 +59,12 @@ if($clients) {
  <!-- media-gallery -->
  <section class="media-gallery" data-loaded-group="0">
 
-  <h2 class="media-gallery__title">Portfolio</h2>
+  <h2 class="media-gallery__title"><?= get_field('title_portfolio', 2); ?></h2>
 
   <!-- media-gallery__switcher -->
   <div class="media-gallery__switcher">
 
-   <button class="media-gallery__check active" data-type="all">All</button>
-   <button class="media-gallery__check" data-type="on-white">On White</button>
-   <button class="media-gallery__check" data-type="apparel">Apparel</button>
-   <button class="media-gallery__check" data-type="jewelry">Jewelry</button>
-   <button class="media-gallery__check" data-type="custom-shots">Custom shots</button>
-   <button class="media-gallery__check" data-type="video">Video</button>
+    <?= $categories_list; ?>
 
   </div>
   <!-- /media-gallery__switcher -->
@@ -75,18 +89,18 @@ if($clients) {
    <!--preloader__inner-->
    <span class="preloader__inner">
 
-                    <!--preloader__item-->
-                    <span class="preloader__item"></span>
-    <!--/preloader__item-->
+        <!--preloader__item-->
+        <span class="preloader__item"></span>
+        <!--/preloader__item-->
 
-                </span>
+   </span>
    <!--/preloader__inner-->
 
   </div>
   <!--/preloader-->
 
   <!-- btn -->
-  <a href="php/gallery-content.php" class="media-gallery__more">View more >></a>
+  <a href="<?php echo admin_url( 'admin-ajax.php' );?>" class="media-gallery__more"><?= get_field('title_button_portfolio', 2); ?></a>
   <!-- /btn -->
 
  </section>
