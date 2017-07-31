@@ -1,0 +1,80 @@
+.services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  padding: 50px 10px 0;
+  background-color: #f2f2f2;
+
+  &__item{
+    max-width: 407px;
+    margin: 0 5px 40px;
+    background-color: #01b1af;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    overflow: hidden;
+
+    img{
+      display: block;
+      width: 100%;
+    }
+
+    span{
+      display: block;
+      padding: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .services{
+
+    &__item{
+      font-size: 24px;
+
+      span{
+        padding: 18px 10px;
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .services {
+
+    &__item{
+
+      img{
+        -webkit-transition: transform .3s ease;
+        transition: transform .3s ease;
+      }
+
+      &:hover img{
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
+    }
+
+    &__img{
+      overflow: hidden;
+    }
+
+  }
+}
+
+@media (min-width: 1400px) {
+  .services {
+    padding: 50px calc( 50% - 626px ) 0;
+  }
+}
+

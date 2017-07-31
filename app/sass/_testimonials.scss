@@ -1,0 +1,144 @@
+.testimonials {
+  width: 100%;
+  padding: 21px 10px 80px;
+
+  h1{
+    width: 100%;
+    margin-bottom: 33px;
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__grid{
+
+    &-item{
+      width: 100%;
+      max-width: 467px;
+      margin-bottom: 9px;
+      background-color: #01b1af;
+
+      img{
+        display: block;
+        width: 100%;
+      }
+
+    }
+
+    &-author{
+      margin-top: 40px;
+      padding-left: 11px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 18px;
+      font-style: normal;
+    }
+
+    &-content{
+      position: relative;
+      padding: 106px 18px 50px 27px;
+      word-break: normal;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 29px;
+      font-style: italic;
+
+      &:before{
+        position: absolute;
+        top: 50px;
+        right: 52px;
+        content: '';
+        width: 40px;
+        height: 44px;
+        background: url("../img/icon-quotes-2.png");
+      }
+
+    }
+
+  }
+
+  &__social{
+    display: none;
+  }
+
+}
+
+@media (min-width: $phone-landscape) {
+  .testimonials {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+
+    &__grid{
+
+      &-item{
+        max-width: 467px;
+      }
+
+      &-content{
+        padding: 136px 98px 50px 107px;
+        font-size: 24px;
+      }
+
+      &-author{
+        margin-top: 90px;
+        font-size: 18px;
+      }
+
+    }
+
+    &__social{
+      display: flex;
+      flex-direction: column;
+      width: 440px;
+
+      iframe{
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 440px;
+        height: 474px;
+        margin: 0 0 50px;
+        border-style: none;
+        visibility: visible;
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+  .testimonials {
+
+    &__grid{
+      margin-left: 30px;
+      width: calc( 50% - 30px );
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .testimonials{
+    justify-content: space-between;
+    padding: 41px calc(50% - 473px) 170px calc(50% - 462px);
+
+    h1{
+      margin-bottom: 45px;
+      font-size: 48px;
+    }
+
+    &__grid{
+      margin-left: 0;
+      width: 100%;
+      max-width: 467px;
+    }
+
+  }
+}
+
