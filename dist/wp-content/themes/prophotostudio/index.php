@@ -19,16 +19,17 @@ $args = array(
 	'taxonomy'      => 'portfolio',
 	'hide_empty'    => false,
     'hierarchical'  => false,
-    'fields'        => 'id=>name',
+    //'fields'        => 'id=>name',
     'orderby'       => 'term_order',
     'parent'        => '0',
 
 );
 $categories = get_terms($args);
-$categories_list = '<button class="media-gallery__check active" data-type="">All</button>';
+//var_dump($categories);
+$categories_list = '<button class="media-gallery__check active" data-type="all">All</button>';
 if(!empty($categories)) {
-    foreach ($categories as $row => $value) {
-	    $categories_list .= '<button class="media-gallery__check" data-type="'.$row.'">'.$value.'</button>';
+    foreach ($categories as $row) {
+	    $categories_list .= '<button class="media-gallery__check" data-type="'.$row->slug.'">'.$row->name.'</button>';
     }
 }
 
@@ -56,54 +57,55 @@ if(!empty($categories)) {
  </div>
  <!-- /partners -->
 
- <!-- media-gallery -->
- <section class="media-gallery" data-loaded-group="0">
+    <!-- media-gallery -->
+    <section class="media-gallery" data-loaded-group="0" data-loaded-type="all">
 
-  <h2 class="media-gallery__title"><?= get_field('title_portfolio', 2); ?></h2>
+        <h2 class="media-gallery__title"><?= get_field('title_portfolio', 2); ?></h2>
 
-  <!-- media-gallery__switcher -->
-  <div class="media-gallery__switcher">
+        <!-- media-gallery__switcher -->
+        <div class="media-gallery__switcher">
+	        <?= $categories_list; ?>
+        </div>
+        <!-- /media-gallery__switcher -->
 
-    <?= $categories_list; ?>
+        <!-- media-gallery__cover -->
+        <div class="media-gallery__cover">
 
-  </div>
-  <!-- /media-gallery__switcher -->
+            <!--media-gallery__inner-->
+            <div class="media-gallery__wrap">
 
-  <!-- media-gallery__cover -->
-  <div class="media-gallery__cover">
+                <div class="media-gallery__sizer"></div>
 
-   <!--media-gallery__inner-->
-   <div class="media-gallery__wrap">
+            </div>
+            <!--/media-gallery__inner-->
 
-    <div class="media-gallery__sizer"></div>
+        </div>
+        <!-- /media-gallery__cover -->
 
-   </div>
-   <!--/media-gallery__inner-->
+        <!--preloader-->
+        <div class="preloader">
 
-  </div>
-  <!-- /media-gallery__cover -->
+            <!--preloader__inner-->
+            <span class="preloader__inner">
 
-  <!--preloader-->
-  <div class="preloader">
+                    <!--preloader__item-->
+                    <span class="preloader__item"></span>
+                <!--/preloader__item-->
 
-   <!--preloader__inner-->
-   <span class="preloader__inner">
+                </span>
+            <!--/preloader__inner-->
 
-        <!--preloader__item-->
-        <span class="preloader__item"></span>
-        <!--/preloader__item-->
+        </div>
+        <!--/preloader-->
 
-   </span>
-   <!--/preloader__inner-->
+        <!-- btn -->
+        <a href="#" class="media-gallery__more"><?= get_field('title_button_portfolio', 2); ?></a>
+        <!-- /btn -->
 
-  </div>
-  <!--/preloader-->
+    </section>
+    <!-- /media-gallery -->
 
-  <!-- btn -->
-  <a href="<?php echo admin_url( 'admin-ajax.php' );?>" class="media-gallery__more"><?= get_field('title_button_portfolio', 2); ?></a>
-  <!-- /btn -->
 
- </section>
- <!-- /media-gallery -->
+
         
 <?php get_footer(); ?>

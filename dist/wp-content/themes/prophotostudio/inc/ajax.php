@@ -5,7 +5,9 @@ function gallery_ajax() {
 	$type = $_GET['type'];
 	$page = $_GET['page'];
 
-
+	if($type === 'all') {
+		$type = '';
+	}
 	$args = array(
 		'post_type'      => 'portfolio',
 		'category_name' => $type,
@@ -22,7 +24,7 @@ function gallery_ajax() {
 	if(!empty($posts)) {
 		foreach ($posts as $row) {
 			$class = implode(' ', wp_get_post_terms($row, 'portfolio', array('fields' => 'id=>slug', 'parent' => '0')));
-			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.get_the_post_thumbnail_url($row).'"}, ';
+			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.get_the_post_thumbnail_url($row).'","dummy_big": "'.get_field('image_overlay', $row).'"}, ';
 		}
 	}
 	$portfolio_items = substr($portfolio_items,0, -2);

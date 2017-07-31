@@ -202,8 +202,9 @@
                 _request = $.ajax( {
                     url: path,
                     data: {
-                        loadedGroup: _obj.attr( 'data-loaded-group' ),
-                        loadedType: _switchBtn.data( 'type' )
+                        action: 'gallery',
+                        page: _obj.attr( 'data-loaded-group' ),
+                        type: _switchBtn.data( 'type' )
                     },
                     dataType: 'json',
                     timeout: 20000,
