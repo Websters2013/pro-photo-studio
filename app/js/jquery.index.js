@@ -10,6 +10,11 @@
             new Sliders ( $( this ) );
         } );
 
+
+        $.each( $( '.sub-menu' ), function() {
+            new Sliders ( $( this ) );
+        } );
+
         $.each( $( '.mobile-menu' ), function() {
             new Menu ( $( this ) );
         } );
@@ -61,13 +66,16 @@
         //private properties
         var _obj = obj,
             _partnersSlider = _obj.find( '.partners__swiper' ),
+            _subMenuSlider = _obj.find( '.sub-menu__swiper' ),
             _catalogSlider = _obj.find( '.catalog__swiper' ),
             _partnersPrev = _obj.find( '.partners__swiper-prev' ),
             _catalogPrev = _obj.find( '.catalog__swiper-prev' ),
             _partnersNext = _obj.find( '.partners__swiper-next' ),
             _catalogNext = _obj.find( '.catalog__swiper-next' ),
             _partners,
-            _catalog;
+            _catalog,
+            _subMenu,
+            _window = $( window );
 
         //private methods
         var _initSlider = function() {
@@ -91,11 +99,74 @@
                     slidesPerView: 3,
                     loop: true,
                     nextButton: _catalogNext,
-                    prevButton: _catalogPrev
+                    prevButton: _catalogPrev,
+                    breakpoints: {
+                        767: {
+                            slidesPerView: 1
+                        },
+                        1199: {
+                            slidesPerView: 2
+                        }
+                    }
+                } );
+
+                _subMenu = new Swiper ( _subMenuSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 'auto',
+                    onSlideChangeStart: function() {
+                        _obj.removeClass( 'start' );
+                        _subMenuSlider[0].swiper.slideTo( _subMenu.find( '.active' ).index() , 200, false );
+                    },
+                    onSlideChangeEnd: function() {
+                        _obj.removeClass( 'end' );
+                    },
+                    onReachBeginning: function() {
+                        _obj.addClass( 'start' );
+                        _obj.removeClass( 'end' );
+
+                        setTimeout( function() {
+                            _obj.addClass( 'start' );
+                        },300 )
+
+                    },
+                    onReachEnd: function() {
+                        _obj.addClass( 'end' );
+
+                        setTimeout( function() {
+                            _obj.removeClass( 'start' );
+                        },300 )
+                    }
                 } );
 
             },
+            _onEvent = function() {
+
+                if ( _window.outerWidth() <= 767  ){
+                    _initSlider ();
+                }
+
+                _window.on( {
+                    'resize': function() {
+
+                        if ( _window.outerWidth() >= 767  ){
+                            _destroySlider();
+                        } else {
+                            _initSlider();
+                        }
+
+                    }
+                } )
+
+            },
+            _destroySlider = function() {
+
+                _subMenuSlider[ 0 ].swiper.destroy( false, true );
+
+            },
             _init = function() {
+                _onEvent();
                 _initSlider();
             };
 

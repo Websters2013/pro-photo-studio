@@ -1,7 +1,7 @@
 .article {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 300;
-  line-height: 24px;
+  line-height: 20px;
 
   p{
     margin-bottom: 10px;
@@ -11,7 +11,8 @@
 
 @media (min-width: $desktop) {
   .article{
-
+    font-size: 20px;
+    line-height: 24px;
   }
 }
 
