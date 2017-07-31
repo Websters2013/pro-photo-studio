@@ -84,8 +84,8 @@ function add_js() {
 	    wp_enqueue_script('swiper');
 	    wp_enqueue_script('index');
 
-	    wp_enqueue_script('swiper');
 	    wp_enqueue_style('about-us');
+	    wp_enqueue_script('swiper');
     }
 
 }
@@ -97,13 +97,8 @@ register_nav_menus( array(
     'sub_menu' => 'sub_menu',
 ) );
 
-add_filter( 'upload_size_limit', 'PBP_increase_upload' );
-function PBP_increase_upload( $bytes ) {
-	return 400000000;
-}
-
 function remove_menus(){
-	if (current_user_can('administrator')) {
+	/*if (current_user_can('administrator')) {
 		remove_submenu_page('themes.php', 'themes.php');
 		remove_submenu_page('themes.php','customize.php?return=%2Fwp-admin%2Ftheme-editor.php');
 		remove_submenu_page('themes.php','theme-editor.php');
@@ -112,8 +107,7 @@ function remove_menus(){
 		remove_menu_page( 'edit.php?post_type=tehnology' );
 		remove_menu_page( 'edit.php?post_type=project' );
 		remove_menu_page( 'admin.php?page=wpcf7' );
-	}
-
+	}*/
 }
 add_action('admin_menu', 'remove_menus');
 
@@ -121,7 +115,7 @@ remove_action( 'load-update-core.php', 'wp_update_plugins' );
 add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
 wp_clear_scheduled_hook( 'wp_update_plugins' );
 
-add_action('admin_print_footer_scripts', 'hide_tax_metabox_tabs_admin_styles', 99);
+//add_action('admin_print_footer_scripts', 'hide_tax_metabox_tabs_admin_styles', 99);
 function hide_tax_metabox_tabs_admin_styles(){
 	$cs = get_current_screen();
 	if( $cs->base !== 'post' || empty($cs->post_type) ) return; // не страница редактирования записи
@@ -137,10 +131,10 @@ function my_custom_login_logo(){
 	echo '<style type="text/css">	h1 a { background-image:url('.get_template_directory_uri().'/assets/img/logo.svg) !important;background-size: 90% !important; }
 	</style>';
 }
-add_action('login_head', 'my_custom_login_logo');
+//add_action('login_head', 'my_custom_login_logo');
 
 ## Изменение внутреннего логотипа админки. Для версий с dashicons
-add_action('add_admin_bar_menus', 'reset_admin_wplogo');
+//add_action('add_admin_bar_menus', 'reset_admin_wplogo');
 function reset_admin_wplogo(  ){
 	remove_action( 'admin_bar_menu', 'wp_admin_bar_wp_menu', 10 ); // удаляем стандартную панель (логотип)
 
