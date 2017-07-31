@@ -202,7 +202,7 @@
                 _request = $.ajax( {
                     url: path,
                     data: {
-                        action: 'gallary',
+                        action: 'gallery',
                         page: _obj.attr( 'data-loaded-group' ),
                         type: _switchBtn.data( 'type' )
                     },
