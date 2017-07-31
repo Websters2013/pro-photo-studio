@@ -64,6 +64,7 @@ function add_js() {
 	wp_register_style('style', get_stylesheet_uri());
 	wp_register_style('index', get_template_directory_uri() . '/assets/css/index.css');
 	wp_register_style('swiper', get_template_directory_uri() . '/assets/css/swiper.min.css');
+	wp_register_style('about-us', get_template_directory_uri() . '/assets/css/aboutus-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -77,6 +78,14 @@ function add_js() {
 
         wp_enqueue_style('swiper');
         wp_enqueue_style('index');
+    }
+    if(is_page(6)) {
+	    wp_enqueue_script('isotope');
+	    wp_enqueue_script('swiper');
+	    wp_enqueue_script('index');
+
+	    wp_enqueue_script('swiper');
+	    wp_enqueue_style('about-us');
     }
 
 }

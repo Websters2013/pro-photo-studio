@@ -2,6 +2,9 @@
 
 $logo = get_field('logo', 2);
 $logo = '<img src="'.$logo['url'].'" alt="'.$logo['alt'].'" title="'.$logo['title'].'">';
+
+$hero_image_other_page = get_field('hero_image_other_page', 2);
+$hero_image_other_page = '<img src="'.$hero_image_other_page['url'].'" alt="'.$hero_image_other_page['alt'].'" title="'.$hero_image_other_page['title'].'">';
 if(is_front_page()) {
 	$logo = '<!-- logo --><h1 class="logo">'.$logo.'</h1><!-- /logo -->';
 } else {
@@ -108,8 +111,16 @@ if( $locations && isset($locations[ $menu_name ]) ){
         </div>
         <!-- /menu-mobile-btn -->
 
+      <?php if(!is_front_page()) { ?>
+          <div class="header__promo">
+             <?= $hero_image_other_page; ?>
+          </div>
+      <?php } ?>
+
     </div>
     <!-- /site__header -->
+
+
 
     <?php if(is_front_page()) { ?>
 
