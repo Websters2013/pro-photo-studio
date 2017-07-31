@@ -3,7 +3,7 @@
 Template Name: About
 */
  get_header();
- //get_template_part('contents/content', 'submenu');
+ get_template_part('contents/content', 'submenu');
 $post_id = 6;
 $slider_string = '';
 $slider = get_field('slider', $post_id);

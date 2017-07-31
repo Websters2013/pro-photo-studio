@@ -65,6 +65,7 @@ function add_js() {
 	wp_register_style('index', get_template_directory_uri() . '/assets/css/index.css');
 	wp_register_style('swiper', get_template_directory_uri() . '/assets/css/swiper.min.css');
 	wp_register_style('about-us', get_template_directory_uri() . '/assets/css/aboutus-page.css');
+	wp_register_style('contact-page', get_template_directory_uri() . '/assets/css/contact-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -85,8 +86,15 @@ function add_js() {
 	    wp_enqueue_script('index');
 
 	    wp_enqueue_style('about-us');
-	    wp_enqueue_script('swiper');
+	    wp_enqueue_style('swiper');
     }
+	if(is_page(18)) {
+		wp_enqueue_script('swiper');
+		wp_enqueue_script('index');
+
+		wp_enqueue_style('contact-page');
+		wp_enqueue_style('swiper');
+	}
 
 }
 
