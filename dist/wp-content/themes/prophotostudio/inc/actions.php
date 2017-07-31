@@ -68,42 +68,31 @@ function add_js() {
 	wp_register_style('about-us', get_template_directory_uri() . '/assets/css/aboutus-page.css');
 	wp_register_style('contact-page', get_template_directory_uri() . '/assets/css/contact-page.css');
 	wp_register_style('clients-page', get_template_directory_uri() . '/assets/css/clients-page.css');
+	wp_register_style('team-page', get_template_directory_uri() . '/assets/css/team-page.css');
 
 
 	wp_enqueue_script('jquery');
+	wp_enqueue_script('isotope');
+	wp_enqueue_script('swiper');
+	wp_enqueue_script('index');
+
 	wp_enqueue_style('style');
+	wp_enqueue_style('swiper');
 
 	if(is_front_page()) {
-        wp_enqueue_script('isotope');
-        wp_enqueue_script('swiper');
-        wp_enqueue_script('index');
-
-
-        wp_enqueue_style('swiper');
         wp_enqueue_style('index');
     }
     if(is_page(6)) {
-	    wp_enqueue_script('isotope');
-	    wp_enqueue_script('swiper');
-	    wp_enqueue_script('index');
-
 	    wp_enqueue_style('about-us');
-	    wp_enqueue_style('swiper');
     }
 	if(is_page(18)) {
-		wp_enqueue_script('swiper');
-		wp_enqueue_script('index');
-
 		wp_enqueue_style('contact-page');
-		wp_enqueue_style('swiper');
 	}
 	if(is_page(50)) {
-		wp_enqueue_script('isotope');
-		wp_enqueue_script('swiper');
-		wp_enqueue_script('index');
-
 		wp_enqueue_style('clients-page');
-		wp_enqueue_style('swiper');
+	}
+	if(is_page(83)) {
+		wp_enqueue_style('team-page');
 	}
 	if(is_page(85)) {
 		wp_enqueue_script('plusone');
