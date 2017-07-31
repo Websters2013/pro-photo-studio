@@ -1,0 +1,150 @@
+.jobs {
+  width: 100%;
+  margin-bottom: 50px;
+  padding: 0 10px;
+
+  &__title{
+    width: 100%;
+    margin-bottom: 33px;
+    padding-top: 42px;
+    color: #444;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+
+    h1{
+      margin-bottom: 10px;
+      width: 100%;
+      color: #222;
+      font-size: 24px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 390px;
+    margin-bottom: 50px;
+
+    input[type=text], input[type=email], input[type=tel], textarea{
+      width: 100%!important;
+      height: 40px!important;
+      margin-bottom: 9px;
+      padding: 0 18px!important;
+      border: 1px solid #ababab!important;
+      color: #777;
+      @include OpenSans;
+      font-size: 14px;
+    }
+
+    textarea{
+      height: 120px!important;
+      margin-bottom: 18px!important;
+      padding: 8px 18px !important;
+    }
+
+    input[type=button], input[type=submit],
+    button{
+      width: 100%!important;
+      height: 40px!important;
+      margin-top: 10px!important;
+      padding: 0!important;
+      border: none!important;
+      background-color: #01b1af;
+      color: #fff;
+      @include OpenSans;
+      font-size: 14px;
+
+      span{
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+
+    br{
+      display: none;
+    }
+
+  }
+
+  &__propose{
+    margin-bottom: 58px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
+
+    dt{
+      margin-bottom: 29px;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    strong{
+      font-weight: 400;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .jobs{
+
+    &__form{
+      max-width: 300px;
+      margin-left: 22px;
+    }
+
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+  .jobs{
+    padding: 0 calc( 50% - 384px);
+
+    &__form {
+      max-width: 360px;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .jobs{
+
+    &__form{
+      max-width: 390px;
+
+      input[type=button], input[type=submit],
+      button{
+        -webkit-transition: background-color .3s ease;
+        transition: background-color .3s ease;
+
+        &:hover{
+          background-color: #48e0de;
+        }
+
+      }
+
+    }
+
+    &__title{
+      margin-bottom: 37px;
+      font-size: 18px;
+
+      h1{
+        font-size: 48px;
+      }
+
+    }
+
+  }
+}
+
