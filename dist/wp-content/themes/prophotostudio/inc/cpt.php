@@ -75,7 +75,7 @@ function custom_post_type() {
 			'with_front' => true
 		)
 	);
-	register_post_type('tehnology', $tehnology_args);
+	//register_post_type('tehnology', $tehnology_args);
 
 
 

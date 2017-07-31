@@ -60,12 +60,14 @@ function add_js() {
 	wp_register_script('index', get_template_directory_uri() . '/assets/js/index.min.js', false, null, true);
 	wp_register_script('swiper', get_template_directory_uri() . '/assets/js/vendors/swiper.jquery.min.js', false, null, true);
 	wp_register_script('isotope', get_template_directory_uri() . '/assets/js/vendors/isotope.pkgd.min.js', false, null, true);
+	wp_register_script('plusone', 'https://apis.google.com/js/plusone.js', false, null, true);
 
 	wp_register_style('style', get_stylesheet_uri());
 	wp_register_style('index', get_template_directory_uri() . '/assets/css/index.css');
 	wp_register_style('swiper', get_template_directory_uri() . '/assets/css/swiper.min.css');
 	wp_register_style('about-us', get_template_directory_uri() . '/assets/css/aboutus-page.css');
 	wp_register_style('contact-page', get_template_directory_uri() . '/assets/css/contact-page.css');
+	wp_register_style('clients-page', get_template_directory_uri() . '/assets/css/clients-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -95,6 +97,18 @@ function add_js() {
 		wp_enqueue_style('contact-page');
 		wp_enqueue_style('swiper');
 	}
+	if(is_page(50)) {
+		wp_enqueue_script('isotope');
+		wp_enqueue_script('swiper');
+		wp_enqueue_script('index');
+
+		wp_enqueue_style('clients-page');
+		wp_enqueue_style('swiper');
+	}
+	if(is_page(85)) {
+		wp_enqueue_script('plusone');
+
+	}
 
 }
 
@@ -119,9 +133,9 @@ function remove_menus(){
 }
 add_action('admin_menu', 'remove_menus');
 
-remove_action( 'load-update-core.php', 'wp_update_plugins' );
-add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
-wp_clear_scheduled_hook( 'wp_update_plugins' );
+//remove_action( 'load-update-core.php', 'wp_update_plugins' );
+//add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
+//wp_clear_scheduled_hook( 'wp_update_plugins' );
 
 //add_action('admin_print_footer_scripts', 'hide_tax_metabox_tabs_admin_styles', 99);
 function hide_tax_metabox_tabs_admin_styles(){

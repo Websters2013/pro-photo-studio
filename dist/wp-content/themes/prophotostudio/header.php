@@ -23,6 +23,22 @@ if(!empty($socials)) {
 
 $hero_image =  get_field('hero_image', 2);
 
+function is_tree( $pid ){
+	global $post;
+
+	// если мы уже на указанной странице выходим
+	if ( is_page( $pid ) )
+		return true;
+
+	$anc = get_post_ancestors( $post->ID );
+	foreach ( $anc as $ancestor ) {
+		if( is_page() && $ancestor == $pid ) {
+			return true;
+		}
+	}
+
+	return false;
+}
 $menu_name = 'menu';
 $locations = get_nav_menu_locations();
 if( $locations && isset($locations[ $menu_name ]) ){
@@ -36,7 +52,7 @@ if( $locations && isset($locations[ $menu_name ]) ){
 		$perm = get_the_permalink($menu_item->object_id);
 		$active = '';
 		//var_dump($menu_item);
-		if (is_page( $menu_item->object_id)) {
+		if (is_page( $menu_item->object_id) || is_tree($menu_item->object_id)) {
 			$active = ' active';
 		}
 
