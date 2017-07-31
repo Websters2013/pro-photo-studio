@@ -71,6 +71,7 @@ function add_js() {
 	wp_register_style('team-page', get_template_directory_uri() . '/assets/css/team-page.css');
 	wp_register_style('testimonials-page', get_template_directory_uri() . '/assets/css/testimonials-page.css');
 	wp_register_style('services-page', get_template_directory_uri() . '/assets/css/services-page.css');
+	wp_register_style('jobs-page', get_template_directory_uri() . '/assets/css/jobs-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -103,6 +104,9 @@ function add_js() {
 		wp_enqueue_script('plusone');
 
         wp_enqueue_style('testimonials-page');
+	}
+	if(is_page(175)) {
+        wp_enqueue_style('jobs-page');
 	}
 
 }
