@@ -1,0 +1,176 @@
+.team {
+  width: 100%;
+  margin-bottom: 110px;
+
+  h1{
+    width: 100%;
+    margin: 31px 0 33px;
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__item{
+    padding: 47px 10px 50px;
+    background-color: rgb(238, 238, 238);
+
+    &:nth-child(even){
+
+      .team__img{
+        box-shadow: none;
+      }
+
+    }
+
+    &:nth-child(odd){
+      padding-top: 23px;
+      padding-bottom: 64px;
+      background-color: #fff;
+      border-bottom: none;
+    }
+
+  }
+
+  &__content{
+    width: 100%;
+    margin-bottom: 25px;
+    color: #222;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  &__name{
+    margin-bottom: 2px;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__post{
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  &__img{
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+
+    img{
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+  &__wrap{
+    padding: 47px 10px 15px;
+    border-bottom: 1px solid #d6d6d6;
+    background-color: rgb(238, 238, 238);
+
+    &-item{
+      margin: 0 0 45px;
+      text-align: center;
+    }
+
+    .team__name{
+      margin-bottom: 5px;
+    }
+
+    .team__post{
+      margin-bottom: 34px;
+    }
+
+    .team__img{
+      width: 280px;
+      height: 280px;
+      margin: 0 auto;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-landscape) {
+  .team{
+
+    h1{
+      margin: 41px 0 44px;
+      font-size: 48px;
+    }
+
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:nth-child(odd){
+
+        .team__img{
+          order: 1;
+        }
+
+        .team__content{
+          margin: 22px 27px 76px 0;
+          order: 2;
+        }
+
+      }
+
+    }
+
+    &__content{
+      width: 50%;
+      max-width: 525px;
+      margin-bottom: 0;
+    }
+
+    &__img{
+      width: 380px;
+      height: 380px;
+    }
+
+    &__wrap{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 47px calc( 50% - 600px) 73px;
+
+      &-item{
+        margin: 0 127px;
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: 1400px) {
+  .team{
+
+    &__item{
+      padding: 47px calc( 50% - 600px) 50px;
+
+      &:nth-child(odd){
+
+        .team__img {
+          margin-left: 77px;
+          margin-right: 0;
+        }
+
+      }
+
+    }
+
+    &__img{
+      margin: 0 77px 0 0;
+    }
+
+  }
+}
