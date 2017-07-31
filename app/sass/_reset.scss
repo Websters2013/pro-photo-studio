@@ -27,18 +27,15 @@ input::-webkit-inner-spin-button {
 /* --------------- placeholder --------------- */
 ::-webkit-input-placeholder {
   color: #777;
-  text-transform: uppercase;
   -webkit-transition: color 300ms ease-in-out;
 }
 :-moz-placeholder {
   color: #777;
-  text-transform: uppercase;
   -webkit-transition: color 300ms ease-in-out;
   transition: color 300ms ease-in-out;
 }
 .placeholder {
   color: #777;
-  text-transform: uppercase;
   -webkit-transition: color 300ms ease-in-out;
   transition: color 300ms ease-in-out;
 }
