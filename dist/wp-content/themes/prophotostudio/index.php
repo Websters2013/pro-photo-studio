@@ -25,7 +25,6 @@ $args = array(
 
 );
 $categories = get_terms($args);
-//var_dump($categories);
 $categories_list = '<button class="media-gallery__check active" data-type="all">All</button>';
 if(!empty($categories)) {
     foreach ($categories as $row) {

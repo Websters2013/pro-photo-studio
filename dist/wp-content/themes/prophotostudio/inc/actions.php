@@ -70,6 +70,7 @@ function add_js() {
 	wp_register_style('clients-page', get_template_directory_uri() . '/assets/css/clients-page.css');
 	wp_register_style('team-page', get_template_directory_uri() . '/assets/css/team-page.css');
 	wp_register_style('testimonials-page', get_template_directory_uri() . '/assets/css/testimonials-page.css');
+	wp_register_style('services-page', get_template_directory_uri() . '/assets/css/services-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -85,6 +86,9 @@ function add_js() {
     }
     if(is_page(6)) {
 	    wp_enqueue_style('about-us');
+    }
+    if(is_page(8) || is_page(165)) {
+	    wp_enqueue_style('services-page');
     }
 	if(is_page(18)) {
 		wp_enqueue_style('contact-page');
