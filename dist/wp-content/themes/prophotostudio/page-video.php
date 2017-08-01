@@ -9,7 +9,7 @@ $video = get_field('video', $post_id);
 if($video) {
     $counter = 0;
     foreach ($video as $row) {
-        $class = 'preface';
+        $class = 'item';
         if($counter < 1) {
 	        $class = 'top';
         }

@@ -76,6 +76,7 @@ function add_js() {
 	wp_register_style('process-page', get_template_directory_uri() . '/assets/css/process-page.css');
 	wp_register_style('video-page', get_template_directory_uri() . '/assets/css/video-page.css');
 	wp_register_style('place-page', get_template_directory_uri() . '/assets/css/place-page.css');
+	wp_register_style('blog-page', get_template_directory_uri() . '/assets/css/blog-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -111,6 +112,9 @@ function add_js() {
 		wp_enqueue_script('plusone');
 
         wp_enqueue_style('testimonials-page');
+	}
+	if(is_page(87)) {
+        wp_enqueue_style('blog-page');
 	}
 	if(is_page(175)) {
         wp_enqueue_style('jobs-page');
