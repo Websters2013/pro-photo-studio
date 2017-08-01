@@ -10,6 +10,9 @@
             new Sliders ( $( this ) );
         } );
 
+        $.each( $( '.promo__slider' ), function() {
+            new Sliders ( $( this ) );
+        } );
 
         $.each( $( '.sub-menu' ), function() {
             new Sliders ( $( this ) );
@@ -68,13 +71,17 @@
             _partnersSlider = _obj.find( '.partners__swiper' ),
             _subMenuSlider = _obj.find( '.sub-menu__swiper' ),
             _catalogSlider = _obj.find( '.catalog__swiper' ),
+            _promoSlider = _obj.find( '.promo__swiper' ),
             _partnersPrev = _obj.find( '.partners__swiper-prev' ),
             _catalogPrev = _obj.find( '.catalog__swiper-prev' ),
+            _promoPrev = _obj.find( '.promo__swiper-prev' ),
             _partnersNext = _obj.find( '.partners__swiper-next' ),
             _catalogNext = _obj.find( '.catalog__swiper-next' ),
+            _promoNext = _obj.find( '.promo__swiper-next' ),
             _partners,
             _catalog,
             _subMenu,
+            _promo,
             _window = $( window );
 
         //private methods
@@ -108,6 +115,16 @@
                             slidesPerView: 2
                         }
                     }
+                } );
+
+                _promo = new Swiper ( _promoSlider, {
+                    autoplay: 10000,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 1,
+                    loop: true,
+                    nextButton: _promoNext,
+                    prevButton: _promoPrev
                 } );
 
                 _subMenu = new Swiper ( _subMenuSlider, {

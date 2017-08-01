@@ -108,10 +108,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 47px calc( 50% - 600px) 50px;
 
       &:nth-child(odd){
 
         .team__img{
+          margin-left: 77px;
+          margin-right: 0;
           order: 1;
         }
 
@@ -133,6 +136,7 @@
     &__img{
       width: 380px;
       height: 380px;
+      margin: 0 77px 0 0;
     }
 
     &__wrap{
@@ -146,30 +150,6 @@
         margin: 0 127px;
       }
 
-    }
-
-  }
-}
-
-@media (min-width: 1400px) {
-  .team{
-
-    &__item{
-      padding: 47px calc( 50% - 600px) 50px;
-
-      &:nth-child(odd){
-
-        .team__img {
-          margin-left: 77px;
-          margin-right: 0;
-        }
-
-      }
-
-    }
-
-    &__img{
-      margin: 0 77px 0 0;
     }
 
   }

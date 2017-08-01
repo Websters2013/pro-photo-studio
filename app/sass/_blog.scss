@@ -1,0 +1,168 @@
+.blog {
+  width: 100%;
+
+  &__title{
+    width: 100%;
+    margin-bottom: 33px;
+    padding-top: 42px;
+    color: #444;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+
+    h1{
+      margin-bottom: 10px;
+      width: 100%;
+      color: #222;
+      font-size: 24px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+  }
+
+  &__item{
+    padding: 30px 10px;
+    background-color: #f2f2f2;
+
+    &:nth-child( odd ){
+      background-color: #fff;
+    }
+
+  }
+
+  &__content{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 21px;
+    margin-bottom: 25px;
+
+    h2{
+      margin: -6px 0 8px;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 700;
+    }
+
+    dl{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0 0 23px 4px;
+      font-size: 16px;
+    }
+
+    dt{
+      font-weight: 400;
+    }
+
+    dd{
+      width: 70%;
+    }
+
+  }
+
+  &__img{
+    width: 100%;
+    max-width: 570px;
+    margin: 0 auto;
+
+    img{
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+  &__more{
+    display: block;
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 11px;
+    text-align: center;
+  }
+
+  &__btn-wrap{
+    margin-top: 25px;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .blog{
+
+    &__item{
+      padding: 50px 10px;
+    }
+
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+  .blog{
+
+    &__title{
+      margin-bottom: 77px;
+      padding-top: 81px;
+    }
+
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__content{
+      width: calc( 100%  - 470px);
+      margin-bottom: 0;
+      order: 2;
+
+      dd{
+        width: 80%;
+      }
+
+    }
+
+    &__img{
+      width: 40%;
+      margin: 0;
+      order: 1;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .blog{
+
+    &__title{
+      margin-bottom: 37px;
+      font-size: 20px;
+
+      h1{
+        font-size: 48px;
+      }
+
+    }
+
+    &__item{
+      padding: 50px calc( 50% - 621px);
+    }
+
+    &__img {
+      width: auto;
+    }
+
+    &__content {
+      width: calc(100% - 620px);
+    }
+
+  }
+}
+
