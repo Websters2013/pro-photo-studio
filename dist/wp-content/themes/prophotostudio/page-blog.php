@@ -11,11 +11,18 @@ $query = new WP_Query();
 if ($tag || $category) {
 	$paged = 1;
 }
-
+$order_by = 'date';
+$active_sort_name = 'Latest Posts';
+$order = 'DESC';
+if($_GET['sort'] === 'a-b') {
+	$order_by = 'title';
+	$active_sort_name = 'A-B Posts';
+	$order = 'ASC';
+}
 $args = array(
 	'posts_per_page' => 5,
-	'orderby'     => 'date',
-	'order'       => 'DESC',
+	'orderby'     => $order_by,
+	'order'       => $order,
 	'post_type'   => 'post',
 	'post_status' => 'publish',
 	'fields'      => 'ids',
@@ -85,10 +92,19 @@ if(!empty($posts)) {
   <!-- blog__title -->
   <div class="blog__title">
 	  <?= get_post_field('post_content', $post_id); ?>
-   <div class="blog__sort">
+   <div class="blog__sort-wrap">
 
 	   <?= get_field('title_sort', $post_id); ?>
+       <div class="blog__sort">
 
+           <span class="blog__sort-item"><?= $active_sort_name; ?></span>
+
+           <ul class="blog__sort-popup">
+               <li><a href="<?= get_permalink($post_id); ?>">Latest Posts</a></li>
+               <li><a href="<?= get_permalink($post_id).'?sort=a-b'; ?>">A-B Posts</a></li>
+           </ul>
+
+       </div>
    </div>
 
   </div>
