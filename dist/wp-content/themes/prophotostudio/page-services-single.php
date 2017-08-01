@@ -22,7 +22,7 @@ if($sub_term) {
     <!-- media-gallery -->
     <section class="media-gallery" data-loaded-group="0" data-loaded-type="all">
 
-        <a href="<?= get_permalink(8); ?>" class="media-gallery__back">< Back To services</a>
+        <a href="<?= get_permalink(8); ?>" class="media-gallery__back"><?= get_field('button_title_back', 8); ?></a>
 
         <!-- media-gallery__preface -->
         <div class="media-gallery__preface">
