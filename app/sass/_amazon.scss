@@ -1,0 +1,140 @@
+.amazon {
+  width: 100%;
+
+  &__title{
+    width: 100%;
+    margin-bottom: 33px;
+    color: #444;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+
+    h1{
+      width: 100%;
+      margin-bottom: 19px;
+      color: #222;
+      font-size: 24px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+  }
+
+  &__preface{
+    margin-bottom: 25px;
+    padding: 0 10px;
+    color: #222;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 300;
+    text-align: center;
+
+    .media-gallery__title{
+      margin-bottom: 50px;
+    }
+
+  }
+
+  &__item{
+    padding: 25px 10px;
+    background-color: #f2f2f2;
+    color: #222;
+    font-weight: 300;
+    font-size: 18px;
+
+    &-content{
+      margin-bottom: 39px;
+      font-size: 18px;
+      line-height: 24px;
+
+      h2{
+        margin-bottom: 33px;
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+    }
+
+    &-img{
+      max-width: 556px;
+
+      img{
+        display: block;
+        max-width: 100%;
+      }
+
+    }
+
+    &-address{
+      margin-top: 61px;
+      font-weight: 400;
+      font-size: 20px;
+
+      strong{
+        color: #01b1af;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .amazon{
+
+    &__wrap{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &__preface{
+      margin-bottom: 70px;
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .amazon{
+
+    &__title{
+      margin-bottom: 44px;
+
+      h1{
+        font-size: 48px;
+      }
+
+    }
+
+    &__preface{
+      padding: 92px calc( 50% - 504px) 0;
+    }
+
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      &-content{
+        width: calc( 100% - 670px );
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: 1400px) {
+  .amazon{
+
+    &__item{
+      padding: 50px calc( 50% - 621px) 56px;
+    }
+
+  }
+}
