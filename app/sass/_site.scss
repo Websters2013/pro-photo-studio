@@ -35,10 +35,20 @@
     text-align: center;
   }
 
+  &__content{
+    padding: 0 10px;
+  }
+
 }
 
 @media (min-width: $tablet-portrait) {
   .site {
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
 
   }
 }
@@ -59,3 +69,12 @@
   }
 }
 
+@media (min-width: 1400px) {
+  .site {
+
+    &__content{
+      padding: 0 calc( 50% - 640px ) 84px;
+    }
+
+  }
+}

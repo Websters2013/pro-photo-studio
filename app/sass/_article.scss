@@ -7,6 +7,15 @@
     margin-bottom: 10px;
   }
 
+  &__back{
+    display: block;
+    text-align: left;
+    padding: 27px 0 42px;
+    color: #444;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
 }
 
 @media (min-width: $desktop) {
