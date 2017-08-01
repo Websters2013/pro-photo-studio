@@ -75,6 +75,7 @@ function add_js() {
 	wp_register_style('360-page', get_template_directory_uri() . '/assets/css/360-page.css');
 	wp_register_style('process-page', get_template_directory_uri() . '/assets/css/process-page.css');
 	wp_register_style('video-page', get_template_directory_uri() . '/assets/css/video-page.css');
+	wp_register_style('place-page', get_template_directory_uri() . '/assets/css/place-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -93,6 +94,9 @@ function add_js() {
     }
     if(is_page(8) || is_page(165)) {
 	    wp_enqueue_style('services-page');
+    }
+    if(is_page(16)) {
+	    wp_enqueue_style('place-page');
     }
 	if(is_page(18)) {
 		wp_enqueue_style('contact-page');
