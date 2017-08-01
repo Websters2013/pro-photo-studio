@@ -17,7 +17,7 @@
   }
 
   h2{
-    margin-bottom: 25px;
+    margin-bottom: 18px;
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
@@ -42,9 +42,6 @@
   }
 
   &__amazon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 45px;
     font-size: 20px;
     font-weight: 700;
@@ -57,16 +54,24 @@
 
   }
 
+  &__slide{
+
+    img{
+      max-width: 100%;
+    }
+
+  }
+
   &__order{
     display: block;
     width: 200px;
-    margin: 26px auto 0;
+    margin: 24px auto 0;
     background-color: #000;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
-    padding: 11px;
+    padding: 7px;
     text-align: center;
   }
 
@@ -136,6 +141,12 @@
       padding: 23px calc( 50% - 530px) 38px;
     }
 
+    &__amazon{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
   }
 }
 
@@ -163,8 +174,8 @@
 }
 
 @media (min-width: 1400px) {
-  .video{
-    padding: 0 calc( 50% - 510px ) 84px;
+  .promo{
+    padding: 0 calc( 50% - 510px ) 0;
 
     &__back{
       margin-left: -130px;
