@@ -74,6 +74,7 @@ function add_js() {
 	wp_register_style('jobs-page', get_template_directory_uri() . '/assets/css/jobs-page.css');
 	wp_register_style('360-page', get_template_directory_uri() . '/assets/css/360-page.css');
 	wp_register_style('process-page', get_template_directory_uri() . '/assets/css/process-page.css');
+	wp_register_style('video-page', get_template_directory_uri() . '/assets/css/video-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -115,6 +116,9 @@ function add_js() {
 	}
 	if(is_page(202)) {
         wp_enqueue_style('process-page');
+	}
+	if(is_page(228)) {
+        wp_enqueue_style('video-page');
 	}
 
 }
