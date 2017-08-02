@@ -64,12 +64,12 @@ if(!empty($posts)) {
 
     <dl>
      <dt>Published:</dt>
-     <dd><time datetime="2017-12-24">'.get_the_date('d, M, Y').'</time></dd>
+     <dd><time datetime="'.get_the_date('Y-M-d').'">'.get_the_date('d, M, Y').'</time></dd>
      <dt>Author:</dt>
      <dd>'.$user->first_name.' '.$user->last_name.', '.$tags.'.</dd>
     </dl>
     '.get_field('excerpt', $row).'
-    <div class="blog__btn-wrap"><a href="'.get_permalink($row).'" class="blog__more">Read More</a></div>
+    <div class="blog__btn-wrap"><a href="'.get_permalink($row).'" class="blog__more">'.get_field('buttons', 87).'</a></div>
 
    </div>
    <!-- /blog__content -->

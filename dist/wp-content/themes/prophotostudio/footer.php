@@ -2,7 +2,7 @@
 $socials = get_field('socials_list', 18);
 if(!empty($socials)) {
 	foreach ( $socials as $row ) {
-		if((array_search('0', $row['show']) === false) || empty($row['image'])) {
+		if((array_search('2', $row['show']) === false) || empty($row['image'])) {
 			continue;
 		}
 		$socials_list .= '<!-- social__item --><a class="social__item" href="'.$row['url'].'" target="_blank">'.file_get_contents($row['image']).'</a><!-- /social__item -->';
