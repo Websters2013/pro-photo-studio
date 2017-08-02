@@ -71,18 +71,32 @@
 
     }
 
+    &-cover{
+      overflow: hidden;
+      -webkit-transition: height .3s ease;
+      transition: height .3s ease;
+    }
+
     &-wrap{
       display: flex;
       flex-flow: column wrap;
       justify-content: center;
       align-items: center;
       margin-bottom: 40px;
+      overflow: hidden;
     }
 
     &-item{
       width: calc( 100% - 18px );
       margin: 0 5px 10px;
       box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6);
+      -webkit-transition: transform .3s ease;
+      transition: transform .3s ease;
+
+      &.new{
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
 
       img{
         display: block;
