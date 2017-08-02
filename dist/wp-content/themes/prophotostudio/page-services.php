@@ -9,17 +9,18 @@ $services_string = '';
 if($services) {
  foreach ($services as $row) {
   $url = $row['link']['url'];
-
+  $title = $row['link']['title'];
   if($row['show'] === '1') {
-	  $url .= '?category='.$row['category']->slug;
+	  $url = get_permalink(165).'?category='.$row['category']->slug;
+	  $title = $row['title'];
   }
 	 $services_string .= '<!-- services__item -->
   <a href="'.$url.'" class="services__item">
    <div class="services__img">
     <img src="'.$row['image']['url'].'" alt="'.$row['image']['alt'].'" title="'.$row['image']['title'].'"/>
    </div>';
-  if ($row['link']['title']) {
-	  $services_string .= '<span>'.$row['link']['title'].'</span>';
+  if ($title) {
+	  $services_string .= '<span>'.$title.'</span>';
   }
 	 $services_string .= '</a><!-- /services__item -->';
  }
