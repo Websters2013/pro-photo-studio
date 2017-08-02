@@ -1,0 +1,63 @@
+.join {
+  margin-bottom: 18px;
+  padding: 26px 20px;
+  border: 1px solid #929292;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  > span{
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  form{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 30px;
+  }
+
+  input[type=text], input[type=email]{
+    width: calc( 100% - 97px )!important;
+    height: 40px!important;
+    margin-bottom: 10px;
+    padding: 0 20px!important;
+    border: 1px solid #adadad!important;
+    color: #777;
+    @include OpenSans;
+    font-size: 14px;
+  }
+
+  input[type=button], input[type=submit],
+  button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 97px!important;
+    height: 40px!important;
+    padding: 0!important;
+    border: none!important;
+    background-color: #01b1af;
+    color: #fff;
+    @include OpenSans;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    span{
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+  .join{
+
+  }
+}
+

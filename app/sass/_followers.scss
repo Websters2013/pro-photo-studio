@@ -1,0 +1,89 @@
+.followers {
+  margin-bottom: 20px;
+  padding: 26px 17px 70px;
+  background-color: #01b1af;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+
+  svg{
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+  }
+
+  p{
+    margin-bottom: 43px;
+  }
+
+  &__icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icons-item{
+    margin: 0 10px;
+
+    &_fb{
+
+      svg{
+        width: 23px;
+        height: 23px;
+      }
+
+    }
+
+    &_gg{
+
+      svg{
+        width: 19px;
+        height: 19px;
+      }
+
+    }
+
+    &_yb{
+
+      svg{
+        width: 29px;
+        height: 29px;
+      }
+
+    }
+
+    &_inst{
+
+      svg{
+        width: 21px;
+        height: 21px;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+  .followers{
+
+    &__icons-item{
+
+      svg {
+        -webkit-transition: transform .3s ease;
+        transition: transform .3s ease;
+      }
+
+      &:hover svg{
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+      }
+
+    }
+
+  }
+}
+
