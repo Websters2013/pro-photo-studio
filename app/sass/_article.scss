@@ -9,6 +9,17 @@
 
 }
 
+@media (min-width: $tablet-portrait) {
+  .article {
+
+    h1{
+      font-size: 30px;
+      line-height: 36px;
+    }
+
+  }
+}
+
 @media (min-width: $desktop) {
   .article{
     font-size: 20px;

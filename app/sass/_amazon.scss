@@ -1,0 +1,303 @@
+.amazon {
+  width: 100%;
+
+  &__title{
+    width: 100%;
+    margin-bottom: 33px;
+    color: #444;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+
+    h1{
+      width: 100%;
+      margin-bottom: 19px;
+      color: #222;
+      font-size: 24px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+  }
+
+  &__preface{
+    margin-bottom: 25px;
+    padding: 0 10px;
+    color: #222;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 300;
+    text-align: center;
+
+    .media-gallery__title{
+      margin-bottom: 50px;
+    }
+
+  }
+
+  &__item{
+    padding: 25px 10px;
+    background-color: #f2f2f2;
+    color: #222;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+
+    &:nth-child( odd ){
+      background-color: #fff;
+    }
+
+    h2{
+      width: 100%;
+      margin-bottom: 33px;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    &-content{
+      margin-bottom: 39px;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: left;
+
+      p{
+
+        + dl{
+          margin-top: 15px;
+        }
+
+      }
+
+      span{
+        color: #01b1af;
+      }
+
+      dl{
+        margin-bottom: 35px;
+      }
+
+      dt{
+        font-weight: 400;
+      }
+
+      dd{
+        margin-bottom: 16px;
+      }
+
+      img{
+        margin-bottom: 44px;
+      }
+
+      .btn{
+        display: block;
+        width: 200px;
+        padding: 7px 10px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: #000;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      &_1{
+
+        p {
+          margin-bottom: 20px;
+        }
+
+        .btn{
+          margin-top: 55px;
+        }
+
+      }
+
+    }
+
+    &-img{
+      max-width: 556px;
+
+      img{
+        display: block;
+        max-width: 100%;
+      }
+
+    }
+
+    &-address{
+      margin-top: 61px;
+      font-weight: 400;
+      font-size: 20px;
+
+      strong{
+        color: #01b1af;
+      }
+
+    }
+
+  }
+
+  &__advantages{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 25px 10px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 300;
+
+    &-item{
+      width: 31%;
+      text-align: center;
+    }
+
+    &-icon{
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 100px;
+      margin-bottom: 25px;
+    }
+
+    h3{
+      margin-bottom: 7px;
+      font-weight: 400;
+      font-size: 18px;
+    }
+
+    img{
+      display: block;
+      margin: 0 auto;
+    }
+
+  }
+
+  &__footer{
+    padding: 41px 10px 32px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    text-align: center;
+
+    a{
+      color: #01b1af;
+      font-size: 20px;
+    }
+
+    strong{
+      font-weight: 700;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .amazon{
+
+    &__wrap{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &__preface{
+      margin-bottom: 70px;
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .amazon{
+
+    &__title{
+      margin-bottom: 44px;
+
+      h1{
+        font-size: 48px;
+      }
+
+    }
+
+    &__preface{
+      padding: 92px calc( 50% - 504px) 0;
+    }
+
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-flow: row wrap;
+
+      &-content{
+        width: calc( 100% - 622px );
+
+        .btn{
+          -webkit-transition: background-color .3s ease;
+          transition: backgroun-color .3s ease;
+
+          &:hover{
+            background-color: #01b1af;
+          }
+
+        }
+
+      }
+
+    }
+
+    &__footer{
+
+      a{
+        position: relative;
+
+        &:after{
+          position: absolute;
+          top: calc( 100% - 2px );
+          left: 0;
+          right: 0;
+          opacity: 0;
+          border-bottom: 1px solid #01b1af;
+          -webkit-transition: opacity .3s ease;
+          transition: opacity .3s ease;
+          content: '';
+        }
+
+        &:hover{
+
+          &:after{
+            opacity: 1;
+          }
+
+        }
+
+
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: 1400px) {
+  .amazon{
+
+    &__item{
+      padding: 50px calc( 50% - 621px) 56px;
+    }
+
+    &__advantages{
+      padding: 60px calc( 50% - 621px) 70px;
+    }
+
+    &__footer{
+      padding: 41px calc( 50% - 621px) 32px;
+    }
+
+  }
+}

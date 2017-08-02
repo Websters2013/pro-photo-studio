@@ -1,0 +1,33 @@
+.comments {
+  margin-bottom: 40px;
+
+  &__title {
+    margin-bottom: 55px;
+    font-size: 21px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .comments {
+    margin-bottom: 80px;
+
+    &__title {
+      margin-bottom: 55px;
+      font-size: 40px;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .comments{
+
+    &__title {
+    }
+
+  }
+}
+
