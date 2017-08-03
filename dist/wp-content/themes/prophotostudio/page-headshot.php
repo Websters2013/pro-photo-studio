@@ -4,22 +4,29 @@ Template Name: Headshot
 */
 get_header();
 $post_id = 260;
-$button =  get_field('button', $post_id);
 $headshots =  get_field('headshots', $post_id);
-$headshots_string = '';
-if($headshots) {
-    $counter = 0;
-    foreach ($headshots as $row) {
-	    $image = $row['image'];
-        if($counter < 1) {
-           $image_first = '<img src="'.$image['url'].'" alt="'.$image['alt'].'" title="'.$image['title'].'"/>';
-        } else {
-	        $headshots_string .= '<div class="head-shot__command-item">
-                    <img src="'.$image['url'].'" alt="'.$image['alt'].'" title="'.$image['title'].'"/>
-                </div>';
-        }
-        $counter++;
-    }
+
+$args = array(
+	'post_type'      => 'portfolio',
+	'posts_per_page' => 1,
+	'orderby'        => 'menu_order',
+	'post_status'    => 'publish',
+	'fields'         => 'ids',
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'portfolio',
+			'field'    => 'slug',
+			'terms'    => 'headshot',
+		)
+	)
+);
+$query = new WP_Query();
+$posts = $query->query($args);
+if($posts) {
+	foreach ($posts as $row) {
+		$image = get_field('image', $row);
+		$image_first = '<img src="'.$image['url'].'" alt="'.$image['alt'].'" title="'.$image['title'].'"/>';
+	}
 }
 ?>
 
@@ -66,7 +73,6 @@ if($headshots) {
             <!-- head-shot__command-wrap -->
             <div class="head-shot__command-wrap">
 
-                <?= $headshots_string; ?>
 
             </div>
             <!-- /head-shot__command-wrap -->
@@ -81,7 +87,7 @@ if($headshots) {
 
 	        <?= get_field('bottom', $post_id); ?>
 
-            <a href="<?= $button['url']; ?>" class="btn"><?= $button['title']; ?></a>
+            <a href="<?= get_permalink(16) ?>" class="btn"><?= get_field('button', $post_id) ?></a>
 
         </div>
         <!-- /head-shot__footer -->
