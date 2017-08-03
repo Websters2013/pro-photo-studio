@@ -137,7 +137,7 @@ function add_js() {
 	if(is_page(292)) {
         wp_enqueue_style('amazon-page');
 	}
-	if(is_singular()) {
+	if(is_single()) {
         wp_enqueue_style('article-page');
 	}
 

@@ -9,7 +9,7 @@ $services_string = '';
 if($services) {
  foreach ($services as $row) {
   $url = $row['link'];
-  $title = ['title'];
+  $title = $row['title'];
   if($row['show'] === '1') {
 	  $url = get_permalink(165).'?category='.$row['category']->slug;
   }

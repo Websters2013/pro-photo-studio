@@ -58,7 +58,7 @@ function gallery_ajax() {
 				$image = explode('/', $image_overlay);
 				$image = 'http://img.youtube.com/vi/'.$image[count($image)-1].'/maxresdefault.jpg';
 			}
-			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.$image.'","dummy_big": "'.$image_overlay.'","video":"'.$video.'"}, ';
+			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.$image.'","dummy_big": "'.$image_overlay.'","title": "'.get_field('title_overlay', $row).'","video":"'.$video.'"}, ';
 		}
 	}
 	$portfolio_items = substr($portfolio_items,0, -2);
