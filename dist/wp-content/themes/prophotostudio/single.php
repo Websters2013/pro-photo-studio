@@ -20,6 +20,7 @@ $user = get_userdata($post->post_author);
 
 				<h1><?= get_the_title(); ?></h1>
 
+
 				<!-- article__info -->
 				<div class="article__info">
 					<dl><dt>Published:</dt> <dd><?= get_the_date('d, M, Y'); ?></dd></dl>
