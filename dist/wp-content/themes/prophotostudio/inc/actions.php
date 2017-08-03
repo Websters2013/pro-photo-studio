@@ -80,6 +80,7 @@ function add_js() {
 	wp_register_style('head-shot-page', get_template_directory_uri() . '/assets/css/head-shot-page.css');
 	wp_register_style('article-page', get_template_directory_uri() . '/assets/css/article-page.css');
 	wp_register_style('amazon-page', get_template_directory_uri() . '/assets/css/amazon-page.css');
+	wp_register_style('rates-page', get_template_directory_uri() . '/assets/css/rates-page.css');
 
 
 	wp_enqueue_script('jquery');
@@ -98,6 +99,9 @@ function add_js() {
     }
     if(is_page(8) || is_page(165)) {
 	    wp_enqueue_style('services-page');
+    }
+    if(is_page(10)) {
+	    wp_enqueue_style('rates-page');
     }
     if(is_page(16)) {
 	    wp_enqueue_style('place-page');

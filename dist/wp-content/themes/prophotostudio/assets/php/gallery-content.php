@@ -31,9 +31,9 @@ if ( $loadedGroup == 0 ){
                         {
                             "type": "all on-white video",
                             "dummy": "pic/gallery__pic-6.jpg",
-                            "dummy__big": "pic/gallery__pic-6.jpg",
+                            "dummy__big": "https://www.youtube.com/embed/SRMH-EHscb8",
                             "title": "img",
-                            "video": "0"
+                            "video": "1"
                         },
                         {
                             "type": "all custom-shots",
