@@ -7,7 +7,7 @@ Template Name: Rates
  $sub_menu = get_field('submenu', $post_id);
  if($sub_menu) {
      foreach ($sub_menu as $row) {
-         $sub_menu_string .= '<a href="#'.$row['anchor'].'" class="sub-menu__item swiper-slide">'.$row['title'].'</a>';
+         $sub_menu_string .= '<a href="#'.$row['anchor'].'" class="sub-menu__item swiper-slide anchor">'.$row['title'].'</a>';
      }
  }
 $templates = get_field('templates', $post_id);
@@ -39,7 +39,7 @@ $templates = get_field('templates', $post_id);
 		         }
 	         }
 	         $templates_string .= '<!-- rates__item -->
-              <div class="rates__item">
+              <div class="rates__item" id="basic">
             
                <h2 class="rates__item-topic">'.$row['title'].'</h2>
             
@@ -110,7 +110,7 @@ $templates = get_field('templates', $post_id);
 	         }
 
 	         $templates_string .= '<!-- rates__item -->
-              <div class="rates__item">
+              <div class="rates__item" id="jewlery">
             
                <h2 class="rates__item-topic">'.$row['title'].'</h2>
             
@@ -168,7 +168,7 @@ $templates = get_field('templates', $post_id);
 	         }
 
 	         $templates_string .= '<!-- rates__item -->
-              <div class="rates__item">
+              <div class="rates__item" id="custom-shots">
             
                <h2 class="rates__item-topic">'.$row['title'].'</h2>
             
@@ -217,7 +217,7 @@ $templates = get_field('templates', $post_id);
 		         }
 	         }
 	         $templates_string .= '<!-- rates__item -->
-              <div class="rates__item">
+              <div class="rates__item" id="apparel-fashion">
             
                <h2 class="rates__item-topic">'.$row['title'].'</h2>
             
@@ -278,7 +278,7 @@ $templates = get_field('templates', $post_id);
 		         }
 	         }
 	         $templates_string .= '<!-- rates__item -->
-              <div class="rates__item">
+              <div class="rates__item" id="360">
             
                <h2 class="rates__item-topic">'.$row['title'].'</h2>
             
