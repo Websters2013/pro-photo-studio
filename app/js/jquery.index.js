@@ -30,6 +30,10 @@
             new HeadShotLoader( $( this ) );
         } );
 
+        $.each( $( '.rates__item-swiper' ), function () {
+            new Sliders( $( this ) );
+        } );
+
     } );
 
     var Menu = function( obj ){
@@ -80,16 +84,20 @@
             _subMenuSlider = _obj.find( '.sub-menu__swiper' ),
             _catalogSlider = _obj.find( '.catalog__swiper' ),
             _promoSlider = _obj.find( '.promo__swiper' ),
+            _ratesSlider = _obj.find( '.rates__swiper' ),
             _partnersPrev = _obj.find( '.partners__swiper-prev' ),
             _catalogPrev = _obj.find( '.catalog__swiper-prev' ),
             _promoPrev = _obj.find( '.promo__swiper-prev' ),
+            _ratesPrev = _obj.find( '.rates__swiper-prev' ),
             _partnersNext = _obj.find( '.partners__swiper-next' ),
             _catalogNext = _obj.find( '.catalog__swiper-next' ),
             _promoNext = _obj.find( '.promo__swiper-next' ),
+            _ratesNext = _obj.find( '.rates__swiper-next' ),
             _partners,
             _catalog,
             _subMenu,
             _promo,
+            _rates,
             _window = $( window );
 
         //private methods
@@ -133,6 +141,16 @@
                     loop: true,
                     nextButton: _promoNext,
                     prevButton: _promoPrev
+                } );
+
+                _rates = new Swiper ( _ratesSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 'auto',
+                    loop: false,
+                    nextButton: _ratesNext,
+                    prevButton: _ratesPrev
                 } );
 
                 _subMenu = new Swiper ( _subMenuSlider, {
