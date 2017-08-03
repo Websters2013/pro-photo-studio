@@ -15,7 +15,7 @@ if($video) {
         }
        $video_string .= '<!-- video__top -->
             <div class="video__'.$class.'">
-                '.$row['url'].'
+                '.get_field('video', $row).'
             </div>
             <!-- /video__top -->';
        $counter++;

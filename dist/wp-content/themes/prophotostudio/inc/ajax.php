@@ -3,7 +3,7 @@ add_action('wp_ajax_gallery', 'gallery_ajax');
 add_action('wp_ajax_nopriv_gallery', 'gallery_ajax');
 function gallery_ajax() {
 	$type = $_GET['type'];
-	$page = $_GET['page'];
+	$page = $_GET['page']+1;
 
 	if($type === 'all' || $type === '') {
 		$categories = get_field('show_category', 2);
@@ -58,11 +58,11 @@ function gallery_ajax() {
 				$image = explode('/', $image_overlay);
 				$image = 'http://img.youtube.com/vi/'.$image[count($image)-1].'/maxresdefault.jpg';
 			}
-			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.$image.'","dummy_big": "'.$image_overlay.'","title": "'.get_field('title_overlay', $row).'","video":"'.$video.'"}, ';
+			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.$image.'","dummy_big": "'.$image_overlay.'","title": "'.get_field('title_overlay', $row).'","video": "'.$video.'"}, ';
 		}
 	}
 	$portfolio_items = substr($portfolio_items,0, -2);
-	if($query->max_num_pages < $page) {
+	if($query->max_num_pages > $page) {
 		$has_items = 1;
 	} else {
 		$has_items = 0;
