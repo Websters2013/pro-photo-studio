@@ -40,6 +40,8 @@
                     _switchBtn.removeClass( 'active' );
                     curBtn.addClass( 'active' );
 
+                    _obj.attr( 'data-loaded-group', 0 );
+
                     _loadNewItems( curType );
 
                     _filterFlag = true;
