@@ -64,7 +64,7 @@ if(!empty($posts)) {
 
     <dl>
      <dt>Published:</dt>
-     <dd><time datetime="'.get_the_date('Y-M-d').'">'.get_the_date('d, M, Y').'</time></dd>
+     <dd><time datetime="'.get_the_date('Y-m-d').'">'.get_the_date('d, M, Y').'</time></dd>
      <dt>Author:</dt>
      <dd>'.$user->first_name.' '.$user->last_name.', '.$tags.'.</dd>
     </dl>
