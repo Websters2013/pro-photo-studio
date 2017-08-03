@@ -81,24 +81,24 @@ if(!empty($categories)) {
             </div>
             <!--/media-gallery__inner-->
 
-        </div>
-        <!-- /media-gallery__cover -->
+            <!--preloader-->
+            <div class="preloader">
 
-        <!--preloader-->
-        <div class="preloader">
-
-            <!--preloader__inner-->
-            <span class="preloader__inner">
+                <!--preloader__inner-->
+                <span class="preloader__inner">
 
                     <!--preloader__item-->
                     <span class="preloader__item"></span>
-                <!--/preloader__item-->
+                    <!--/preloader__item-->
 
                 </span>
-            <!--/preloader__inner-->
+                <!--/preloader__inner-->
+
+            </div>
+            <!--/preloader-->
 
         </div>
-        <!--/preloader-->
+        <!-- /media-gallery__cover -->
 
         <!-- btn -->
         <a href="#" class="media-gallery__more"><?= get_field('title_button_portfolio', 2); ?></a>
