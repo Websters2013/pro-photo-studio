@@ -2,6 +2,10 @@
 
     $( function(){
 
+        $.each( $( '.anchor' ), function() {
+            new Anchor ( $( this ) );
+        } );
+
         $.each( $( '.partners' ), function() {
             new Sliders ( $( this ) );
         } );
@@ -35,6 +39,36 @@
         } );
 
     } );
+
+    var Anchor = function ( obj ) {
+        var _obj = obj,
+            _window = $( 'html, body' );
+
+        var _onEvents = function() {
+
+                _obj.on( {
+                    click: function() {
+
+                        if ( $('.menu').hasClass( 'mobile' ) ) {
+                            $( ".menu-btn" ).trigger( 'click' );
+                        }
+
+                        _window.animate( {
+                            scrollTop: $( $.attr(this, 'href') ).offset().top
+                        }, 600);
+                        $( '.menu' )[0].obj.destroy();
+
+                        return false;
+                    }
+                } );
+
+            },
+            _construct = function() {
+                _onEvents();
+            };
+
+        _construct()
+    };
 
     var Menu = function( obj ){
 

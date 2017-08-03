@@ -172,6 +172,11 @@
       font-weight: 400;
     }
 
+    a{
+      font-weight: 600;
+      color: #000;
+    }
+
   }
 
   &__btn-wrap{
@@ -444,6 +449,14 @@
 
       &_3 {
         margin-top: -70px;
+      }
+
+    }
+
+    &__price{
+
+      a:hover{
+        text-decoration: underline;
       }
 
     }
