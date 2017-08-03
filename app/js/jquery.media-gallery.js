@@ -80,7 +80,6 @@
                     newBlock;
 
                 if ( _filterFlag ){
-                    console.log('dddd')
                     _wrapper.html( _sizer );
                 }
 
@@ -215,7 +214,7 @@
                     data: {
                         action: 'gallery',
                         page: _obj.attr( 'data-loaded-group' ),
-                        type: _switchBtn.data( 'type' )
+                        type: _switchBtn.filter( '.active' ).data( 'type' )
                     },
                     dataType: 'json',
                     timeout: 20000,
