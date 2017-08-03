@@ -409,6 +409,7 @@
                     url: path,
                     data: {
                         action: 'gallery',
+                        type: 'headshot',
                         page: _obj.attr( 'data-loaded-group' )
                     },
                     dataType: 'json',
