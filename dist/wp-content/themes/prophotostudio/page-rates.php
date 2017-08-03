@@ -116,7 +116,7 @@ $templates = get_field('templates', $post_id);
             
                <!-- rates__item-half -->
                <div class="rates__item-half rates__item-half_2">
-                <h3>'.$row['$subtitle_price'].'</h3>
+                <h3>'.$row['subtitle_price'].'</h3>
             
                 <ul class="rates__price">
                  '.$price_list_string.'
@@ -223,7 +223,7 @@ $templates = get_field('templates', $post_id);
             
                <!-- rates__item-half -->
                <div class="rates__item-half rates__item-half_2">
-                <h3>'.$row['$subtitle_price'].'</h3>
+                <h3>'.$row['subtitle_price'].'</h3>
             
                 <ul class="rates__price">
                  '.$price_list_string.'
@@ -284,7 +284,7 @@ $templates = get_field('templates', $post_id);
             
                <!-- rates__item-half -->
                <div class="rates__item-half rates__item-half_2">
-                <h3>'.$row['$subtitle_price'].'</h3>
+                <h3>'.$row['subtitle_price'].'</h3>
             
                 <ul class="rates__price">
                     '.$price_list_string.'

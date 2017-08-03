@@ -22,7 +22,7 @@ if(!empty($posts)) {
 
             <div class="posts__content">
                 <h2>'.get_the_title($row).'</h2>
-                <time datetime="'.get_the_date('Y-M-d').'"><b>Published:</b>'.get_the_date('d, M, Y').'</time>
+                <time datetime="'.get_the_date('Y-m-d').'"><b>Published:</b>'.get_the_date('d, M, Y').'</time>
                 <a href="'.get_permalink($row).'" class="btn">'.get_field('buttons', 87).'</a>
             </div>
 
