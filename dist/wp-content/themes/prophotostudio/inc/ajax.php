@@ -5,7 +5,11 @@ function gallery_ajax() {
 	$type = $_GET['type'];
 	$page = $_GET['page'];
 
-	if($type === 'all') {
+	if($type === 'all' || $type === '') {
+		$categories = get_field('show_category', 2);
+		foreach ($categories as $row) {
+			$categories_arr[] = $row->slug;
+		}
 		$args = array(
 			'post_type'      => 'portfolio',
 			'paged' => $page,
@@ -13,6 +17,13 @@ function gallery_ajax() {
 			'orderby'        => 'menu_order',
 			'post_status'    => 'publish',
 			'fields'         => 'ids',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'portfolio',
+					'field'    => 'slug',
+					'terms'    => $categories_arr,
+				)
+			)
 		);
 	} else {
 		$args = array(
@@ -39,7 +50,15 @@ function gallery_ajax() {
 	if(!empty($posts)) {
 		foreach ($posts as $row) {
 			$class = implode(' ', wp_get_post_terms($row, 'portfolio', array('fields' => 'id=>slug', )));
-			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.get_the_post_thumbnail_url($row).'","dummy_big": "'.get_field('image_overlay', $row).'"}, ';
+			$image = get_field('image', $row)['url'];
+			$image_overlay = get_field('image_overlay', $row)['url'];
+			$video = get_field('project_show', $row);
+			if($video === '1') {
+				$image_overlay = get_field('video', $row, false, false);
+				$image = explode('/', $image_overlay);
+				$image = 'http://img.youtube.com/vi/'.$image[count($image)-1].'/maxresdefault.jpg';
+			}
+			$portfolio_items .= '{"type": "all '.$class.'","dummy": "'.$image.'","dummy_big": "'.$image_overlay.'","video":"'.$video.'"}, ';
 		}
 	}
 	$portfolio_items = substr($portfolio_items,0, -2);

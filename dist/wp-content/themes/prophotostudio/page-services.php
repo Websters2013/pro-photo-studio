@@ -8,11 +8,10 @@ $services = get_field('services', $post_id);
 $services_string = '';
 if($services) {
  foreach ($services as $row) {
-  $url = $row['link']['url'];
-  $title = $row['link']['title'];
+  $url = $row['link'];
+  $title = ['title'];
   if($row['show'] === '1') {
 	  $url = get_permalink(165).'?category='.$row['category']->slug;
-	  $title = $row['title'];
   }
 	 $services_string .= '<!-- services__item -->
   <a href="'.$url.'" class="services__item">

@@ -84,9 +84,11 @@ if(!empty($socials)) {
     <div class="followers__icons">
 
         <?= do_shortcode('[addtoany]'); ?>
+
         <script>
             $('.addtoany_list').find('img').addClass('style-svg');
         </script>
+
     </div>
 
 </div>

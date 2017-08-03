@@ -15,16 +15,19 @@ if($clients) {
     </div>';
  }
 }
-$args = array(
+
+$categories = get_field('show_category', 2);
+
+/*$args = array(
 	'taxonomy'      => 'portfolio',
 	'hide_empty'    => false,
     'hierarchical'  => false,
-    //'fields'        => 'id=>name',
     'orderby'       => 'term_order',
     'parent'        => '0',
 
-);
-$categories = get_terms($args);
+);*/
+//$categories = get_terms($args);
+
 $categories_list = '<button class="media-gallery__check active" data-type="all">All</button>';
 if(!empty($categories)) {
     foreach ($categories as $row) {
