@@ -17,6 +17,7 @@
         var _obj = obj,
             _body = $( 'body' ),
             _wrapper = _obj.find( '.media-gallery__wrap' ),
+            _sizer = $( '<div class="media-gallery__sizer"></div>' ),
             _switcher = _obj.find( '.media-gallery__switcher' ),
             _switchBtn = _switcher.find( 'button' ),
             _cover = _obj.find( '.media-gallery__cover' ),
@@ -26,7 +27,7 @@
             _window = $( window ),
             _isGallery = false,
             _firstGroup = true,
-            _filterFlag = false,
+            _filterFlag = true,
             _request = new XMLHttpRequest();
 
         var _onEvents = function () {
@@ -38,7 +39,8 @@
 
                     _switchBtn.removeClass( 'active' );
                     curBtn.addClass( 'active' );
-                    _wrapper.isotope( { filter: '.'+ curType } );
+
+                    _loadNewItems( curType );
 
                     _filterFlag = true;
 
@@ -49,13 +51,19 @@
                 _btnMore.on( {
                     click: function() {
                         _loadNewItems();
+
+                        _filterFlag = false;
+
                         return false;
                     }
                 } );
 
                 _obj.on( 'click', '.media-gallery__item', function() {
 
-                    SwiperPopup( $( this ), $( this ).index() );
+                    SwiperPopup( $( this ), $( this ).index() - 1 );
+
+                    _filterFlag = true;
+
                     return false;
 
                 } );
@@ -71,13 +79,22 @@
                     getItems = msg.items,
                     newBlock;
 
+                if ( _filterFlag ){
+                    console.log('dddd')
+                    _wrapper.html( _sizer );
+                }
+
                 $.each( getItems, function( ){
 
                     var curItem = this;
 
-                    newBlock = $( '<div class="media-gallery__item new '+ curItem.type +'">'+
-                        '<img src="'+ curItem.dummy +'" alt="'+ curItem.type +'"/>'+
+                    newBlock = $( '<div class="media-gallery__item new '+ curItem.type +'" title="' + this.title + '" data-href="'+ curItem.dummy__big +'">'+
+                        '<img src="'+ curItem.dummy +'" alt="'+ curItem.type +'" />'+
                         '</div>' );
+
+                    if ( curItem.video == 1 ){
+                        newBlock.addClass( 'media-gallery__item_video' );
+                    }
 
                     _wrapper.append( newBlock );
 
@@ -163,13 +180,7 @@
                     }
                 } );
 
-                if ( _filterFlag ){
-                    _wrapper.isotope( { filter: '.'+ _switchBtn.filter( '.active' ).data( 'type' ) } );
-                }
-
-                setTimeout( function () {
-                    _preloader.removeClass( 'active' );
-                }, 300 )
+                _preloader.removeClass( 'active' );
 
             },
             _removeBtnMore = function(){
@@ -244,7 +255,7 @@
             _galleryWrap = _obj.parents( '.media-gallery' ),
             _html = $( 'html' ),
             _window = $( window ),
-            _links = _wrapper.find( '.media-gallery__item img' ),
+            _links = _wrapper.find( '.media-gallery__item' ),
             _popup = null,
             _popupInner = null,
             _popupClose = null,
@@ -357,12 +368,12 @@
 
                         preloader = '<i class="fa fa-spinner fa-spin"></i>';
                         innerContent = '<div class="swiper-popup__video"/>';
-                        dataSRC = 'data-src="' + $(this).attr( "href" ) + '"';
+                        dataSRC = 'data-src="' + $(this).data( "href" ) + '"';
 
                     } else {
 
                         preloader = '';
-                        innerContent = '<img src="' + $( this ).attr( 'src' ) + '">';
+                        innerContent = '<img src="' + $(this).data( "href" ) + '">';
                         dataSRC = '';
 
                     }
