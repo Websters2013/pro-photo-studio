@@ -101,6 +101,14 @@
         content: '';
       }
 
+      &:nth-child(2):before{
+        background: url(../img/icon-email.jpg);
+      }
+
+      &:nth-child(3):before{
+        background: url(../img/icon-pin.jpg);
+      }
+
     }
 
     a{

@@ -26,6 +26,14 @@
             new Sort( $( this ) );
         } );
 
+        $.each( $( '.head-shot' ), function () {
+            new HeadShotLoader( $( this ) );
+        } );
+
+        $.each( $( '.rates__item-swiper' ), function () {
+            new Sliders( $( this ) );
+        } );
+
     } );
 
     var Menu = function( obj ){
@@ -76,16 +84,20 @@
             _subMenuSlider = _obj.find( '.sub-menu__swiper' ),
             _catalogSlider = _obj.find( '.catalog__swiper' ),
             _promoSlider = _obj.find( '.promo__swiper' ),
+            _ratesSlider = _obj.find( '.rates__swiper' ),
             _partnersPrev = _obj.find( '.partners__swiper-prev' ),
             _catalogPrev = _obj.find( '.catalog__swiper-prev' ),
             _promoPrev = _obj.find( '.promo__swiper-prev' ),
+            _ratesPrev = _obj.find( '.rates__swiper-prev' ),
             _partnersNext = _obj.find( '.partners__swiper-next' ),
             _catalogNext = _obj.find( '.catalog__swiper-next' ),
             _promoNext = _obj.find( '.promo__swiper-next' ),
+            _ratesNext = _obj.find( '.rates__swiper-next' ),
             _partners,
             _catalog,
             _subMenu,
             _promo,
+            _rates,
             _window = $( window );
 
         //private methods
@@ -129,6 +141,16 @@
                     loop: true,
                     nextButton: _promoNext,
                     prevButton: _promoPrev
+                } );
+
+                _rates = new Swiper ( _ratesSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 'auto',
+                    loop: false,
+                    nextButton: _ratesNext,
+                    prevButton: _ratesPrev
                 } );
 
                 _subMenu = new Swiper ( _subMenuSlider, {
@@ -241,6 +263,168 @@
             },
             _openLanguage = function() {
                 _obj.addClass( 'open' )
+            };
+
+        //public properties
+
+        //public methods
+
+        _construct();
+    };
+
+    var HeadShotLoader = function (obj) {
+
+        //private properties
+        var _obj = obj,
+            _body = $( 'body' ),
+            _fileLink = _body.data( 'action' ),
+            _btnMore = _obj.find( '.head-shot__command-more' ),
+            _preloader = _obj.find( '.preloader' ),
+            _wrapper = _obj.find( '.head-shot__command-wrap' ),
+            _cover = _obj.find( '.head-shot__command-cover' ),
+            _firstGroup = true,
+            _request = new XMLHttpRequest();
+
+        //private methods
+        var _construct = function () {
+                _loadNewItems();
+                _onEvent();
+            },
+            _addGalleryContent = function ( msg ) {
+
+                var hasItems = msg.has_items,
+                    getItems = msg.items,
+                    newBlock;
+
+                $.each( getItems, function( ){
+
+                    var curItem = this;
+
+                    newBlock = $( '<div class="head-shot__command-item new">'+
+                        '<img src="'+ curItem.dummy +'" alt="'+ curItem.title +'"/>'+
+                        '</div>' );
+
+                    _wrapper.append( newBlock );
+
+                } );
+
+                var newItems = _wrapper.find( '.new' );
+
+                setTimeout( function(){
+                    _heightAnimation( hasItems, newItems );
+                }, 550 );
+
+                _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' ) + 1 );
+
+            },
+            _heightAnimation = function( hasItems, newItems ){
+
+                var duration = 500;
+
+                if ( _firstGroup ){
+                    duration = 1
+                }
+
+                _cover.animate( {
+                    height: _wrapper.outerHeight()
+                }, {
+                    duration: duration,
+                    complete: function(){
+
+                        _cover.css( 'height', '' );
+
+                        newItems.each( function( i ){
+                            _showNewItems( $( this ), i );
+                        } );
+
+                        if ( hasItems == 0 ){
+                            _removeBtnMore();
+                        }
+
+                    }
+                } );
+
+                if ( _firstGroup ){
+                    setTimeout( function() {
+                        _firstGroup = false;
+                    }, 500 );
+                }
+
+            },
+            _showNewItems = function( item, index ){
+
+                var delay = 100;
+
+                if ( _firstGroup ) {
+                    delay = 1
+                }
+
+                setTimeout( function() {
+                    item.removeClass( 'new' );
+                }, index * delay );
+
+            },
+            _loadNewItems = function(){
+
+                var path  = _fileLink;
+
+                _preloader.addClass( 'active' );
+
+                _request.abort();
+                _request = $.ajax( {
+                    url: path,
+                    data: {
+                        action: 'gallery',
+                        page: _obj.attr( 'data-loaded-group' )
+                    },
+                    dataType: 'json',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function ( msg ) {
+
+                        _cover.height( _cover.height() );
+
+                        _addGalleryContent( msg );
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != 'abort' ) {
+                            alert( 'Error!' );
+                        }
+                    }
+                } );
+
+            },
+            _removeBtnMore = function(){
+
+                _btnMore.css( 'opacity', 0 );
+
+                setTimeout( function(){
+
+                    _btnMore.css( 'padding', 0 );
+
+                    _btnMore.animate( {
+                        height: 0
+                    }, {
+                        duration: 500,
+                        complete: function(){
+                            _btnMore.remove();
+                        }
+                    } );
+
+                }, 300 );
+
+            },
+            _onEvent = function() {
+
+                _btnMore.on( 'click', function () {
+
+                    _loadNewItems();
+
+                    return false;
+
+                } );
+
             };
 
         //public properties
