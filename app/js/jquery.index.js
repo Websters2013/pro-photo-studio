@@ -330,6 +330,8 @@
                     getItems = msg.items,
                     newBlock;
 
+                console.log( hasItems )
+
                 $.each( getItems, function( ){
 
                     var curItem = this;

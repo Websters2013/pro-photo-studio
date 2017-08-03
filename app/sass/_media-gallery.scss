@@ -18,6 +18,8 @@
   }
 
   &__cover {
+    min-height: 100px;
+    position: relative;
     overflow: hidden;
   }
 
