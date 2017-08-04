@@ -144,6 +144,8 @@
 
                         if ( hasItems == 0 ){
                             _removeBtnMore();
+                        } else if ( hasItems > 0 ) {
+                            _showBtnMore();
                         }
 
                     }
@@ -186,24 +188,14 @@
                 _preloader.removeClass( 'active' );
 
             },
+            _showBtnMore = function () {
+
+                _btnMore.removeClass( 'hide' );
+
+            },
             _removeBtnMore = function(){
 
-                _btnMore.css( 'opacity', 0 );
-
-                setTimeout( function(){
-
-                    _btnMore.css( 'padding', 0 );
-
-                    _btnMore.animate( {
-                        height: 0
-                    }, {
-                        duration: 500,
-                        complete: function(){
-                            _btnMore.remove();
-                        }
-                    } );
-
-                }, 300 );
+                _btnMore.addClass( 'hide' );
 
             },
             _loadNewItems = function(){

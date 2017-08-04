@@ -372,6 +372,8 @@
 
                         newItems.each( function( i ){
                             _showNewItems( $( this ), i );
+                            console.log( $( this ) )
+                            console.log( i )
                         } );
 
                         if ( hasItems == 0 ){
