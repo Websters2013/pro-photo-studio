@@ -25,7 +25,7 @@
   &__wrap{
     display: flex;
     flex-flow: wrap row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: stretch;
     max-width: 1352px;
     margin: 0 auto;
