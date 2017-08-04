@@ -192,6 +192,7 @@
                     speed: 500,
                     effect: 'slide',
                     slidesPerView: 'auto',
+                    simulateTouch: false,
                     onSlideChangeStart: function() {
                         _obj.removeClass( 'start' );
                         _subMenuSlider[0].swiper.slideTo( _subMenu.find( '.active' ).index() , 200, false );
