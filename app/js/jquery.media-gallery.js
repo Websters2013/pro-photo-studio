@@ -81,8 +81,6 @@
                     getItems = msg.items,
                     newBlock;
 
-                console.log( hasItems )
-
                 if ( _filterFlag ){
                     _wrapper.html( _sizer );
                 }
