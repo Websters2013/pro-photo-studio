@@ -33,7 +33,7 @@ function gallery_ajax() {
 		$args = array(
 			'post_type'      => 'portfolio',
 			'paged' => $page,
-			'posts_per_page' => 9,
+			'posts_per_page' => $posts_per_page,
 			'orderby'        => 'menu_order',
 			'post_status'    => 'publish',
 			'fields'         => 'ids',
