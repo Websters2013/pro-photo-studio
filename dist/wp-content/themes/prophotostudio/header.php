@@ -72,6 +72,13 @@ if( $locations && isset($locations[ $menu_name ]) ){
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <title>Title</title>
+    <?php if(is_single()) { ?>
+        <meta property="og:title" content="<?= get_the_title($post->ID); ?>"/>
+        <meta property="og:description" content="<?= get_field('excerpt', $post->ID); ?> "/>
+        <meta property="og:image" content="<?= get_the_post_thumbnail_url($post->ID); ?>">
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content= "<?= get_permalink($post->ID); ?>" />
+    <?php } ?>
 
 <?php wp_head(); ?>
 </head>

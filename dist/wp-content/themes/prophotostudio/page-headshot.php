@@ -11,7 +11,7 @@ $post_id = 260;
 ?>
 
     <!-- headshot -->
-    <article class="head-shot article">
+    <article class="head-shot article" data-loaded-group="0">
 
         <!-- head-shot__preface -->
         <div class="head-shot__preface">
@@ -50,12 +50,15 @@ $post_id = 260;
             </div>
             <!-- /head-shot__command-preface -->
 
-            <!-- head-shot__command-wrap -->
-            <div class="head-shot__command-wrap">
+            <div class="head-shot__command-cover">
 
+                <!-- head-shot__command-wrap -->
+                <div class="head-shot__command-wrap">
+
+                </div>
+                <!-- /head-shot__command-wrap -->
 
             </div>
-            <!-- /head-shot__command-wrap -->
 
             <a href="#" class="head-shot__command-more"><?= get_field('title_button_portfolio', 2); ?></a>
 
