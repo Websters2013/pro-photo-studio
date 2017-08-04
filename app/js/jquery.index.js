@@ -347,14 +347,8 @@
 
                 var newItems = _wrapper.find( '.new' );
 
-                console.log( 'test1' )
-
                 setTimeout( function(){
                     _heightAnimation( hasItems, newItems );
-                    console.log( 'test2' )
-                    console.log( hasItems )
-                    console.log( newItems )
-                    console.log( '-----' )
                 }, 550 );
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' ) + 1 );
@@ -363,6 +357,11 @@
             _heightAnimation = function( hasItems, newItems ){
 
                 var duration = 500;
+
+                console.log( 'test1' );
+                console.log( hasItems );
+                console.log( newItems );
+                console.log( '-----' );
 
                 if ( _firstGroup ){
                     duration = 1
@@ -378,7 +377,7 @@
 
                         newItems.each( function( i ){
                             _showNewItems( $( this ), i );
-                            console.log( 'test3' )
+                            console.log( 'test2' )
                             console.log( $( this ) )
                             console.log( i )
                             console.log( '-----' )
