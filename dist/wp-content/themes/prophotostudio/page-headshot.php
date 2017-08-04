@@ -4,30 +4,10 @@ Template Name: Headshot
 */
 get_header();
 $post_id = 260;
-$headshots =  get_field('headshots', $post_id);
 
-$args = array(
-	'post_type'      => 'portfolio',
-	'posts_per_page' => 1,
-	'orderby'        => 'menu_order',
-	'post_status'    => 'publish',
-	'fields'         => 'ids',
-	'tax_query' => array(
-		array(
-			'taxonomy' => 'portfolio',
-			'field'    => 'slug',
-			'terms'    => 'headshot',
-		)
-	)
-);
-$query = new WP_Query();
-$posts = $query->query($args);
-if($posts) {
-	foreach ($posts as $row) {
-		$image = get_field('image', $row);
+		$image = get_field('image', $post_id);
 		$image_first = '<img src="'.$image['url'].'" alt="'.$image['alt'].'" title="'.$image['title'].'"/>';
-	}
-}
+
 ?>
 
     <!-- headshot -->
