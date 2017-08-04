@@ -5,6 +5,10 @@ function gallery_ajax() {
 	$type = $_GET['type'];
 	$page = $_GET['page']+1;
 
+	$posts_per_page = 9;
+	if($type === 'headshot') {
+		$posts_per_page = 6;
+	}
 	if($type === 'all' || $type === '') {
 		$categories = get_field('show_category', 2);
 		foreach ($categories as $row) {
@@ -13,7 +17,7 @@ function gallery_ajax() {
 		$args = array(
 			'post_type'      => 'portfolio',
 			'paged' => $page,
-			'posts_per_page' => 9,
+			'posts_per_page' => $posts_per_page,
 			'orderby'        => 'menu_order',
 			'post_status'    => 'publish',
 			'fields'         => 'ids',
