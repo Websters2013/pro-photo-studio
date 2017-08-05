@@ -358,11 +358,6 @@
 
                 var duration = 500;
 
-                console.log( 'test1' );
-                console.log( hasItems );
-                console.log( newItems );
-                console.log( '-----' );
-
                 if ( _firstGroup ){
                     duration = 1
                 }
@@ -377,10 +372,6 @@
 
                         newItems.each( function( i ){
                             _showNewItems( $( this ), i );
-                            console.log( 'test2' )
-                            console.log( $( this ) )
-                            console.log( i )
-                            console.log( '-----' )
                         } );
 
                         if ( hasItems == 0 ){
@@ -422,7 +413,7 @@
                     data: {
                         action: 'gallery',
                         type: 'headshot',
-                        page: _obj.attr( 'data-loaded-group' )
+                        page: _obj.attr( 'data-loaded-group' ),
                     },
                     dataType: 'json',
                     timeout: 20000,

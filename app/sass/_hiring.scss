@@ -1,0 +1,178 @@
+.hiring {
+  width: 100%;
+  margin-bottom: 50px;
+  padding: 0 10px;
+
+  &__title{
+    width: 100%;
+    margin-bottom: 33px;
+    padding-top: 42px;
+    color: #444;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+
+    h1{
+      margin-bottom: 10px;
+      width: 100%;
+      color: #222;
+      font-size: 24px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: 0 -45px;
+
+    input[type=text], input[type=email], input[type=tel], textarea{
+      width: 100%!important;
+      height: 40px!important;
+      padding: 0 18px!important;
+      border: 1px solid #ababab!important;
+      color: #777;
+      @include OpenSans;
+      font-size: 14px;
+    }
+
+    input[type=button], input[type=submit],
+    button{
+      width: 150px!important;
+      height: 40px!important;
+      padding: 0!important;
+      border: none!important;
+      background-color: #01b1af;
+      color: #fff;
+      @include OpenSans;
+      font-size: 14px;
+
+      span{
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+
+    br{
+      display: none;
+    }
+
+  }
+
+  &__form-file{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    border: 1px solid #01b1af;
+    color: #01b1af;
+    font-size: 14px;
+    text-align: center;
+
+    input{
+      display: none;
+    }
+
+  }
+
+  &__btn{
+    display: block;
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 13px 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #01b1af;
+    text-align: center;
+  }
+
+  &__item{
+    padding: 24px 0 30px;
+    border-top: 1px solid #eee;
+  }
+
+  &__item-content{
+    margin-bottom: 14px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
+    text-align: center;
+
+    h3{
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+  .hiring{
+
+    &__form{
+
+      input[type=text], input[type=email], input[type=tel], textarea{
+        width: 250px!important;
+        margin-right: 9px;
+      }
+
+      label{
+        width: 150px;
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: $tablet-landscape) {
+  .hiring{
+    padding: 0 calc( 50% - 503px);
+
+    &__form {
+
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .hiring{
+
+    &__title{
+      margin-bottom: 52px;
+      font-size: 18px;
+
+      h1{
+        font-size: 48px;
+      }
+
+    }
+
+    &__form{
+
+      input[type=button], input[type=submit],
+      button{
+        -webkit-transition: background-color .3s ease;
+        transition: background-color .3s ease;
+
+        &:hover{
+          background-color: #48e0de;
+        }
+
+      }
+
+    }
+
+  }
+}
+
