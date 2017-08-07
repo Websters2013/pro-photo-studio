@@ -148,6 +148,17 @@
 
   }
 
+  div.wpcf7{
+    width: 100%;
+
+    p{
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+  }
+
 }
 
 @media (min-width: $tablet-portrait) {
@@ -172,6 +183,10 @@
         margin: 26px 0 14px;
       }
 
+    }
+
+    div.wpcf7 p{
+      flex-direction: row;
     }
 
   }
