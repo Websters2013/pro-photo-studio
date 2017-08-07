@@ -4,43 +4,77 @@ Template Name: Jobs
 */
  get_header();
 $post_id = 175;
-$jobs = get_field('jobs', $post_id);
-$jobs_string = '';
-if ($jobs) {
- foreach ($jobs as $row) {
-	 $jobs_string .= '<dd>'.$row['propose'].'</dd>';
- }
-}
+$sub_title = get_field('sub_title', $post_id);
+$sub_content = get_field('sub_content', $post_id);
+$title_button = get_field('title_button', $post_id);
+
 ?>
+    <!-- hiring -->
+    <div class="hiring">
 
- <!-- jobs -->
- <div class="jobs">
+        <!-- hiring__title -->
+        <div class="hiring__title">
+	        <?= get_post_field('post_content', $post_id); ?>
+        </div>
+        <!-- /hiring__title -->
 
-  <!-- jobs__title -->
-  <div class="jobs__title">
-	  <?= get_post_field('post_content', $post_id); ?>
-  </div>
-  <!-- /jobs__title -->
+        <!-- hiring__item -->
+        <div class="hiring__item">
 
-  <!-- jobs__propose -->
-  <dl class="jobs__propose">
+            <h3><?= $sub_title; ?></h3>
 
-   <dt><?= get_field('propose_title', $post_id); ?></dt>
+            <div class="hiring__item-hide">
 
-   <?= $jobs_string; ?>
+                <div class="hiring__item-content"><?= $sub_content; ?></div>
 
-  </dl>
-  <!-- /jobs__propose -->
+                <a href="#" class="hiring__btn"><?= $title_button; ?></a>
 
-  <!-- jobs__form -->
-  <div class="jobs__form">
+            </div>
+            <!-- hiring__form -->
+            <div class="hiring__form">
+            <?= do_shortcode('[contact-form-7 id="182" title="Jobs"]'); ?>
+            </div>
+            <!-- /hiring__form -->
 
-   <?= do_shortcode('[contact-form-7 id="182" title="Jobs"]'); ?>
+        </div>
+        <!-- /hiring__item -->
 
-  </div>
-  <!-- /jobs__form -->
+        <!-- hiring__item -->
+        <div class="hiring__item">
 
- </div>
- <!-- /jobs -->
+            <!-- hiring__item-content -->
+            <div class="hiring__item-content">
 
+                <h3><?= $sub_title; ?></h3>
+
+                <p><?= $sub_content; ?></p>
+
+            </div>
+            <!-- /hiring__item-content -->
+
+            <a href="#" class="hiring__btn"><?= $title_button; ?></a>
+
+        </div>
+        <!-- /hiring__item -->
+
+    </div>
+    <!-- /hiring -->
+<script>
+    $(document).ready(function () {
+        var submit = $('input[type=submit]');
+        submit.on('click', function (e) {
+            var thisis = this;
+            setTimeout(function () {
+            var inputFile = $(thisis.parentNode.parentNode);
+                if(inputFile.find('input[type=file]').hasClass('wpcf7-not-valid')) {
+                    console.log(inputFile.find('.hiring__form-file'));
+                    $(inputFile.find('.hiring__form-file')).css({'border': '1px solid red'});
+                }
+            }, 400);
+
+
+        })
+    });
+
+</script>
 <?php get_footer(); ?>

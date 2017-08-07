@@ -71,7 +71,7 @@ function add_js() {
 	wp_register_style('team-page', get_template_directory_uri() . '/assets/css/team-page.css');
 	wp_register_style('testimonials-page', get_template_directory_uri() . '/assets/css/testimonials-page.css');
 	wp_register_style('services-page', get_template_directory_uri() . '/assets/css/services-page.css');
-	wp_register_style('jobs-page', get_template_directory_uri() . '/assets/css/jobs-page.css');
+	wp_register_style('jobs-page', get_template_directory_uri() . '/assets/css/hiring-page.css');
 	wp_register_style('360-page', get_template_directory_uri() . '/assets/css/360-page.css');
 	wp_register_style('process-page', get_template_directory_uri() . '/assets/css/process-page.css');
 	wp_register_style('video-page', get_template_directory_uri() . '/assets/css/video-page.css');
@@ -91,7 +91,7 @@ function add_js() {
 	wp_enqueue_style('style');
 	wp_enqueue_style('swiper');
 
-	if(is_front_page()) {
+	if(is_front_page() || is_404()) {
         wp_enqueue_style('index');
     }
     if(is_page(6)) {

@@ -13,3 +13,14 @@ Text Domain: pro-photo-studio
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+span.wpcf7-not-valid-tip {
+    display: none;
+}
+.subscribe input[type=text].wpcf7-not-valid,
+.subscribe input[type=email].wpcf7-not-valid,
+.hiring__form input[type=tel].wpcf7-not-valid,
+.hiring__form input[type=text].wpcf7-not-valid,
+.hiring__form input[type=email].wpcf7-not-valid
+ {
+    border: 1px solid red !important;
+}
