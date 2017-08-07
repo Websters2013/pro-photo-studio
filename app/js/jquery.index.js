@@ -155,11 +155,15 @@
 
         //private properties
         var _obj = obj,
+            _stepsWrap = $( '.place-order__steps' ),
+            _stepsItem = _stepsWrap.find( '.place-order__steps-item' ),
+            _stepsLine = _stepsWrap.find( 'div > span' ),
             _formWrap = _obj.find( '.place-order__form-wrap' ),
             _formItemBlock = _obj.find( '.place-order__form-item' ),
-            _fields = _formItemBlock.find( 'input, textarea' ),
+            _fields = _formItemBlock.find( 'input' ),
             _checkbox = _formItemBlock.find( 'input[type=checkbox]' ),
             _select = _formItemBlock.find( 'select' ),
+            _file = _formItemBlock.find( 'input[type=file]' ),
             _inputs = _formItemBlock.find( '[data-required]' ),
             _btn = _formItemBlock.find( '.place-order__form-next' ),
             _changeNumber = _formItemBlock.find( '.place-order__form-num' ),
@@ -183,6 +187,13 @@
 
                 curFormItemBlock.removeClass( 'active' );
                 nextFormItemBlock.addClass( 'active' );
+
+                for ( var i = 0; i <= nextFormItemBlock.index(); i++ ){
+                    _stepsItem.eq(i).addClass( 'active' );
+                }
+
+                _stepsLine.css( 'width', ( nextFormItemBlock.index() + 1 ) * 100 / 4 +'%' );
+
                 _setHeight();
 
             },
@@ -248,15 +259,6 @@
                         _makeNotValid( field );
                         return false;
                     }
-                }
-
-                if( tagName.toLocaleLowerCase() == 'textarea' ){
-
-                    if( field.val() === '' ){
-                        _makeNotValid( field );
-                        return false;
-                    }
-
                 }
 
                 if( tagName.toLocaleLowerCase() == 'select' ){
@@ -349,7 +351,11 @@
                     var curBtn = $( this ),
                         curFormItemBlock = curBtn.parents( '.place-order__form-item' );
 
-                    _addNotTouchedClass( curFormItemBlock );
+                    if ( curFormItemBlock.find( '[data-required]' ).val() == 0 || curFormItemBlock.find( '[data-required]' ).val() == '' ){
+
+                        _addNotTouchedClass( curFormItemBlock );
+
+                    }
 
                     if( _fields.hasClass('not-touched') || _fields.hasClass('not-valid') || _select.hasClass('not-valid') ) {
 
@@ -358,7 +364,7 @@
 
                     } else {
 
-                        // _nextStep( curFormItemBlock );
+                        _nextStep( curFormItemBlock );
 
                     }
 
@@ -396,6 +402,15 @@
 
                 } );
 
+                _file.on( 'change', function () {
+
+                    var curElem = $( this ),
+                        curText = curElem.next( 'span' );
+
+                    curText.text( curElem.val() )
+
+                } )
+
             };
 
         //public properties
@@ -412,9 +427,9 @@
         var _self = this,
             _obj = obj,
             _area = _obj.find('.place-order__sign-area'),
-            _clear = _obj.find('.place-order__sign-refresh'),
-            _send = $('.canvas_check'),
-            _window = $(window),
+            _note = _obj.find('span'),
+            _send = $( '.canvas_check' ),
+            _window = $( window ),
             _result;
 
         //private methods
@@ -424,17 +439,6 @@
 
             },
             _onEvents = function() {
-
-                _clear.on( {
-
-                    click: function () {
-
-                        _area.signature('clear');
-                        return false;
-
-                    }
-
-                } );
 
                 _window.on( {
                     resize: function() {
@@ -453,15 +457,25 @@
 
                             _result = _area.signature('toSVG');
                             _area.removeClass( 'contact__sign-area-red' );
-                            $('.sign_val').val( _result );
+                            $( '.sign_val' ).val( _result );
 
                         } else {
 
                             _area.addClass( 'contact__sign-area-red' );
-                            $('.sign_val').val('');
+                            $( '.sign_val' ).val('');
 
                         }
 
+
+                    }
+
+                } );
+
+                _area.on( {
+
+                    click: function() {
+
+                        _note.remove();
 
                     }
 
@@ -478,7 +492,7 @@
             _initSignature = function() {
                 _area.signature( {
                     thickness: 1,
-                    color: '#ffffff'
+                    color: '#b7b7b7'
                 } );
             };
 

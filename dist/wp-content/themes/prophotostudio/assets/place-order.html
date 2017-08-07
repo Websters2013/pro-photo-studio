@@ -545,6 +545,9 @@
                             <!-- place-order__sign -->
                             <div class="place-order__sign">
 
+                                <span>The electronic signature need to be done by pressing the left click
+of the mouse inside the rectangle without letting go and grag like you sign</span>
+
                                 <!-- place-order__sign-area -->
                                 <div class="place-order__sign-area"></div>
                                 <!-- /place-order__sign-area -->
@@ -560,8 +563,11 @@
                         <!-- place-order__form-row -->
                         <div class="place-order__form-row">
 
-                            <label>
+                            <label class="place-order__upload">
                                 <input type="file">
+
+                                <span>Drop files anywhere to add</span>
+
                             </label>
 
                         </div>
@@ -572,11 +578,14 @@
                         <!-- place-order__form-row -->
                         <div class="place-order__form-row">
 
-                            <select>
-                                <option value="0">Yes/no</option>
-                                <option value="1">Yes</option>
-                                <option value="2">No</option>
-                            </select>
+                            <!-- place-order__form-fieldset -->
+                            <div class="place-order__form-fieldset">
+                                <select>
+                                    <option value="0">Yes/no</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
 
                         </div>
                         <!-- /place-order__form-fieldset -->
@@ -586,7 +595,7 @@
                         </div>
 
                         <div class="place-order__btn-wrap">
-                            <button>Next Page ></button>
+                            <button>Submit</button>
                         </div>
 
                     </div>
@@ -668,6 +677,7 @@
     <script src="js/vendors/jquery.ui.touch-punch.min.js"></script>
     <script src="js/vendors/jquery.signature.min.js"></script>
     <script src="js/vendors/swiper.jquery.min.js"></script>
+    <script src="js/vendors/jquery.nicescroll.min.js"></script>
     <script src="js/index.min.js"></script>
 </body>
 </html>
