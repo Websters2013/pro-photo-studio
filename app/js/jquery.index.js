@@ -34,6 +34,10 @@
             new HeadShotLoader( $( this ) );
         } );
 
+        $.each( $( '.hiring__item' ), function () {
+            new Hiring( $( this ) );
+        } );
+
         $.each( $( '.rates__item-swiper' ), function () {
             new Sliders( $( this ) );
         } );
@@ -57,6 +61,33 @@
                             scrollTop: $( $.attr(this, 'href') ).offset().top
                         }, 600);
                         $( '.menu' )[0].obj.destroy();
+
+                        return false;
+                    }
+                } );
+
+            },
+            _construct = function() {
+                _onEvents();
+            };
+
+        _construct()
+    };
+
+    var Hiring = function ( obj ) {
+        var _obj = obj,
+            _btn = _obj.find( '.hiring__btn' ),
+            _forum = _obj.find( '.hiring__form' ),
+            _hideContent = _obj.find( '.hiring__item-hide' ),
+            _window = $( 'html, body' );
+
+        var _onEvents = function() {
+
+                _btn.on( {
+                    click: function() {
+
+                        _hideContent.addClass( 'hide' );
+                        _forum.addClass( 'visible' );
 
                         return false;
                     }

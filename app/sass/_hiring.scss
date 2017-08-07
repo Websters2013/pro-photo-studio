@@ -26,13 +26,19 @@
 
   &__form{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
-    margin: 0 -45px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
 
     input[type=text], input[type=email], input[type=tel], textarea{
       width: 100%!important;
       height: 40px!important;
+      margin-bottom: 10px;
       padding: 0 18px!important;
       border: 1px solid #ababab!important;
       color: #777;
@@ -44,12 +50,14 @@
     button{
       width: 150px!important;
       height: 40px!important;
+      margin: 0 auto;
       padding: 0!important;
       border: none!important;
       background-color: #01b1af;
       color: #fff;
       @include OpenSans;
       font-size: 14px;
+      text-transform: uppercase;
 
       span{
         width: 100%;
@@ -58,8 +66,21 @@
 
     }
 
+    label{
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
     br{
       display: none;
+    }
+
+    &.visible{
+      height: auto;
+      margin: 26px 0 14px;
+      opacity: 1;
+      visibility: visible;
     }
 
   }
@@ -94,15 +115,8 @@
   }
 
   &__item{
-    padding: 24px 0 30px;
+    padding: 27px 0 30px;
     border-top: 1px solid #eee;
-  }
-
-  &__item-content{
-    margin-bottom: 14px;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 26px;
     text-align: center;
 
     h3{
@@ -113,20 +127,49 @@
 
   }
 
+  &__item-content{
+    margin-bottom: 14px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
+    text-align: center;
+  }
+
+  &__item-hide{
+    overflow: hidden;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+
+    &.hide{
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
 }
 
 @media (min-width: $tablet-portrait) {
   .hiring{
 
     &__form{
+      flex-direction: row;
 
       input[type=text], input[type=email], input[type=tel], textarea{
-        width: 250px!important;
+        width: 22%!important;
         margin-right: 9px;
+        margin-bottom: 0;
       }
 
       label{
         width: 150px;
+        margin-right: 11px;
+        margin-bottom: 0;
+      }
+
+      &.visible{
+        margin: 26px 0 14px;
       }
 
     }
@@ -139,6 +182,10 @@
     padding: 0 calc( 50% - 503px);
 
     &__form {
+
+      input[type=text], input[type=email], input[type=tel], textarea{
+        width: 250px!important;
+      }
 
     }
 
@@ -159,6 +206,18 @@
     }
 
     &__form{
+      margin: 0 -45px;
+
+      label{
+        -webkit-transition: background-color .3s ease, color .3s ease;
+        transition: background-color .3s ease, color .3s ease;
+
+        &:hover{
+          color: #fff;
+          background-color: #48e0de;
+        }
+
+      }
 
       input[type=button], input[type=submit],
       button{
@@ -169,6 +228,20 @@
           background-color: #48e0de;
         }
 
+      }
+
+      &.visible{
+        margin: 26px -45px 14px;
+      }
+
+    }
+
+    &__btn{
+      -webkit-transition: background-color .3s ease;
+      transition: background-color .3s ease;
+
+      &:hover{
+        background-color: #48e0de;
       }
 
     }
