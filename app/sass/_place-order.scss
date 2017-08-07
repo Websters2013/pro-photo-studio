@@ -401,12 +401,22 @@
   }
 
   &__sign {
+    position: relative;
     @include flexbox();
     @include flex-wrap( wrap );
     @include flex-direction();
     @include align-items( flex-end );
     @include justify-content( flex-start );
-    margin: 0 0 1.1em;
+    width: 100%;
+
+    span{
+      position: absolute;
+      top: 8px;
+      left: 15px;
+      width: 60%;
+      font-size: 14px;
+      line-height: 24px;
+    }
 
     &-area {
       @include flexbox();
@@ -415,18 +425,56 @@
       @include align-items( center );
       @include justify-content( center );
       position: relative;
-      width: 25em;
-      height: 15em;
-      margin: 0 0.8em 0 0;
-      border: 1px solid #000;
+      width: 100%;
+      height: 150px;
+      border: 1px solid #b7b7b7;
 
       canvas {
-        //position: absolute;
-        //top: 0;
-        //left: 0;
-        //width: 100% !important;
-        //height: 100% !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
       }
+    }
+
+  }
+
+  &__upload{
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    height: 50px;
+    width: 75%;
+    border: 1px dashed #b7b7b7;
+
+    input{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    &:after{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: -126px;
+      bottom: 0;
+      width: 110px;
+      height: 30px;
+      background: #ebebec;
+      color: #222;
+      @include OpenSans;
+      font-size: 14px;
+      content: 'Add files';
+      -webkit-transition: background-color .3s ease;
+      transition: background-color .3s ease;
     }
 
   }
@@ -517,6 +565,18 @@
       a:hover{
         text-decoration: underline;
       }
+    }
+
+    &__upload{
+
+      &:after{
+
+        &:hover{
+          background-color: #e7e7e8;
+        }
+
+      }
+
     }
 
   }
