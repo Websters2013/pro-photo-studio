@@ -31,15 +31,519 @@ $post_id = 16;
   </div>
   <!-- /place-order__warning -->
 
-  <!-- place-order__form -->
-  <div class="place-order__form">
+     <!-- place-order__warning -->
+     <div class="place-order__steps">
+         <div><span></span></div>
+         <span class="place-order__steps-item active">1</span>
+         <span class="place-order__steps-item">2</span>
+         <span class="place-order__steps-item">3</span>
+         <span class="place-order__steps-item">4</span>
+     </div>
+     <!-- /place-order__warning -->
 
-   <?= do_shortcode('[contact-form-7 id="239" title="Order"]'); ?>
+     <!-- place-order__form -->
+     <form class="place-order__form" enctype="multipart/form-data">
 
-  </div>
-  <!-- /place-order__form -->
+         <div class="place-order__form-wrap">
+
+             <!-- place-order__form-item -->
+             <div class="place-order__form-item active">
+
+                 <div class="place-order__form-topic">Personal Information</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <input type="text" placeholder="Firs Name" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <input type="text" placeholder="Last Name" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-row -->
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <input type="text" placeholder="Company Name" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <input type="tel" placeholder="Phone Number" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-row -->
+
+                 <div class="place-order__form-topic">Address</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-address">
+                         <input type="text" placeholder="Street Address" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-city">
+                         <input type="text" placeholder="City" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-state">
+                         <input type="text" placeholder="State" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-zip">
+                         <input type="text" placeholder="Zip Code" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-topic">Contact</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <input type="email" placeholder="Email" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <input type="text" placeholder="Website" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-topic">Code</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <input type="text" placeholder="Uniqe code" data-required="true" />
+                         <span>*</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-note">
+                        <span>Must write same 6 digits you will write on package
+                            you are sending</span>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-print">
+	                 <?= do_shortcode('[print-me target="body" printicon="false" title="Print"]'); ?>
+                 </div>
+
+                 <div class="place-order__btn-wrap">
+                     <a href="#" class="place-order__form-next">Next Page ></a>
+                 </div>
+
+             </div>
+             <!-- /place-order__form-item -->
+
+             <!-- place-order__form-item -->
+             <div class="place-order__form-item">
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <div class="place-order__form-topic">Total shot quantity needed <span>*</span></div>
+                         <input type="number" placeholder="0" value="0" data-required="true" />
+                         <div class="place-order__form-num">
+                             <a href="#" class="plus"></a>
+                             <a href="#" class="minus"></a>
+                         </div>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <div class="place-order__form-topic">group shot quantity needed</div>
+                         <input type="number" placeholder="Last Name" value="0" data-required="true" />
+                         <div class="place-order__form-num">
+                             <a href="#" class="plus"></a>
+                             <a href="#" class="minus"></a>
+                         </div>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-row -->
+
+                 <div class="place-order__form-topic">If pricing was discusses, pleas write here</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-address">
+                         <input type="text" placeholder="Price" />
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-city">
+                         <div class="place-order__form-topic">Background</div>
+                         <select>
+                             <option value="0">Choose</option>
+                             <option value="1">Black</option>
+                             <option value="2">White</option>
+                         </select>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-state">
+                         <div class="place-order__form-topic">Turn-around time <span>*</span></div>
+                         <select data-required="true">
+                             <option value="0">Choose</option>
+                             <option value="1">Black</option>
+                             <option value="2">White</option>
+                         </select>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-zip">
+                         <div class="place-order__form-topic">Clipping path <span>*</span>
+
+                             <div class="place-order__info">
+                                 <span class="place-order__info-btn">?</span>
+                                 <span class="place-order__info-popup">No background - Transparent</span>
+                             </div>
+
+                         </div>
+
+                         <select data-required="true">
+                             <option value="0">Yes/no</option>
+                             <option value="1">Yes</option>
+                             <option value="2">No</option>
+                         </select>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-print">
+	                 <?= do_shortcode('[print-me target="body" printicon="false" title="Print"]'); ?>
+                 </div>
+
+                 <div class="place-order__btn-wrap">
+                     <a href="#" class="place-order__form-next">Next Page ></a>
+                 </div>
+
+             </div>
+             <!-- /place-order__form-item -->
+
+             <!-- place-order__form-item -->
+             <div class="place-order__form-item">
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <div class="place-order__form-topic">Hand image <span>*</span></div>
+
+                         <select data-required="true">
+                             <option value="0">Yes/no</option>
+                             <option value="1">Yes</option>
+                             <option value="2">No</option>
+                         </select>
+
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <div class="place-order__form-topic">Imag category <span>*</span></div>
+
+                         <select data-required="true">
+                             <option value="0">Choose</option>
+                             <option value="1">Jewelry & Watches</option>
+                             <option value="2">Food</option>
+                             <option value="3">Handbags</option>
+                             <option value="4">Health & Beauty</option>
+                             <option value="5">Industrial</option>
+                             <option value="6">Jewelry & Watches</option>
+                             <option value="7">Food</option>
+                             <option value="8">Handbags</option>
+                             <option value="9">Health & Beauty</option>
+                             <option value="10">Industrial</option>
+                         </select>
+
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-row -->
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <div class="place-order__form-topic">Image purpose <span>*</span></div>
+
+                         <select data-required="true">
+                             <option value="0">Choose</option>
+                             <option value="1">Jewelry & Watches</option>
+                             <option value="2">Food</option>
+                             <option value="3">Handbags</option>
+                             <option value="4">Health & Beauty</option>
+                             <option value="5">Industrial</option>
+                             <option value="6">Jewelry & Watches</option>
+                             <option value="7">Food</option>
+                             <option value="8">Handbags</option>
+                             <option value="9">Health & Beauty</option>
+                             <option value="10">Industrial</option>
+                         </select>
+
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <div class="place-order__form-topic">Coupon code</div>
+
+                         <select>
+                             <option value="0">Choose</option>
+                             <option value="1">Jewelry & Watches</option>
+                             <option value="2">Food</option>
+                             <option value="3">Handbags</option>
+                             <option value="4">Health & Beauty</option>
+                             <option value="5">Industrial</option>
+                             <option value="6">Jewelry & Watches</option>
+                             <option value="7">Food</option>
+                             <option value="8">Handbags</option>
+                             <option value="9">Health & Beauty</option>
+                             <option value="10">Industrial</option>
+                         </select>
+
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-row -->
+
+                 <div class="place-order__form-topic">How did you hear about us? <span>*</span></div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset place-order__form-address">
+                         <select data-required="true">
+                             <option value="0">Choose</option>
+                             <option value="1">Jewelry & Watches</option>
+                             <option value="2">Food</option>
+                             <option value="3">Handbags</option>
+                             <option value="4">Health & Beauty</option>
+                             <option value="5">Industrial</option>
+                             <option value="6">Jewelry & Watches</option>
+                             <option value="7">Food</option>
+                             <option value="8">Handbags</option>
+                             <option value="9">Health & Beauty</option>
+                             <option value="10">Industrial</option>
+                         </select>
+                     </div>
+                     <!-- /place-order__form-fieldset -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-topic">Comments</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <textarea placeholder="Your comments"></textarea>
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <div class="place-order__terms">
+                         Terms os service <span>*</span>
+                         <label>
+                             <input type="checkbox" data-required="true" />
+                             <span>I agree to the <a href="#">terms of service</a></span>
+                         </label>
+                     </div>
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-print">
+	                 <?= do_shortcode('[print-me target="body" printicon="false" title="Print"]'); ?>
+                 </div>
+
+                 <div class="place-order__btn-wrap">
+                     <a href="#" class="place-order__form-next">Next Page ></a>
+                 </div>
+
+             </div>
+             <!-- /place-order__form-item -->
+
+             <!-- place-order__form-item -->
+             <div class="place-order__form-item">
+
+                 <div class="place-order__form-topic">Electronic signature <span>*</span></div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__sign -->
+                     <div class="place-order__sign">
+
+                                <span>The electronic signature need to be done by pressing the left click
+of the mouse inside the rectangle without letting go and grag like you sign</span>
+
+                         <!-- place-order__sign-area -->
+                         <div class="place-order__sign-area"></div>
+                         <!-- /place-order__sign-area -->
+
+                     </div>
+                     <!-- /place-order__sign -->
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-topic">Upload sample files</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <label class="place-order__upload">
+                         <input type="file" name="async-upload" class="image-file">
+
+                         <span>Drop files anywhere to add</span>
+
+                     </label>
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+
+                 <div class="place-order__form-topic">Need prodect back</div>
+
+                 <!-- place-order__form-row -->
+                 <div class="place-order__form-row">
+
+                     <!-- place-order__form-fieldset -->
+                     <div class="place-order__form-fieldset">
+                         <select>
+                             <option value="0">Yes/no</option>
+                             <option value="1">Yes</option>
+                             <option value="2">No</option>
+                         </select>
+                     </div>
+
+                 </div>
+                 <!-- /place-order__form-fieldset -->
+	             <?php wp_nonce_field('image-submission'); ?>
+                 <div class="place-order__form-print">
+	                 <?= do_shortcode('[print-me target="body" printicon="false" title="Print"]'); ?>
+                 </div>
+
+                 <div class="place-order__btn-wrap">
+                     <button>Submit</button>
+                 </div>
+
+             </div>
+             <!-- /place-order__form-item -->
+
+         </div>
+
+     </form>
 
  </div>
  <!-- /place-order -->
+<script>
+    $(document).ready(function() {
 
+
+        var $imgFile    = $('.image-file');
+        var formData = new FormData();
+
+        formData.append('action', 'upload-attachment');
+        formData.append('async-upload', $imgFile[0].files[0]);
+        //formData.append('name', $imgFile[0].files[0].name);
+        //formData.append('_wpnonce', su_config.nonce);
+
+        $imgFile.on('change', function(e) {
+            console.log('dfdfd');
+            $.ajax({
+                url: $('body').data('action'),
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                type: 'POST',
+                success: function(resp) {
+                    console.log(resp);
+                }
+            });
+        });
+
+
+    });
+</script>
 <?php get_footer(); ?>
