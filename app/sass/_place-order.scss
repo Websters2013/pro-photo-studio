@@ -77,10 +77,30 @@
     padding: 0 10px;
     text-align: left;
 
-    h2{
+    &-topic{
       margin: 17px 0 15px;
       font-size: 18px;
       font-weight: 600;
+    }
+
+    &-wrap{
+      position: relative;
+    }
+
+    &-item{
+      position: absolute;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: opacity .3s ease, visibility .3s ease, height .3s ease;
+      transition: opacity .3s ease, visibility .3s ease, height .3s ease;
+
+      &.active{
+        opacity: 1;
+        visibility: visible;
+      }
+
     }
 
     &-fieldset{
@@ -89,10 +109,13 @@
       max-width: 390px;
 
       span{
+        color: #24b6b4;
+      }
+
+      > span{
         position: absolute;
         top: 13px;
         right: 10px;
-        color: #24b6b4;
       }
 
     }
@@ -119,7 +142,7 @@
     }
 
     &-print{
-      margin: 52px 0 25px;
+      margin-top: 52px;
       font-size: 14px;
       font-weight: 600;
       line-height: 24px;
@@ -131,7 +154,8 @@
 
     }
 
-    input[type=text], input[type=email], input[type=tel], textarea{
+    input[type=text], input[type=email],
+    input[type=tel], input[type=number], textarea{
       width: 100%!important;
       height: 39px!important;
       margin-bottom: 14px;
@@ -140,6 +164,13 @@
       color: #777;
       @include OpenSans;
       font-size: 14px;
+      -webkit-transition: border-color .3s ease;
+      transition: border-color .3s ease;
+
+      &.not-valid, &.not-touched{
+        border-color: #f00!important;
+      }
+
     }
 
     textarea{
@@ -148,13 +179,69 @@
       padding: 8px 18px !important;
     }
 
+    input[type=checkbox]{
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+
+      & + span{
+        position: relative;
+        padding-left: 35px;
+
+        &:before{
+          position: absolute;
+          top: 2px;
+          left: 12px;
+          width: 15px;
+          height: 15px;
+          border: 1px solid #b7b7b7;
+          -webkit-transition: border-color .3s ease;
+          transition: border-color .3s ease;
+          content: '';
+        }
+
+        &:after{
+          position: absolute;
+          top: 6px;
+          left: 16px;
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          background-color: #b7b7b7;
+          opacity: 0;
+          -webkit-transition: opacity .3s ease;
+          transition: opacity .3s ease;
+          content: '';
+        }
+
+      }
+
+      &:checked + span{
+
+        &:after{
+          opacity: 1;
+        }
+
+      }
+
+      &.not-valid,
+      &.not-touched{
+        + span:before{
+          border-color: #f00!important;
+        }
+      }
+
+    }
+
     input[type=button], input[type=submit],
-    button{
-      display: block;
+    button, &-next{
+      display: inline-block;
       margin: 0 auto;
       padding: 0!important;
       border: none!important;
       background-color: transparent;
+      color: #000;
+      @include OpenSans;
       font-size: 20px;
       font-weight: 300;
 
@@ -167,6 +254,177 @@
 
     br{
       display: none;
+    }
+
+  }
+
+  &__form-num{
+    position: absolute;
+    right: 13px;
+    bottom: 14px;
+    height: 40px;
+    width: 25px;
+
+    a{
+      top: 6px;
+      right: 0;
+      border: solid transparent;
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-color: rgba(1, 177, 175, 0);
+      border-bottom-color: #01b1af;
+      border-width: 5px;
+      -webkit-transition: transform .3s ease, top .3s ease ;
+      transition: transform .3s ease, top .3s ease ;
+      cursor: pointer;
+    }
+
+    a + a{
+      top: auto;
+      bottom: 6px;
+      border-top-color: #01b1af;
+      border-bottom-color: transparent;
+    }
+
+  }
+
+  &__steps{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    margin: 0 auto 56px;
+    overflow: hidden;
+
+    &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border: 2px solid #01b1af;
+      background-color: #fff;
+      color: #01b1af;
+      font-size: 27px;
+      border-radius: 50%;
+      z-index: 2;
+
+      &.active{
+        color: #fff;
+        background-color: #01b1af;
+      }
+
+    }
+
+    > div{
+      position: absolute;
+      top: calc( 50% - 2px );
+      left: -20px;
+      right: -20px;
+      height: 4px;
+      background-color: #ebebeb;
+
+      span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 25%;
+        height: inherit;
+        background-color: #01b1af;
+      }
+
+    }
+
+  }
+
+  &__info{
+    display: inline-block;
+    position: relative;
+
+    &-btn{
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 17px;
+      width: 17px;
+      border-radius: 50%;
+      background-color: #01b1af;
+      color: #fff!important;
+      font-size: 11px;
+      text-align: center;
+
+      &:hover + .place-order__info-popup {
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+
+    &-popup{
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-right: 15px;
+      padding: 12px 15px;
+      white-space: nowrap;
+      color: #fff!important;
+      background-color: #01b1af;
+      font-size: 14px;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 2;
+      -webkit-transform: translateY( -50% );
+      transform: translateY( -50% );
+      -webkit-transition: opacity .3s ease, visibility .3s ease;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+  }
+
+  &__btn-wrap{
+    display: flex;
+    align-content: center;
+    margin-top: 25px;
+  }
+
+  &__terms{
+    font-size: 16px;
+
+    & > span, a{
+      color: #01b1af;
+    }
+
+  }
+
+  &__sign {
+    @include flexbox();
+    @include flex-wrap( wrap );
+    @include flex-direction();
+    @include align-items( flex-end );
+    @include justify-content( flex-start );
+    margin: 0 0 1.1em;
+
+    &-area {
+      @include flexbox();
+      @include flex-wrap( wrap );
+      @include flex-direction();
+      @include align-items( center );
+      @include justify-content( center );
+      position: relative;
+      width: 25em;
+      height: 15em;
+      margin: 0 0.8em 0 0;
+      border: 1px solid #000;
+
+      canvas {
+        //position: absolute;
+        //top: 0;
+        //left: 0;
+        //width: 100% !important;
+        //height: 100% !important;
+      }
     }
 
   }
@@ -241,6 +499,22 @@
 
       }
 
+    }
+
+    &__info{
+
+      &-popup{
+        right: auto;
+        left: 100%;
+        margin: 0 0 0 15px;
+      }
+
+    }
+
+    &__terms{
+      a:hover{
+        text-decoration: underline;
+      }
     }
 
   }

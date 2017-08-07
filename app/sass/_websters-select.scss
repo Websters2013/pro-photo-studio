@@ -4,62 +4,52 @@
   vertical-align: top;
   box-sizing: border-box;
   position: relative;
-  width: 200px;
-  height: 22px;
-  border: 1px solid $websters-select-border;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #b7b7b7;
+  -webkit-transition: border-color .3s ease;
+  transition: border-color .3s ease;
+
+  &.not-valid, &.not-touched{
+    border-color: #f00!important;
+  }
 
   &_opened {
 
     .websters-select__arrow {
+      top: calc( 50% - 6px );
       transform: rotate(180deg);
     }
 
   }
 
   &__arrow{
+    top: calc( 50% - 2px );
+    right: 11px;
+    border: solid transparent;
+    height: 0;
+    width: 0;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 20px;
-    transform-origin: center;
-    -webkit-transition: -webkit-transform 200ms ease-in-out;
-    transition: transform 200ms ease-in-out;
-
-    &:after,
-    &:before {
-      position: absolute;
-      top: 9px;
-      width: 10px;
-      height: 2px;
-      border-radius: 2px;
-      background: $websters-select-border;
-      content: '';
-    }
-
-    &:after {
-      left: 4px;
-      transform: rotate(70deg);
-
-    }
-
-    &:before {
-      right: 3px;
-      transform: rotate(-70deg);
-
-    }
+    pointer-events: none;
+    border-color: rgba(1, 177, 175, 0);
+    border-top-color: #01b1af;
+    border-width: 5px;
+    -webkit-transition: transform .3s ease, top .3s ease ;
+    transition: transform .3s ease, top .3s ease ;
   }
 
   &__item {
     overflow: hidden;
     @include absoluteCenterY();
     right: 20px;
-    left: 5px;
-    padding: 1px 5px 0;
+    left: 21px;
     box-sizing: border-box;
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: left;
+    @include OpenSans;
+    font-size: 14px;
+    color: #222!important;
   }
 
   &_mobile {
@@ -88,8 +78,11 @@
     position: absolute;
     z-index: 10;
     box-sizing: border-box;
-    border: 1px solid $websters-select-border;
+    border: 1px solid #b7b7b7;
+    border-top: none;
     background: $websters-select-popup-back;
+    @include OpenSans;
+    font-size: 14px;
 
     ul {
       z-index: 1;
@@ -99,15 +92,35 @@
       white-space: nowrap;
       overflow: hidden;
       cursor: pointer;
+      color: #222;
+      padding: 10px 21px;
+      -webkit-transition: background-color .3s ease, color .3s ease;
+      transition: background-color .3s ease, color .3s ease;
+
+      &:first-child{
+        color: #b7b7b7;
+        pointer-events: none;
+
+        &:hover {
+          color: #b7b7b7;
+          background-color: #fff;
+        }
+
+        &.active {
+          color: #b7b7b7!important;
+          background-color: #fff;
+        }
+
+      }
 
       &:hover {
         color: $websters-select-popup-item-active-color;
-        background: $websters-select-popup-item-active-back;
+        background-color: #24b6b4;
       }
 
       &.active {
         color: $websters-select-popup-item-active-color !important;
-        background: $websters-select-popup-item-active-back !important;
+        background-color: #24b6b4;
       }
 
     }

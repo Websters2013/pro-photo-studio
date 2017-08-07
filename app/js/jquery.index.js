@@ -42,6 +42,16 @@
             new Sliders( $( this ) );
         } );
 
+        $.each( $( '.place-order__form' ), function () {
+            new PlaceOrderForm( $( this ) );
+        } );
+
+        $.each( $('.place-order__sign'), function () {
+
+            new ContactSign( $(this) );
+
+        } );
+
     } );
 
     var Anchor = function ( obj ) {
@@ -139,6 +149,340 @@
 
         _constructor();
 
+    };
+
+    var PlaceOrderForm = function( obj ){
+
+        //private properties
+        var _obj = obj,
+            _formWrap = _obj.find( '.place-order__form-wrap' ),
+            _formItemBlock = _obj.find( '.place-order__form-item' ),
+            _fields = _formItemBlock.find( 'input, textarea' ),
+            _checkbox = _formItemBlock.find( 'input[type=checkbox]' ),
+            _select = _formItemBlock.find( 'select' ),
+            _inputs = _formItemBlock.find( '[data-required]' ),
+            _btn = _formItemBlock.find( '.place-order__form-next' ),
+            _changeNumber = _formItemBlock.find( '.place-order__form-num' ),
+            _changeNumberPlus = _changeNumber.find( '.plus' ),
+            _changeNumberMinus = _changeNumber.find( '.minus' );
+
+        //private methods
+        var _constructor = function(){
+                _setHeight();
+                _onEvents();
+            },
+            _setHeight = function () {
+
+                _formWrap.css( 'height', _formItemBlock.filter( '.active' ).outerHeight() )
+
+            },
+            _nextStep = function ( curForm ) {
+
+                var curFormItemBlock = curForm,
+                    nextFormItemBlock = curFormItemBlock.next( '.place-order__form-item' );
+
+                curFormItemBlock.removeClass( 'active' );
+                nextFormItemBlock.addClass( 'active' );
+                _setHeight();
+
+            },
+            _addNotTouchedClass = function ( form ) {
+
+                var curFormItemBlock = form,
+                    fields = curFormItemBlock.find( '[data-required]' );
+
+                fields.each( function() {
+
+                    var curItem = $(this);
+
+                    if( curItem.val() === '' || curItem.val() === '0' || !curItem.is( ':checked' ) ){
+
+                        curItem.addClass( 'not-touched' );
+                        curItem.parents( '.websters-select' ).addClass( 'not-touched' );
+
+                        _validateField( curFormItemBlock, curItem );
+
+                    }
+
+                } );
+
+            },
+            _makeNotValid = function ( field ) {
+                field.addClass( 'not-valid' );
+                field.parents( '.websters-select' ).addClass( 'not-valid' );
+                field.removeClass( 'valid' );
+            },
+            _makeValid = function ( field ) {
+                field.removeClass( 'not-valid' );
+                field.parents( '.websters-select' ).removeClass( 'not-valid' );
+                field.addClass( 'valid' );
+            },
+            _validateEmail = function ( email ) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            },
+            _validateField = function ( form, field ) {
+
+                var curFormItemBlock = $( this ),
+                    type = field.attr( 'type'),
+                    tagName = field[0].tagName;
+
+                if( type === 'email' || type === 'text' || type === 'number' ){
+
+                    if( field.val() === '' ){
+                        _makeNotValid( field );
+                        return false;
+                    }
+
+                }
+
+                if( type === 'email' ){
+                    if( !_validateEmail( field.val() ) ){
+                        _makeNotValid( field );
+                        return false;
+                    }
+                }
+
+                if( type === 'number' ){
+                    if( field.val() <= 0 ) {
+                        _makeNotValid( field );
+                        return false;
+                    }
+                }
+
+                if( tagName.toLocaleLowerCase() == 'textarea' ){
+
+                    if( field.val() === '' ){
+                        _makeNotValid( field );
+                        return false;
+                    }
+
+                }
+
+                if( tagName.toLocaleLowerCase() == 'select' ){
+
+                    if( field.val() === 0 ){
+                        _makeNotValid( field );
+                        return false;
+                    }
+
+                }
+
+                _makeValid( field );
+
+                if( _fields.filter( '.not-valid' ).length === 0 ) {
+
+                    _nextStep( curFormItemBlock );
+
+                }
+
+            },
+            _onEvents = function(){
+
+                _fields.on( {
+                    focus: function() {
+
+                        $( this ).removeClass( 'not-touched' );
+
+                    },
+                    focusout: function() {
+
+                        var curItem = $(this),
+                            curForm = curItem.parents( '.place-order__form-item' );
+
+                        _validateField( curForm, curItem );
+
+                    },
+                    keyup: function () {
+
+                        var curItem = $(this),
+                            curForm = curItem.parents( '.place-order__form-item' );
+
+                        _validateField( curForm, curItem );
+                    }
+                } );
+
+                _inputs.on( {
+                    focusout: function() {
+
+                        var letterCounter = 0;
+
+                        _inputs.each( function () {
+
+                            var curItem = $(this);
+
+                            if ( curItem.val().length > 0 ){
+                                letterCounter = letterCounter + 1
+                            }
+
+                        } );
+
+                        if ( letterCounter === 0 ) {
+                            _inputs.removeClass( 'not-valid' );
+                        }
+
+                    }
+                } );
+
+                _select.on( 'change', function () {
+
+                    var curSelect = $( this ),
+                        curParent = curSelect.parents( '.websters-select' );
+
+                    curSelect.removeClass( 'not-valid not-touched' );
+                    curParent.removeClass( 'not-valid not-touched' );
+
+                } );
+
+                _checkbox.on( 'change', function () {
+
+                    var curSelect = $( this ),
+                        curParent = curSelect.parents( '.websters-select' );
+
+                    curSelect.removeClass( 'not-valid not-touched' );
+                    curParent.removeClass( 'not-valid not-touched' );
+
+                } );
+
+                _btn.on( 'click', function() {
+
+                    var curBtn = $( this ),
+                        curFormItemBlock = curBtn.parents( '.place-order__form-item' );
+
+                    _addNotTouchedClass( curFormItemBlock );
+
+                    if( _fields.hasClass('not-touched') || _fields.hasClass('not-valid') || _select.hasClass('not-valid') ) {
+
+                        _obj.find('.not-touched:first').focus();
+                        _obj.find('.not-valid:first').focus();
+
+                    } else {
+
+                        // _nextStep( curFormItemBlock );
+
+                    }
+
+                    return false;
+
+                } );
+
+                _changeNumberPlus.on( 'click', function() {
+
+                    var curBtn = $( this ),
+                        curParent = curBtn.parents( '.place-order__form-fieldset' ),
+                        curInput = curParent.find( 'input[type=number]' ),
+                        curNum = + curInput.val();
+
+                    curInput.val( curNum + 1 );
+                    curInput.removeClass( 'not-valid' );
+
+                    return false;
+
+                } );
+
+                _changeNumberMinus.on( 'click', function() {
+
+                    var curBtn = $( this ),
+                        curParent = curBtn.parents( '.place-order__form-fieldset' ),
+                        curInput = curParent.find( 'input[type=number]' ),
+                        curNum = + curInput.val();
+
+                    if ( curNum > 0 ){
+                        curInput.val( curNum - 1 );
+                        curInput.removeClass( 'not-valid' );
+                    }
+
+                    return false;
+
+                } );
+
+            };
+
+        //public properties
+
+        //public methods
+
+        _constructor();
+
+    };
+
+    var ContactSign = function (obj) {
+
+        //private properties
+        var _self = this,
+            _obj = obj,
+            _area = _obj.find('.place-order__sign-area'),
+            _clear = _obj.find('.place-order__sign-refresh'),
+            _send = $('.canvas_check'),
+            _window = $(window),
+            _result;
+
+        //private methods
+        var _destroySignature =  function() {
+
+                _area.signature('destroy');
+
+            },
+            _onEvents = function() {
+
+                _clear.on( {
+
+                    click: function () {
+
+                        _area.signature('clear');
+                        return false;
+
+                    }
+
+                } );
+
+                _window.on( {
+                    resize: function() {
+
+                        _destroySignature();
+                        _initSignature();
+
+                    }
+                } );
+
+                _send.on( {
+
+                    click: function() {
+
+                        if( !_area.signature('isEmpty') ){
+
+                            _result = _area.signature('toSVG');
+                            _area.removeClass( 'contact__sign-area-red' );
+                            $('.sign_val').val( _result );
+
+                        } else {
+
+                            _area.addClass( 'contact__sign-area-red' );
+                            $('.sign_val').val('');
+
+                        }
+
+
+                    }
+
+                } );
+
+            },
+            _init = function() {
+
+                _obj[0].obj = _self;
+                _onEvents();
+                _initSignature();
+
+            },
+            _initSignature = function() {
+                _area.signature( {
+                    thickness: 1,
+                    color: '#ffffff'
+                } );
+            };
+
+        _init();
     };
 
     var Sliders = function( obj ) {
@@ -361,8 +705,6 @@
                 var hasItems = msg.has_items,
                     getItems = msg.items,
                     newBlock;
-
-                console.log( hasItems )
 
                 $.each( getItems, function( ){
 
