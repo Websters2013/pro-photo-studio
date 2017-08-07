@@ -155,6 +155,9 @@
 
         //private properties
         var _obj = obj,
+            _stepsWrap = $( '.place-order__steps' ),
+            _stepsItem = _stepsWrap.find( '.place-order__steps-item' ),
+            _stepsLine = _stepsWrap.find( 'div > span' ),
             _formWrap = _obj.find( '.place-order__form-wrap' ),
             _formItemBlock = _obj.find( '.place-order__form-item' ),
             _fields = _formItemBlock.find( 'input, textarea' ),
@@ -183,6 +186,13 @@
 
                 curFormItemBlock.removeClass( 'active' );
                 nextFormItemBlock.addClass( 'active' );
+
+                for ( var i = 0; i <= nextFormItemBlock.index(); i++ ){
+                    _stepsItem.eq(i).addClass( 'active' );
+                }
+
+                _stepsLine.css( 'width', ( nextFormItemBlock.index() + 1 ) * 100 / 4 +'%' );
+
                 _setHeight();
 
             },
@@ -349,7 +359,11 @@
                     var curBtn = $( this ),
                         curFormItemBlock = curBtn.parents( '.place-order__form-item' );
 
-                    _addNotTouchedClass( curFormItemBlock );
+                    if ( curFormItemBlock.find( '[data-required]' ).val() == 0 || curFormItemBlock.find( '[data-required]' ).val() == '' ){
+
+                        _addNotTouchedClass( curFormItemBlock );
+
+                    }
 
                     if( _fields.hasClass('not-touched') || _fields.hasClass('not-valid') || _select.hasClass('not-valid') ) {
 
@@ -358,7 +372,7 @@
 
                     } else {
 
-                        // _nextStep( curFormItemBlock );
+                        _nextStep( curFormItemBlock );
 
                     }
 
