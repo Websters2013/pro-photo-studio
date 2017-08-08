@@ -56,14 +56,14 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <input type="text" placeholder="Firs Name" data-required="true" />
+                         <input type="text" placeholder="Firs Name" data-required="true" name="firs-name" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <input type="text" placeholder="Last Name" data-required="true" />
+                         <input type="text" placeholder="Last Name" data-required="true" name="last-name" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -76,14 +76,14 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <input type="text" placeholder="Company Name" data-required="true" />
+                         <input type="text" placeholder="Company Name" data-required="true" name="company-name" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <input type="tel" placeholder="Phone Number" data-required="true" />
+                         <input type="tel" placeholder="Phone Number" data-required="true" name="phone-number" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -98,7 +98,7 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-address">
-                         <input type="text" placeholder="Street Address" data-required="true" />
+                         <input type="text" placeholder="Street Address" data-required="true" name="address" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -111,21 +111,21 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-city">
-                         <input type="text" placeholder="City" data-required="true" />
+                         <input type="text" placeholder="City" data-required="true" name="city" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-state">
-                         <input type="text" placeholder="State" data-required="true" />
+                         <input type="text" placeholder="State" data-required="true" name="state" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-zip">
-                         <input type="text" placeholder="Zip Code" data-required="true" />
+                         <input type="text" placeholder="Zip Code" data-required="true" name="zip-code" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -140,14 +140,14 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <input type="email" placeholder="Email" data-required="true" />
+                         <input type="email" placeholder="Email" data-required="true" name="email" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <input type="text" placeholder="Website" data-required="true" />
+                         <input type="text" placeholder="Website" data-required="true" name="website" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -162,7 +162,7 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <input type="text" placeholder="Uniqe code" data-required="true" />
+                         <input type="text" placeholder="Uniqe code" data-required="true" name="uniqe-code" />
                          <span>*</span>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -197,7 +197,7 @@ $post_id = 16;
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
                          <div class="place-order__form-topic">Total shot quantity needed <span>*</span></div>
-                         <input type="number" placeholder="0" value="0" data-required="true" />
+                         <input type="number" placeholder="0" value="0" data-required="true" name="total-shot" />
                          <div class="place-order__form-num">
                              <a href="#" class="plus"></a>
                              <a href="#" class="minus"></a>
@@ -208,7 +208,7 @@ $post_id = 16;
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
                          <div class="place-order__form-topic">group shot quantity needed</div>
-                         <input type="number" placeholder="Last Name" value="0" data-required="true" />
+                         <input type="number" placeholder="0" value="0" data-required="true" name="group-shot" />
                          <div class="place-order__form-num">
                              <a href="#" class="plus"></a>
                              <a href="#" class="minus"></a>
@@ -226,7 +226,7 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-address">
-                         <input type="text" placeholder="Price" />
+                         <input type="text" placeholder="Price" name="price" />
                      </div>
                      <!-- /place-order__form-fieldset -->
 
@@ -239,7 +239,7 @@ $post_id = 16;
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-city">
                          <div class="place-order__form-topic">Background</div>
-                         <select>
+                         <select name="background">
                              <option value="0">Choose</option>
                              <option value="1">Black</option>
                              <option value="2">White</option>
@@ -250,7 +250,7 @@ $post_id = 16;
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-state">
                          <div class="place-order__form-topic">Turn-around time <span>*</span></div>
-                         <select data-required="true">
+                         <select data-required="true" name="time">
                              <option value="0">Choose</option>
                              <option value="1">Black</option>
                              <option value="2">White</option>
@@ -269,7 +269,7 @@ $post_id = 16;
 
                          </div>
 
-                         <select data-required="true">
+                         <select data-required="true" name="clipping-path">
                              <option value="0">Yes/no</option>
                              <option value="1">Yes</option>
                              <option value="2">No</option>
@@ -301,7 +301,7 @@ $post_id = 16;
                      <div class="place-order__form-fieldset">
                          <div class="place-order__form-topic">Hand image <span>*</span></div>
 
-                         <select data-required="true">
+                         <select data-required="true" name="hand-image">
                              <option value="0">Yes/no</option>
                              <option value="1">Yes</option>
                              <option value="2">No</option>
@@ -314,7 +314,7 @@ $post_id = 16;
                      <div class="place-order__form-fieldset">
                          <div class="place-order__form-topic">Imag category <span>*</span></div>
 
-                         <select data-required="true">
+                         <select data-required="true" name="image-category">
                              <option value="0">Choose</option>
                              <option value="1">Jewelry & Watches</option>
                              <option value="2">Food</option>
@@ -341,7 +341,7 @@ $post_id = 16;
                      <div class="place-order__form-fieldset">
                          <div class="place-order__form-topic">Image purpose <span>*</span></div>
 
-                         <select data-required="true">
+                         <select data-required="true" name="image-purpose">
                              <option value="0">Choose</option>
                              <option value="1">Jewelry & Watches</option>
                              <option value="2">Food</option>
@@ -362,7 +362,7 @@ $post_id = 16;
                      <div class="place-order__form-fieldset">
                          <div class="place-order__form-topic">Coupon code</div>
 
-                         <select>
+                         <select name="coupon-code">
                              <option value="0">Choose</option>
                              <option value="1">Jewelry & Watches</option>
                              <option value="2">Food</option>
@@ -389,7 +389,7 @@ $post_id = 16;
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-address">
-                         <select data-required="true">
+                         <select data-required="true" name="about-us">
                              <option value="0">Choose</option>
                              <option value="1">Jewelry & Watches</option>
                              <option value="2">Food</option>
@@ -413,7 +413,7 @@ $post_id = 16;
                  <!-- place-order__form-row -->
                  <div class="place-order__form-row">
 
-                     <textarea placeholder="Your comments"></textarea>
+                     <textarea placeholder="Your comments" name="comments"></textarea>
 
                  </div>
                  <!-- /place-order__form-fieldset -->
@@ -489,7 +489,7 @@ of the mouse inside the rectangle without letting go and grag like you sign</spa
 
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
-                         <select>
+                         <select name="prodect-back">
                              <option value="0">Yes/no</option>
                              <option value="1">Yes</option>
                              <option value="2">No</option>
@@ -498,7 +498,7 @@ of the mouse inside the rectangle without letting go and grag like you sign</spa
 
                  </div>
                  <!-- /place-order__form-fieldset -->
-	             <?php wp_nonce_field('image-submission'); ?>
+
                  <div class="place-order__form-print">
 	                 <?= do_shortcode('[print-me target="body" printicon="false" title="Print"]'); ?>
                  </div>
@@ -520,23 +520,41 @@ of the mouse inside the rectangle without letting go and grag like you sign</spa
     $(document).ready(function() {
 
 
-        var $imgFile    = $('.image-file');
-        var formData = new FormData();
+        var form    = $('.place-order__form'),
+            data = new FormData(),
+            imgFile = form.find('.image-file'),
+            files;
 
-        formData.append('action', 'upload-attachment');
-        formData.append('async-upload', $imgFile[0].files[0]);
-        //formData.append('name', $imgFile[0].files[0].name);
-        //formData.append('_wpnonce', su_config.nonce);
+        $(imgFile).on('change',function(){
+            files = this.files;
 
-        $imgFile.on('change', function(e) {
-            console.log('dfdfd');
+        });
+
+
+        form.on('submit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            data.append('action', 'order');
+
+            $.each( files, function( key, value ){
+                data.append( key, value );
+            });
+            var input_value = $( this ).serialize().split('&');
+            $.each( input_value, function( key, value ){
+                var keys = value.split('=');
+                data.append( keys[0], keys[1] );
+            });
+
+
             $.ajax({
                 url: $('body').data('action'),
-                data: formData,
+                data: data,
+                dataType: 'json',
+                timeout: 20000,
+                type: "POST",
                 processData: false,
                 contentType: false,
-                dataType: 'json',
-                type: 'POST',
                 success: function(resp) {
                     console.log(resp);
                 }
