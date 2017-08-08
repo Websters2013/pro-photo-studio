@@ -283,47 +283,6 @@
 
                 _obj.on( 'submit', function () {
 
-                    var form    = $('.place-order__form'),
-                        data = new FormData(),
-                        imgFile = form.find('.image-file'),
-                        files;
-
-                    $(imgFile).on('change',function(){
-                        files = this.files;
-                    });
-
-                    form.on('submit', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        data.append('action', 'order');
-
-                        $.each( files, function( key, value ){
-                            data.append( key, value );
-                        });
-
-                        var input_value = $( this ).serialize().split('&');
-
-                        $.each( input_value, function( key, value ){
-                            var keys = value.split('=');
-                            data.append( keys[0], keys[1] );
-                        });
-
-                        console.log(data);
-                        $.ajax({
-                            url: $('body').data('action'),
-                            data: data,
-                            dataType: 'json',
-                            timeout: 20000,
-                            type: "POST",
-                            processData: false,
-                            contentType: false,
-                            success: function(resp) {
-                                console.log(resp);
-                            }
-                        });
-                    });
-
                 } );
 
                 _fields.on( {
