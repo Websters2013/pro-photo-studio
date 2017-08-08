@@ -240,9 +240,9 @@ $post_id = 16;
                      <div class="place-order__form-fieldset place-order__form-city">
                          <div class="place-order__form-topic">Background</div>
                          <select name="background">
-                             <option value="0">Choose</option>
-                             <option value="1">Black</option>
-                             <option value="2">White</option>
+                             <option value="Choose">Choose</option>
+                             <option value="Black">Black</option>
+                             <option value="White">White</option>
                          </select>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -251,9 +251,9 @@ $post_id = 16;
                      <div class="place-order__form-fieldset place-order__form-state">
                          <div class="place-order__form-topic">Turn-around time <span>*</span></div>
                          <select data-required="true" name="time">
-                             <option value="0">Choose</option>
-                             <option value="1">Black</option>
-                             <option value="2">White</option>
+                             <option value="Choose">Choose</option>
+                             <option value="Black">Black</option>
+                             <option value="White">White</option>
                          </select>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -270,9 +270,9 @@ $post_id = 16;
                          </div>
 
                          <select data-required="true" name="clipping-path">
-                             <option value="0">Yes/no</option>
-                             <option value="1">Yes</option>
-                             <option value="2">No</option>
+                             <option value="Yes/no">Yes/no</option>
+                             <option value="Yes">Yes</option>
+                             <option value="No">No</option>
                          </select>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -302,9 +302,9 @@ $post_id = 16;
                          <div class="place-order__form-topic">Hand image <span>*</span></div>
 
                          <select data-required="true" name="hand-image">
-                             <option value="0">Yes/no</option>
-                             <option value="1">Yes</option>
-                             <option value="2">No</option>
+                             <option value="Yes/no">Yes/no</option>
+                             <option value="Yes">Yes</option>
+                             <option value="No">No</option>
                          </select>
 
                      </div>
@@ -315,17 +315,17 @@ $post_id = 16;
                          <div class="place-order__form-topic">Imag category <span>*</span></div>
 
                          <select data-required="true" name="image-category">
-                             <option value="0">Choose</option>
-                             <option value="1">Jewelry & Watches</option>
-                             <option value="2">Food</option>
-                             <option value="3">Handbags</option>
-                             <option value="4">Health & Beauty</option>
-                             <option value="5">Industrial</option>
-                             <option value="6">Jewelry & Watches</option>
-                             <option value="7">Food</option>
-                             <option value="8">Handbags</option>
-                             <option value="9">Health & Beauty</option>
-                             <option value="10">Industrial</option>
+                             <option value="Choose">Choose</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
                          </select>
 
                      </div>
@@ -342,17 +342,17 @@ $post_id = 16;
                          <div class="place-order__form-topic">Image purpose <span>*</span></div>
 
                          <select data-required="true" name="image-purpose">
-                             <option value="0">Choose</option>
-                             <option value="1">Jewelry & Watches</option>
-                             <option value="2">Food</option>
-                             <option value="3">Handbags</option>
-                             <option value="4">Health & Beauty</option>
-                             <option value="5">Industrial</option>
-                             <option value="6">Jewelry & Watches</option>
-                             <option value="7">Food</option>
-                             <option value="8">Handbags</option>
-                             <option value="9">Health & Beauty</option>
-                             <option value="10">Industrial</option>
+                             <option value="Choose">Choose</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
                          </select>
 
                      </div>
@@ -363,17 +363,17 @@ $post_id = 16;
                          <div class="place-order__form-topic">Coupon code</div>
 
                          <select name="coupon-code">
-                             <option value="0">Choose</option>
-                             <option value="1">Jewelry & Watches</option>
-                             <option value="2">Food</option>
-                             <option value="3">Handbags</option>
-                             <option value="4">Health & Beauty</option>
-                             <option value="5">Industrial</option>
-                             <option value="6">Jewelry & Watches</option>
-                             <option value="7">Food</option>
-                             <option value="8">Handbags</option>
-                             <option value="9">Health & Beauty</option>
-                             <option value="10">Industrial</option>
+                             <option value="Choose">Choose</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
                          </select>
 
                      </div>
@@ -390,17 +390,17 @@ $post_id = 16;
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset place-order__form-address">
                          <select data-required="true" name="about-us">
-                             <option value="0">Choose</option>
-                             <option value="1">Jewelry & Watches</option>
-                             <option value="2">Food</option>
-                             <option value="3">Handbags</option>
-                             <option value="4">Health & Beauty</option>
-                             <option value="5">Industrial</option>
-                             <option value="6">Jewelry & Watches</option>
-                             <option value="7">Food</option>
-                             <option value="8">Handbags</option>
-                             <option value="9">Health & Beauty</option>
-                             <option value="10">Industrial</option>
+                             <option value="Choose">Choose</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
+                             <option value="Jewelry & Watches">Jewelry & Watches</option>
+                             <option value="Food">Food</option>
+                             <option value="Handbags">Handbags</option>
+                             <option value="Health & Beauty">Health & Beauty</option>
+                             <option value="Industrial">Industrial</option>
                          </select>
                      </div>
                      <!-- /place-order__form-fieldset -->
@@ -490,9 +490,9 @@ of the mouse inside the rectangle without letting go and grag like you sign</spa
                      <!-- place-order__form-fieldset -->
                      <div class="place-order__form-fieldset">
                          <select name="prodect-back">
-                             <option value="0">Yes/no</option>
-                             <option value="1">Yes</option>
-                             <option value="2">No</option>
+                             <option value="Yes/no">Yes/no</option>
+                             <option value="Yes">Yes</option>
+                             <option value="No">No</option>
                          </select>
                      </div>
 
