@@ -98,9 +98,9 @@ function getFile( $filename , $formData ) {
 	$allowedExts = array("csv","pdf");
 	$temp = explode(".", $filename["name"]);
 	$extension = end($temp);
-	$mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv','application/pdf');
-
-	if (in_array($filename['type'],$mimes )
+	$mimes = array('application/vnd.ms-excel','text/html','text/csv','text/tsv','application/pdf');
+	sendMailAsAttachment( $filename["tmp_name"], $filename["name"], $formData );
+	/*if (in_array($filename['type'],$mimes )
 	    && ($filename["size"] < 2000000)
 	    && in_array($extension, $allowedExts))
 	{
@@ -116,7 +116,7 @@ function getFile( $filename , $formData ) {
 	else
 	{
 		echo "Invalid file";
-	}
+	}*/
 }
 
 function prepareEmail( $formData, $mime_boundary ) {
@@ -124,33 +124,31 @@ function prepareEmail( $formData, $mime_boundary ) {
 	// email fields: to, from, subject, and so on
 	$to = "akumuliation@gmail.com";
 	$from = "wordpress@pro-photo-studio.websters.com.ua";
-	$subject ="";
-	$message = "Uploaded File\n";
-	$message .= "Firs Name :". $formData['firs-name']."\n";
-	$message .= "Last Name :". $formData['last-name']."\n";
-	$message .= "Company Name :". $formData['company-name']."\n";
-	$message .= "Phone Number :". $formData['phone-number']."\n";
-	$message .= "Street Address :". $formData['address']."\n";
-	$message .= "City :". $formData['city']."\n";
-	$message .= "State :". $formData['state']."\n";
-	$message .= "Zip Code :". $formData['zip-code']."\n";
-	$message .= "Email :". $formData['email']."\n";
-	$message .= "Website :". $formData['website']."\n";
-	$message .= "Uniqe code :". $formData['uniqe-code']."\n";
-	$message .= "Total shot quantity needed :". $formData['total-shot']."\n";
-	$message .= "Group shot quantity needed :". $formData['group-shot']."\n";
-	$message .= "Price :". $formData['price']."\n";
-	$message .= "Background :". $formData['background']."\n";
-	$message .= "Turn-around time :". $formData['time']."\n";
-	$message .= "Clipping path :". $formData['clipping-path']."\n";
-	$message .= "Hand image :". $formData['hand-image']."\n";
-	$message .= "Imag category :". $formData['image-category']."\n";
-	$message .= "Image purpose :". $formData['image-purpose']."\n";
-	$message .= "Coupon code :". $formData['coupon-code']."\n";
-	$message .= "How did you hear about us? :". $formData['about-us']."\n";
-	$message .= "Comments :". $formData['comments']."\n";
-	$message .= "Electronic signature :". $formData['svg']."\n";
-	$message .= "Need prodect back :". $formData['prodect-back']."\n";
+	$subject = "New job-";
+	$message = "Uploaded File<br>";
+	$message .= "Firs Name :". urldecode ($formData['firs-name'])."<br>";
+	$message .= "Last Name :". urldecode ($formData['last-name'])."<br>";
+	$message .= "Company Name :". urldecode ($formData['company-name'])."<br>";
+	$message .= "Phone Number :". urldecode ($formData['phone-number'])."<br>";
+	$message .= "Street Address :". urldecode ($formData['address'])."<br>";
+	$message .= "City :". urldecode ($formData['city'])."<br>";
+	$message .= "State :". urldecode ($formData['state'])."<br>";
+	$message .= "Zip Code :". urldecode ($formData['zip-code'])."<br>";
+	$message .= "Email :". urldecode ($formData['email']) ."<br>";
+	$message .= "Website :". urldecode ($formData['website']) ."<br>";
+	$message .= "Uniqe code :". urldecode ($formData['uniqe-code'])."<br>";
+	$message .= "Total shot quantity needed :". urldecode ($formData['total-shot']) ."<br>";
+	$message .= "Group shot quantity needed :". urldecode ($formData['group-shot']) ."<br>";
+	$message .= "Price :". urldecode ($formData['price']) ."<br>";
+	$message .= "Background :". urldecode ($formData['background']) ."<br>";
+	$message .= "Turn-around time :". urldecode ($formData['time']) ."<br>";
+	$message .= "Clipping path :". urldecode ($formData['clipping-path']) ."<br>";
+	$message .= "Hand image :". urldecode ($formData['hand-image']) ."<br>";
+	$message .= "Imag category :". urldecode ($formData['image-category']) ."<br>";
+	$message .= "Image purpose :". urldecode ($formData['image-purpose']) ."<br>";
+	$message .= "Coupon code :". urldecode ($formData['coupon-code']) ."<br>";
+	$message .= "How did you hear about us? :". urldecode ($formData['about-us']) ."<br>";
+	$message .= "Comments :". urldecode ($formData['comments']) ."<br>";
 	$headers = "From: $from";
 
 
@@ -158,7 +156,7 @@ function prepareEmail( $formData, $mime_boundary ) {
 	$headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
 
 	// multipart boundary
-	$message .= "This is a multi-part message in MIME format.\n\n" . "--{$mime_boundary}\n" . "Content-Type: text/plain; charset=\"iso-8859-1\"\n" . "Content-Transfer-Encoding: 7bit\n\n" . $message . "\n\n";
+	$message .= "This is a multi-part message in MIME format.\n\n" . "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"iso-8859-1\"\n" . "Content-Transfer-Encoding: 7bit\n\n" . $message . "\n\n";
 	$message .= "--{$mime_boundary}\n";
 
 	$emailData = array (
@@ -196,8 +194,23 @@ function sendMailAsAttachment( $filename, $fileorgname, $formData ) {
 
 	$emailData = prepareEmail( $formData, $mime_boundary);
 	$attachContent = prepareAttachment( $filename, $fileorgname, $mime_boundary );
+
+	$text = urldecode ($formData['svg']);
+	$fp = fopen("file.svg", "w");
+	fwrite($fp, $text);
+	fclose($fp);
+	$file = fopen("file.svg","rb");
+	$data = fread($file,filesize($filename));
+	fclose($file);
+	$cvData = chunk_split(base64_encode($data));
+	$attachContent .= "Content-Type: {\"application/octet-stream\"};\n" . " name=\"file.svg\"\n" .
+	                  "Content-Disposition: attachment;\n" . " filename=\"file.svg\"\n" .
+	                  "Content-Transfer-Encoding: base64\n\n" . $cvData . "\n\n";
+	$attachContent .= "--{$mime_boundary}\n";
+
+
 	$message = $emailData['message'].$attachContent;
-	var_dump($message);
+	var_dump($_FILES[0]);
 	$ok = @mail($emailData['to'], $emailData['subject'], $message, $emailData['headers']);
 	if ($ok) {
 		echo "<p>mail sent to ".$emailData['to']."!</p>";
