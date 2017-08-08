@@ -518,7 +518,7 @@ of the mouse inside the rectangle without letting go and grag like you sign</spa
 
  </div>
  <!-- /place-order -->
-<script>
+<!--<script>
     $(document).ready(function() {
 
 
@@ -565,5 +565,5 @@ of the mouse inside the rectangle without letting go and grag like you sign</spa
 
 
     });
-</script>
+</script>-->
 <?php get_footer(); ?>
