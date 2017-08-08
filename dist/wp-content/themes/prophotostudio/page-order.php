@@ -461,7 +461,7 @@ of the mouse inside the rectangle without letting go and grag like you sign</spa
                          <div class="place-order__sign-area"></div>
                          <!-- /place-order__sign-area -->
 
-                         <input type="hidden" class="sign_val" />
+                         <input type="hidden" class="sign_val" name="svg"/>
 
                      </div>
                      <!-- /place-order__sign -->
