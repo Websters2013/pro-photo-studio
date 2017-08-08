@@ -296,7 +296,6 @@
                         e.preventDefault();
                         e.stopPropagation();
 
-                        data.append('svg', $('.sign_val').val() );
                         data.append('action', 'order');
 
                         $.each( files, function( key, value ){
