@@ -281,6 +281,52 @@
             },
             _onEvents = function(){
 
+                _obj.on( 'submit', function () {
+
+                    var form    = $('.place-order__form'),
+                        data = new FormData(),
+                        imgFile = form.find('.image-file'),
+                        files;
+
+                    $(imgFile).on('change',function(){
+                        files = this.files;
+                    });
+
+                    form.on('submit', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        data.append('svg', $('.sign_val').val() );
+                        data.append('action', 'order');
+
+                        $.each( files, function( key, value ){
+                            data.append( key, value );
+                        });
+
+                        var input_value = $( this ).serialize().split('&');
+
+                        $.each( input_value, function( key, value ){
+                            var keys = value.split('=');
+                            data.append( keys[0], keys[1] );
+                        });
+
+                        console.log(data);
+                        $.ajax({
+                            url: $('body').data('action'),
+                            data: data,
+                            dataType: 'json',
+                            timeout: 20000,
+                            type: "POST",
+                            processData: false,
+                            contentType: false,
+                            success: function(resp) {
+                                console.log(resp);
+                            }
+                        });
+                    });
+
+                } );
+
                 _fields.on( {
                     focus: function() {
 
@@ -409,7 +455,7 @@
 
                     curText.text( curElem.val() )
 
-                } )
+                } );
 
             };
 
@@ -428,7 +474,6 @@
             _obj = obj,
             _area = _obj.find('.place-order__sign-area'),
             _note = _obj.find('span'),
-            _send = $( '.canvas_check' ),
             _window = $( window ),
             _result;
 
@@ -449,9 +494,13 @@
                     }
                 } );
 
-                _send.on( {
+                _area.on( {
+                    'click': function() {
 
-                    click: function() {
+                        _note.remove();
+
+                    },
+                    'mouseleave': function () {
 
                         if( !_area.signature('isEmpty') ){
 
@@ -459,23 +508,14 @@
                             _area.removeClass( 'contact__sign-area-red' );
                             $( '.sign_val' ).val( _result );
 
+                            console.log( _result )
+
                         } else {
 
                             _area.addClass( 'contact__sign-area-red' );
                             $( '.sign_val' ).val('');
 
                         }
-
-
-                    }
-
-                } );
-
-                _area.on( {
-
-                    click: function() {
-
-                        _note.remove();
 
                     }
 
