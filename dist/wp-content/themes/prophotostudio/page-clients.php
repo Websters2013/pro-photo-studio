@@ -8,9 +8,14 @@ $post_id = 50;
 $clients = get_field('clients_list', $post_id);
 if($clients) {
 	foreach ($clients as $row) {
-		$clients_list .= '<!-- clients__item --><a href="'.$row['link'].'" class="clients__item">
-     <img src="'.$row['image']['url'].'" alt="'.$row['image']['alt'].'" title="'.$row['image']['title'].'"/>
-    </a><!-- /clients__item -->';
+		$clients_list .= '<!-- clients__item --><a href="'.$row['link'].'" class="clients__item">';
+		if(!empty($row['image'])) {
+          $clients_list .= '<img src="'.$row['image']['url'].'" alt="'.$row['image']['alt'].'" title="'.$row['image']['title'].'"/>';
+		}
+		if(!empty($row['logo'])) {
+          $clients_list .= '<img src="'.$row['logo']['url'].'" alt="'.$row['logo']['alt'].'" title="'.$row['logo']['title'].'"/>';
+		}
+		$clients_list .='</a><!-- /clients__item -->';
 	}
 }
 ?>
