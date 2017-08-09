@@ -27,7 +27,7 @@
     flex-flow: wrap row;
     justify-content: flex-start;
     align-items: stretch;
-    max-width: 1352px;
+    max-width: 328px;
     margin: 0 auto;
   }
 
@@ -35,6 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     width: 100%;
     height: 180px;
     max-width: 328px;
@@ -75,6 +76,16 @@
 }
 
 @media (min-width: $desktop) {
+  .clients {
+
+    &__wrap{
+      max-width: 676px;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
   .clients{
 
     &__title{
@@ -88,7 +99,6 @@
     }
 
     &__item{
-      position: relative;
 
       &:after{
         opacity: 0;
@@ -102,6 +112,8 @@
           -webkit-transition: opacity .3s ease;
           transition: opacity .3s ease;
           opacity: 0;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
         }
 
       }
@@ -122,6 +134,10 @@
 
       }
 
+    }
+
+    &__wrap{
+      max-width: 1352px;
     }
 
   }
