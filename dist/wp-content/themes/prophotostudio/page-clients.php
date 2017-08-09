@@ -10,10 +10,10 @@ if($clients) {
 	foreach ($clients as $row) {
 		$clients_list .= '<!-- clients__item --><a href="'.$row['link'].'" class="clients__item">';
 		if(!empty($row['image'])) {
-          $clients_list .= '<img src="'.$row['image']['url'].'" alt="'.$row['image']['alt'].'" title="'.$row['image']['title'].'"/>';
+          $clients_list .= '<img src="'.$row['image']['url'].'" alt="'.$row['image']['alt'].'" title="'.$row['image']['title'].'" class="clients__item-back" />';
 		}
 		if(!empty($row['logo'])) {
-          $clients_list .= '<img src="'.$row['logo']['url'].'" alt="'.$row['logo']['alt'].'" title="'.$row['logo']['title'].'"/>';
+          $clients_list .= '<img src="'.$row['logo']['url'].'" alt="'.$row['logo']['alt'].'" title="'.$row['logo']['title'].'" class="clients__item-front" />';
 		}
 		$clients_list .='</a><!-- /clients__item -->';
 	}
