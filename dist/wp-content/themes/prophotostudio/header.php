@@ -3,7 +3,10 @@
 $logo = get_field('logo', 2);
 $logo = '<img src="'.$logo['url'].'" alt="'.$logo['alt'].'" title="'.$logo['title'].'">';
 
-$hero_image_other_page = get_field('hero_image_other_page', 2);
+$hero_image_other_page = get_field('background');
+if(is_page_template('page-services-single.php')) {
+	$hero_image_other_page = get_field('background_in_category', 8);
+}
 $hero_image_other_page = '<img src="'.$hero_image_other_page['url'].'" alt="'.$hero_image_other_page['alt'].'" title="'.$hero_image_other_page['title'].'">';
 if(is_front_page()) {
 	$logo = '<!-- logo --><h1 class="logo">'.$logo.'</h1><!-- /logo -->';

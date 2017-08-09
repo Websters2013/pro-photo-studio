@@ -47,7 +47,10 @@ if(!empty($socials)) {
 
         <?= get_field('join_title', 87); ?>
 
-        <?= do_shortcode('[contact-form-7 id="286" title="Subscribe post"]'); ?>
+        <form>
+            <input type="text" placeholder="Subject"/>
+            <button><span>JOIN</span></button>
+        </form>
 
     </div>
     <!-- /join -->

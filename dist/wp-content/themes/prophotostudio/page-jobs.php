@@ -32,7 +32,7 @@ $title_button = get_field('title_button', $post_id);
             </div>
             <!-- hiring__form -->
             <div class="hiring__form">
-            <?= do_shortcode('[contact-form-7 id="182" title="Jobs"]'); ?>
+                <?= do_shortcode('[contact-form-7 id="182" title="Jobs"]'); ?>
             </div>
             <!-- /hiring__form -->
 
@@ -42,17 +42,20 @@ $title_button = get_field('title_button', $post_id);
         <!-- hiring__item -->
         <div class="hiring__item">
 
-            <!-- hiring__item-content -->
-            <div class="hiring__item-content">
+            <h3><?= $sub_title; ?></h3>
 
-                <h3><?= $sub_title; ?></h3>
+            <div class="hiring__item-hide">
 
-                <p><?= $sub_content; ?></p>
+                <div class="hiring__item-content"><?= $sub_content; ?></div>
+
+                <a href="#" class="hiring__btn"><?= $title_button; ?></a>
 
             </div>
-            <!-- /hiring__item-content -->
-
-            <a href="#" class="hiring__btn"><?= $title_button; ?></a>
+            <!-- hiring__form -->
+            <div class="hiring__form">
+			    <?= do_shortcode('[contact-form-7 id="182" title="Jobs"]'); ?>
+            </div>
+            <!-- /hiring__form -->
 
         </div>
         <!-- /hiring__item -->
@@ -71,10 +74,7 @@ $title_button = get_field('title_button', $post_id);
                     $(inputFile.find('.hiring__form-file')).css({'border': '1px solid red'});
                 }
             }, 400);
-
-
         })
     });
-
 </script>
 <?php get_footer(); ?>

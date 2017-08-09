@@ -1,6 +1,5 @@
 <?php
 get_header();
-//var_dump($post);
 
 $user = get_userdata($post->post_author);
   $tags = wp_get_post_terms($post->ID, 'post_tag', array("fields" => "names"));
