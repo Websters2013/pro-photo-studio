@@ -33,6 +33,7 @@ $posts = $query->query($args);
 $a['base'] = str_replace(999999999, '%#%', get_pagenum_link(999999999));
 $a['total'] = $query->max_num_pages;
 $a['current'] = $paged;
+$a['prev_next'] = false;
 $a['mid_size'] = 3; //сколько ссылок показывать слева и справа от текущей
 $a['end_size'] = 1; //сколько ссылок показывать в начале и в конце
 $a['prev_text'] = 'Prev'; //текст ссылки "Предыдущая страница"
