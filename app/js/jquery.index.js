@@ -464,9 +464,7 @@
 
                             _result = _area.signature('toSVG');
                             _area.removeClass( 'contact__sign-area-red' );
-                            $( '.sign_val' ).val( _result.split( 'dtd">' )[1] );
-
-                            console.log( _result )
+                            $( '.sign_val' ).val( _result );
 
                         } else {
 
