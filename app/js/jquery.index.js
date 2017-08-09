@@ -466,8 +466,6 @@
                             _area.removeClass( 'contact__sign-area-red' );
                             $( '.sign_val' ).val( _result );
 
-                            console.log( _result )
-
                         } else {
 
                             _area.addClass( 'contact__sign-area-red' );

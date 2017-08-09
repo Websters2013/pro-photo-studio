@@ -382,6 +382,13 @@
 }
 
 @media (min-width: $desktop) {
+  .media-gallery{
+
+    &__item{
+      cursor: pointer;
+    }
+
+  }
   .swiper-popup {
     .swiper-button-prev {
       left: 50px;
