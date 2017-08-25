@@ -85,8 +85,9 @@
   }
 
   .btn{
-    display: inline-block;
-    margin-top: 26px;
+    display: block;
+    width: 200px;
+    margin: 26px auto 0;
     padding: 7px 42px;
     color: #fff;
     font-size: 14px;
@@ -150,6 +151,10 @@
         height: 573px;
       }
 
+    }
+
+    .btn{
+      margin: 26px 0 0;
     }
 
   }
