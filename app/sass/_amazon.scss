@@ -22,7 +22,7 @@
 
   &__preface{
     margin-bottom: 25px;
-    padding: 0 10px;
+    padding: 42px 10px 0;
     color: #222;
     font-size: 14px;
     line-height: 18px;
@@ -91,6 +91,7 @@
       .btn{
         display: block;
         width: 200px;
+        margin: 0 auto;
         padding: 7px 10px;
         color: #fff;
         font-size: 14px;
@@ -138,16 +139,12 @@
   }
 
   &__advantages{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     padding: 25px 10px;
     font-size: 14px;
     line-height: 18px;
     font-weight: 300;
 
     &-item{
-      width: 31%;
       text-align: center;
     }
 
@@ -203,10 +200,33 @@
       align-items: flex-start;
     }
 
+    &__advantages{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      &-item{
+        width: 31%;
+      }
+
+    }
+
     &__preface{
       margin-bottom: 70px;
       font-size: 20px;
       line-height: 26px;
+    }
+
+    &__item{
+
+      &-content{
+
+        .btn{
+          margin: 0;
+        }
+
+      }
+
     }
 
   }

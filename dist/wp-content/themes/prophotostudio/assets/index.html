@@ -181,14 +181,20 @@
             <h2 class="media-gallery__title">Portfolio</h2>
 
             <!-- media-gallery__switcher -->
-            <div class="media-gallery__switcher">
+            <div class="media-gallery__switcher swiper-container">
 
-                <button class="media-gallery__check active" data-type="all">All</button>
-                <button class="media-gallery__check" data-type="on-white">On White</button>
-                <button class="media-gallery__check" data-type="apparel">Apparel</button>
-                <button class="media-gallery__check" data-type="jewelry">Jewelry</button>
-                <button class="media-gallery__check" data-type="custom-shots">Custom shots</button>
-                <button class="media-gallery__check" data-type="video">Video</button>
+                <!-- swiper-wrapper -->
+                <div class="swiper-wrapper">
+
+                    <button class="swiper-slide media-gallery__check active" data-type="all">All</button>
+                    <button class="swiper-slide media-gallery__check" data-type="on-white">On White</button>
+                    <button class="swiper-slide media-gallery__check" data-type="apparel">Apparel</button>
+                    <button class="swiper-slide media-gallery__check" data-type="jewelry">Jewelry</button>
+                    <button class="swiper-slide media-gallery__check" data-type="custom-shots">Custom shots</button>
+                    <button class="swiper-slide media-gallery__check" data-type="video">Video</button>
+
+                </div>
+                <!-- /swiper-wrapper -->
 
             </div>
             <!-- /media-gallery__switcher -->
