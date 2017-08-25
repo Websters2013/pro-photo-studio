@@ -96,6 +96,7 @@
     .btn{
       display: block;
       width: 200px;
+      margin: 0 auto;
       padding: 7px 8px;
       background-color: #000;
       color: #fff;
@@ -319,6 +320,10 @@
 
         }
 
+      }
+
+      .btn{
+        margin: 0;
       }
 
     }
