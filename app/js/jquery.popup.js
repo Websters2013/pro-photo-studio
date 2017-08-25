@@ -1,10 +1,10 @@
 ( function(){
 
-    $( function(){
+    jQuery( function(){
 
-        $( '.popup' ).each(function(){
+        jQuery( '.popup' ).each(function(){
 
-            new Popup($(this));
+            new Popup(jQuery(this));
 
         });
 
@@ -15,13 +15,13 @@
         //private properties
         var _self = this,
             _popupPadding = 40,
-            _btnShow =  $( '.popup__open' ),
+            _btnShow =  jQuery( '.popup__open' ),
             _obj = obj,
             _btnClose = _obj.find( '.popup__close, .popup__cancel' ),
             _wrap = _obj.find( '.popup__wrap' ),
             _contents = _obj.find( '.popup__content' ),
-            _scrollConteiner = $( 'html' ),
-            _window = $( window ),
+            _scrollConteiner = jQuery( 'html' ),
+            _window = jQuery( window ),
             _timer = setTimeout( function(){}, 1 );
 
         //private methods
@@ -66,6 +66,7 @@
 
                     _obj.removeClass( 'popup_hide' );
                 }, 300 );
+                _contents.empty();
 
             },
             _init = function(){
@@ -80,7 +81,7 @@
                 } );
                 _btnShow.on( {
                     click: function(){
-                        _show( $( this ).attr( 'data-popup' ) );
+                        _show( jQuery( this ).attr( 'data-popup' ) );
                         return false;
                     }
                 } );
@@ -103,6 +104,11 @@
                 } );
             },
             _show = function( className ){
+                if(_btnShow.data('content') === 0) {
+                    _contents.html('<img src="'+ _btnShow.attr('href') +'" />');
+                } else if (_btnShow.data('content') === 1) {
+                    _contents.html('<video controls="" preload=""><source src="'+ _btnShow.attr('href') +'"></video>')
+                }
                 _setPopupContent( className );
 
                 _scrollConteiner.css( {

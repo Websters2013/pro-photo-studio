@@ -5,6 +5,7 @@ Template Name: Home
 get_header();
 
 $clients = get_field('clients_list', 50);
+$clients_list= '';
 if($clients) {
  foreach ($clients as $row) {
   if(!$row['show_in_home']) {
@@ -18,20 +19,10 @@ if($clients) {
 
 $categories = get_field('show_category', 2);
 
-/*$args = array(
-	'taxonomy'      => 'portfolio',
-	'hide_empty'    => false,
-    'hierarchical'  => false,
-    'orderby'       => 'term_order',
-    'parent'        => '0',
-
-);*/
-//$categories = get_terms($args);
-
 $categories_list = '<button class="media-gallery__check active" data-type="all">All</button>';
 if(!empty($categories)) {
     foreach ($categories as $row) {
-	    $categories_list .= '<button class="media-gallery__check" data-type="'.$row->slug.'">'.$row->name.'</button>';
+	    $categories_list .= '<button class="swiper-slide media-gallery__check" data-type="'.$row->slug.'">'.$row->name.'</button>';
     }
 }
 
@@ -65,8 +56,16 @@ if(!empty($categories)) {
         <h2 class="media-gallery__title"><?= get_field('title_portfolio', 2); ?></h2>
 
         <!-- media-gallery__switcher -->
-        <div class="media-gallery__switcher">
-	        <?= $categories_list; ?>
+        <div class="media-gallery__switcher swiper-container">
+
+            <!-- swiper-wrapper -->
+            <div class="swiper-wrapper">
+
+	            <?= $categories_list; ?>
+
+            </div>
+            <!-- /media-gallery__switcher -->
+
         </div>
         <!-- /media-gallery__switcher -->
 
