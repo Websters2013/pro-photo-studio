@@ -597,34 +597,36 @@
 
                 if ( _window.outerWidth() < 768  ){
 
-                    _activeSubMenu = true;
-                    _subMenu = new Swiper ( _subMenuSlider, {
-                        autoplay: false,
-                        speed: 500,
-                        effect: 'slide',
-                        slidesPerView: 'auto',
-                        simulateTouch: false,
-                        onInit: function() {
-                            _subMenuSlider[0].swiper.slideTo( _subMenuSlider.find( '.active' ).index() , 200, false );
-                        },
-                        onSlideChangeStart: function() {
-                            _obj.removeClass( 'start' );
-                            _obj.removeClass( 'end' );
-                        },
-                        onReachBeginning: function() {
-                            setTimeout( function () {
-                                _obj.addClass('start');
-                            }, 300 )
-                        },
-                        onReachEnd: function() {
-                            setTimeout( function () {
-                                _obj.addClass('end');
-                            }, 300 )
-                        }
-                    } );
+                    setTimeout( function () {
 
-                    _activeMediaGallery = true;
-                    _mediaGallery = new Swiper ( _mediaGallerySlider, {
+                        _activeSubMenu = true;
+                        _subMenu = new Swiper ( _subMenuSlider, {
+                            autoplay: false,
+                            speed: 500,
+                            effect: 'slide',
+                            slidesPerView: 'auto',
+                            simulateTouch: false,
+                            onInit: function() {
+                                _subMenuSlider[0].swiper.slideTo( _subMenuSlider.find( '.active' ).index() , 200, false );
+                            },
+                            onSlideChangeStart: function() {
+                                _obj.removeClass( 'start' );
+                                _obj.removeClass( 'end' );
+                            },
+                            onReachBeginning: function() {
+                                setTimeout( function () {
+                                    _obj.addClass('start');
+                                }, 300 )
+                            },
+                            onReachEnd: function() {
+                                setTimeout( function () {
+                                    _obj.addClass('end');
+                                }, 300 )
+                            }
+                        } );
+
+                        _activeMediaGallery = true;
+                        _mediaGallery = new Swiper ( _mediaGallerySlider, {
                         autoplay: false,
                         speed: 500,
                         effect: 'slide',
@@ -648,6 +650,8 @@
                             }, 300 )
                         }
                     } );
+
+                    }, 300 );
 
                 }
 
