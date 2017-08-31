@@ -103,13 +103,10 @@
 
                 var newItems = _wrapper.find( '.new' );
 
-                setTimeout( function(){
+                $(document).ready(function() {
                     _heightAnimation( hasItems, newItems );
-                }, 550 );
-
-                setTimeout( function(){
                     _initGallery();
-                }, 500 );
+                } );
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' )+1 );
 
@@ -215,9 +212,8 @@
                     type: "GET",
                     success: function ( msg ) {
 
-                        _cover.height( _cover.height() );
-
-                        _addGalleryContent( msg );
+                        _cover.height(_cover.height());
+                        _addGalleryContent(msg);
 
                     },
                     error: function ( XMLHttpRequest ) {
