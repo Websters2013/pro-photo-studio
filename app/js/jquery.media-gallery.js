@@ -104,10 +104,12 @@
                 var newItems = _wrapper.find( '.new' );
 
                 setTimeout( function(){
-                }, 650 );
+                    _heightAnimation( hasItems, newItems );
+                }, 550 );
 
                 setTimeout( function(){
-                }, 600 );
+                    _initGallery();
+                }, 500 );
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' )+1 );
 
