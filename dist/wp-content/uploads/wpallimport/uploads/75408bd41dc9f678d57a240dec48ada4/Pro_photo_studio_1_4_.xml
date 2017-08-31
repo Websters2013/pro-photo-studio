@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<node>
+		<title><![CDATA[title 1]]></title>
+		<titleoverlay><![CDATA[title overlay 1]]></titleoverlay>
+		<image><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_1.jpg]]></image>
+		<imageoverlay><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_3.jpg]]></imageoverlay>
+		<taxonomy><![CDATA[Jewlery>Rings]]></taxonomy>
+	</node>
+	<node>
+		<title><![CDATA[title 2]]></title>
+		<titleoverlay><![CDATA[title overlay 2]]></titleoverlay>
+		<image><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_1.jpg]]></image>
+		<imageoverlay><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_3.jpg]]></imageoverlay>
+		<taxonomy><![CDATA[Jewlery>Earings]]></taxonomy>
+	</node>
+	<node>
+		<title><![CDATA[title 3]]></title>
+		<titleoverlay><![CDATA[title overlay 3]]></titleoverlay>
+		<image><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_1.jpg]]></image>
+		<imageoverlay><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_3.jpg]]></imageoverlay>
+		<taxonomy><![CDATA[Test1]]></taxonomy>
+	</node>
+	<node>
+		<title><![CDATA[title 4]]></title>
+		<titleoverlay><![CDATA[title overlay 4]]></titleoverlay>
+		<image><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_1.jpg]]></image>
+		<imageoverlay><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_3.jpg]]></imageoverlay>
+		<taxonomy><![CDATA[Test2>Test3]]></taxonomy>
+	</node>
+	<node>
+		<title><![CDATA[title 5]]></title>
+		<titleoverlay><![CDATA[title overlay 5]]></titleoverlay>
+		<image><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_1.jpg]]></image>
+		<imageoverlay><![CDATA[http://pro-photo-studio.dev/wp-content/uploads/wpallimport/files/1_3.jpg]]></imageoverlay>
+		<taxonomy><![CDATA[Jewlery>Rings]]></taxonomy>
+	</node>
+</data>

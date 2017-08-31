@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<node>
+		<title><![CDATA[title 1]]></title>
+		<titleoverlay><![CDATA[title overlay 1]]></titleoverlay>
+		<image><![CDATA[1_1.jpg]]></image>
+		<imageoverlay><![CDATA[1_3.jpg]]></imageoverlay>
+		<taxonomy><![CDATA[Jewlery>Rings]]></taxonomy>
+	</node>
+</data>
