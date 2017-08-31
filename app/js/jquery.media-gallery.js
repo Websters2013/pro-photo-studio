@@ -105,11 +105,11 @@
 
                 setTimeout( function(){
                     _heightAnimation( hasItems, newItems );
-                }, 550 );
+                }, 750 );
 
                 setTimeout( function(){
                     _initGallery();
-                }, 500 );
+                }, 700 );
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' )+1 );
 
