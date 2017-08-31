@@ -215,9 +215,10 @@
                     type: "GET",
                     success: function ( msg ) {
 
-                        _cover.height( _cover.height() );
-
-                        _addGalleryContent( msg );
+                        $(document).ready(function() {
+                            _cover.height(_cover.height());
+                            _addGalleryContent(msg);
+                        } )
 
                     },
                     error: function ( XMLHttpRequest ) {
