@@ -54,8 +54,8 @@ function gallery_ajax() {
 	if(!empty($posts)) {
 		foreach ($posts as $row) {
 			$class = implode(' ', wp_get_post_terms($row, 'portfolio', array('fields' => 'id=>slug', )));
-			$image = get_field('image', $row)['url'];
-			$image_overlay = get_field('image_overlay', $row)['url'];
+			$image = get_field('image', $row)['sizes']['medium'];
+			$image_overlay = get_field('image', $row)['url'];
 			$video = get_field('project_show', $row);
 			if($video === '1') {
 				$image_overlay = get_field('video', $row, false, false);

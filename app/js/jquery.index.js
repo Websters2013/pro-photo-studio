@@ -646,7 +646,7 @@
                         },
                         onReachEnd: function() {
                             setTimeout( function () {
-                                __mediaGallerySliderobj.addClass('end');
+                                _mediaGallerySliderobj.addClass('end');
                             }, 300 )
                         }
                     } );
