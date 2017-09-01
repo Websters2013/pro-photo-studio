@@ -54,7 +54,7 @@ function gallery_ajax() {
 	if(!empty($posts)) {
 		foreach ($posts as $row) {
 			$class = implode(' ', wp_get_post_terms($row, 'portfolio', array('fields' => 'id=>slug', )));
-			$image = get_field('image', $row)['sizes']['medium'];
+			$image = get_field('image', $row)['url'];
 			$image_overlay = get_field('image', $row)['url'];
 			$video = get_field('project_show', $row);
 			if($video === '1') {
@@ -122,8 +122,8 @@ function getFile( $filename , $formData ) {
 function prepareEmail( $formData, $mime_boundary ) {
 
 	// email fields: to, from, subject, and so on
-	$to = "akumuliation@gmail.com";
-	$from = "wordpress@pro-photo-studio.websters.com.ua";
+	$to = "info@prophotostudio.net, billing@prophotostudio.net, careers@prophotostudio.net";
+	$from = "wordpress@beta.prophotostudio.net";
 	$subject = "New job-";
 	$message = "Uploaded File<br>";
 	$message .= "Firs Name :". urldecode ($formData['firs-name'])."<br>";
