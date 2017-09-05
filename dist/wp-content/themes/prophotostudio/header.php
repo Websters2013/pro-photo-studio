@@ -6,9 +6,9 @@ $logo = '<img src="'.$logo['url'].'" alt="'.$logo['alt'].'" title="'.$logo['titl
 $hero_image_other_page = get_field('background');
 if(is_page_template('page-services-single.php')) {
 
-	$term = get_term_by('slug', $_GET['category'], 'portfolio');
+	$term = get_term_by('slug', $_GET['category'], 'portfolio_cat');
 	
-	$hero_image_other_page = get_field('background', 'portfolio_'.$term->term_id);
+	$hero_image_other_page = get_field('background', 'portfolio_cat_'.$term->term_id);
 }
 $hero_image_other_page = '<img src="'.$hero_image_other_page['url'].'" alt="'.$hero_image_other_page['alt'].'" title="'.$hero_image_other_page['title'].'">';
 if(is_front_page()) {

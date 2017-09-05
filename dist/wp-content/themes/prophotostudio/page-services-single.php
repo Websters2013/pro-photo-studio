@@ -4,16 +4,16 @@ Template Name: Services single
 */
  get_header();
  $category = $_GET['category'];
- $category = get_term_by('slug', $category, 'portfolio');
+ $category = get_term_by('slug', $category, 'portfolio_cat');
 
-$sub_term = get_term_children($category->term_id, 'portfolio');
+$sub_term = get_term_children($category->term_id, 'portfolio_cat');
 if(!empty($sub_term)) {
 	$hidden = ' hidden';
 }
 $switcher = '<button class="media-gallery__check active" data-type="'.$category->slug.'">All</button>';
 if($sub_term) {
     foreach ($sub_term as $row) {
-	    $term = get_term_by( 'id', $row, 'portfolio' );
+	    $term = get_term_by( 'id', $row, 'portfolio_cat' );
 	    $switcher .= '<button class="media-gallery__check" data-type="'.$term->slug.'">'.$term->name.'</button>';
     }
 }

@@ -103,13 +103,15 @@
 
                 var newItems = _wrapper.find( '.new' );
 
-                setTimeout( function(){
-                    _heightAnimation( hasItems, newItems );
-                }, 750 );
+                _wrapper.imagesLoaded( function() {
 
-                setTimeout( function(){
                     _initGallery();
-                }, 700 );
+
+                    setTimeout( function(){
+                        _heightAnimation( hasItems, newItems );
+                    }, 50 );
+
+                });
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' )+1 );
 

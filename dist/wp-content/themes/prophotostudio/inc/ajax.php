@@ -23,7 +23,7 @@ function gallery_ajax() {
 			'fields'         => 'ids',
 			'tax_query' => array(
 				array(
-					'taxonomy' => 'portfolio',
+					'taxonomy' => 'portfolio_cat',
 					'field'    => 'slug',
 					'terms'    => $categories_arr,
 				)
@@ -39,7 +39,7 @@ function gallery_ajax() {
 			'fields'         => 'ids',
 			'tax_query' => array(
 				array(
-					'taxonomy' => 'portfolio',
+					'taxonomy' => 'portfolio_cat',
 					'field'    => 'slug',
 					'terms'    => $type,
 				)
@@ -53,7 +53,7 @@ function gallery_ajax() {
 	$portfolio_items = '';
 	if(!empty($posts)) {
 		foreach ($posts as $row) {
-			$class = implode(' ', wp_get_post_terms($row, 'portfolio', array('fields' => 'id=>slug', )));
+			$class = implode(' ', wp_get_post_terms($row, 'portfolio_cat', array('fields' => 'id=>slug', )));
 			$image = get_field('image', $row)['url'];
 			$image_overlay = get_field('image', $row)['url'];
 			$video = get_field('project_show', $row);
