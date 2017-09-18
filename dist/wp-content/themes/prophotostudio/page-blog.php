@@ -52,9 +52,13 @@ $navigation .= '</div>';
 $post_string= '';
 if(!empty($posts)) {
  foreach ($posts as $row) {
-  $user = get_userdata( get_post_field( 'post_author', $post_id ));
+  $user = get_userdata( get_post_field( 'post_author', $row ));
   $tags = wp_get_post_terms($row, 'post_tag', array("fields" => "names"));
-  $tags = implode(', ', $tags);
+  if(!empty($tags)) {
+	  $tags = ', '.implode(', ', $tags);
+  } else {
+	  $tags = '';
+  }
   $post_string .= '<!-- blog__item -->
   <div class="blog__item">
 
@@ -66,8 +70,8 @@ if(!empty($posts)) {
     <dl>
      <dt>Published:</dt>
      <dd><time datetime="'.get_the_date('Y-m-d').'">'.get_the_date('d, M, Y').'</time></dd>
-     <dt>Author:</dt>
-     <dd>'.$user->first_name.' '.$user->last_name.', '.$tags.'.</dd>
+     <dt>Author: </dt>
+     <dd>'.$user->first_name.' '.$user->last_name.$tags.'.</dd>
     </dl>
     '.get_field('excerpt', $row).'
     <div class="blog__btn-wrap"><a href="'.get_permalink($row).'" class="blog__more">'.get_field('buttons', 87).'</a></div>

@@ -5,7 +5,13 @@ if(!empty($socials)) {
 		if((array_search('2', $row['show']) === false) || empty($row['image'])) {
 			continue;
 		}
-		$socials_list .= '<!-- social__item --><a class="social__item" href="'.$row['url'].'" target="_blank">'.file_get_contents($row['image']).'</a><!-- /social__item -->';
+			$url = $row['image'];
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$data = curl_exec($ch);
+			curl_close($ch);
+			$socials_list .= '<!-- social__item --><a class="followers__icons-item" href="'.$row['url'].'" target="_blank">'.$data.'</a><!-- /social__item -->';
 	}
 }
 
@@ -21,7 +27,6 @@ if( $locations && isset($locations[ $menu_name ]) ){
 
 		$perm = get_the_permalink($menu_item->object_id);
 		$active = '';
-		//var_dump($menu_item);
 		if (is_page( $menu_item->object_id)) {
 			$active = ' active';
 		}

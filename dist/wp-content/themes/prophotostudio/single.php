@@ -3,7 +3,11 @@ get_header();
 
 $user = get_userdata($post->post_author);
   $tags = wp_get_post_terms($post->ID, 'post_tag', array("fields" => "names"));
-  $tags = implode(', ', $tags);
+  if(!empty($tags)) {
+	  $tags = ', '.implode( ', ', $tags );
+  } else {
+      $tags = '';
+  }
 ?>
 
 	<!-- site__content -->
@@ -23,11 +27,11 @@ $user = get_userdata($post->post_author);
 				<!-- article__info -->
 				<div class="article__info">
 					<dl><dt>Published:</dt> <dd><?= get_the_date('d, M, Y'); ?></dd></dl>
-					<dl><dt>Author:</dt> <dd><?= $user->first_name.' '.$user->last_name.', '.$tags; ?>.</dd></dl>
+					<dl><dt>Author:</dt> <dd><?= $user->first_name.' '.$user->last_name.$tags; ?>.</dd></dl>
 				</div>
 				<!-- /article__info -->
 
-				<?= get_post_field('post_content', $post_id); ?>
+				<?= the_content($post->ID); ?>
 
 			</article>
 			<!-- /article -->
