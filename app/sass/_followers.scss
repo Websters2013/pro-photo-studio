@@ -24,7 +24,7 @@
     align-items: center;
   }
 
-  &__icons-item{
+  a {
     margin: 0 10px;
 
     &_fb{
@@ -70,7 +70,7 @@
 @media (min-width: $desktop) {
   .followers{
 
-    &__icons-item{
+    a{
 
       svg {
         -webkit-transition: transform .3s ease;
