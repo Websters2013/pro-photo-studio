@@ -27,7 +27,8 @@
   a {
     margin: 0 10px;
 
-    &_fb{
+    &_fb,
+    &.a2a_button_facebook{
 
       svg{
         width: 23px;
@@ -36,8 +37,9 @@
 
     }
 
-    &_gg{
-
+    &_gg,
+    &.a2a_button_google_plus {
+      margin-bottom: 3px;
       svg{
         width: 19px;
         height: 19px;
