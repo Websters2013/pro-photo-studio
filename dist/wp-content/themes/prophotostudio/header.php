@@ -29,7 +29,7 @@ if(!empty($socials)) {
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			$data = curl_exec($ch);
 			curl_close($ch);
-			$socials_list .= '<!-- social__item --><a class="followers__icons-item" href="'.$row['url'].'" target="_blank">'.$data.'</a><!-- /social__item -->';
+			$socials_list .= '<!-- social__item --><a class="social__item" href="'.$row['url'].'" target="_blank">'.$data.'</a><!-- /social__item -->';
 	}
 }
 
