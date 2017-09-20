@@ -11,7 +11,7 @@ function gallery_ajax() {
 	}
 	if($type === 'all' || $type === '') {
 		$categories = get_field('show_category', 2);
-		$categories_arr = '';
+		$categories_arr = array();
 		foreach ($categories as $row) {
 			$categories_arr[] = $row->slug;
 		}
@@ -72,30 +72,20 @@ function gallery_ajax() {
 	} else {
 		$has_items = 0;
 	}
-	echo '{"has_items": '.$has_items.',"items":[
-                        '.$portfolio_items.'
-                    ]
-                }';
+	echo '{"has_items": '.$has_items.',"items":['.$portfolio_items.']}';
 	exit;
 }
 
 add_action('wp_ajax_order', 'order_ajax');
 add_action('wp_ajax_nopriv_order', 'order_ajax');
 function order_ajax() {
-
-	//var_dump( $_FILES);
-
-
 	$name_of_uploaded_file = $_FILES[0];
 	$formData = $_POST;
-
 	getFile( $name_of_uploaded_file, $formData );
-
 	exit;
 }
 
 function getFile( $filename , $formData ) {
-
 	$allowedExts = array("csv","pdf");
 	$temp = explode(".", $filename["name"]);
 	$extension = end($temp);
@@ -152,7 +142,6 @@ function prepareEmail( $formData, $mime_boundary ) {
 	$message .= "How did you hear about us?: ". urldecode ($formData['about-us']) ."<br>";
 	$message .= "Comments: ". urldecode ($formData['comments']) ."<br>";
 	$headers = "From: $from";
-
 
 	// headers for attachment
 	$headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
