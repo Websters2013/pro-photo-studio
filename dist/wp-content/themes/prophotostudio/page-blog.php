@@ -54,6 +54,11 @@ if(!empty($posts)) {
  foreach ($posts as $row) {
   $user = get_userdata( get_post_field( 'post_author', $row ));
   $tags = wp_get_post_terms($row, 'post_tag', array("fields" => "names"));
+  $name = $user->first_name;
+  $last_name= '';
+  if($user->last_name) {
+	  $last_name = ' '.$user->last_name;
+  }
   if(!empty($tags)) {
 	  $tags = ', '.implode(', ', $tags);
   } else {
@@ -71,7 +76,7 @@ if(!empty($posts)) {
      <dt>Published:</dt>
      <dd><time datetime="'.get_the_date('Y-m-d').'">'.get_the_date('d, M, Y').'</time></dd>
      <dt>Author: </dt>
-     <dd>'.$user->first_name.' '.$user->last_name.$tags.'.</dd>
+     <dd>'.$name.$last_name.$tags.'.</dd>
     </dl>
     '.get_field('excerpt', $row).'
     <div class="blog__btn-wrap"><a href="'.get_permalink($row).'" class="blog__more">'.get_field('buttons', 87).'</a></div>
